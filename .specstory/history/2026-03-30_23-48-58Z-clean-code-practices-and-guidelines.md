@@ -21471,8 +21471,12 @@ _**User**_
 
 _**Agent (default)**_
 
+I’ll generate `tasks.md` from your current `spec.md` + `plan.md`, organized by user story with small reviewable chunks per your constitution rule.
+
+_**Agent (default)**_
+
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/plan.md</summary>
 
 </details>
 </tool-use>
@@ -21485,7 +21489,7 @@ _**Agent (default)**_
 _**Agent (default)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
 
 </details>
 </tool-use>
@@ -21498,7 +21502,7 @@ _**Agent (default)**_
 _**Agent (default)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/templates/tasks-template.md</summary>
 
 </details>
 </tool-use>
@@ -21514,7 +21518,182 @@ _**Agent (default)**_
 
 <details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
 
-Status: **loading**
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Generated `/speckit.tasks` at:
+
+- `specs/001-kids-activities-platform/tasks.md`
+
+What it includes:
+- Phase-based execution (`Setup` → `Foundational` → `US1` → `US2` → `US3` → `Polish`)
+- Small, reviewable tasks with explicit file paths
+- Story-specific test tasks (contract + integration)
+- Dependencies, parallelization opportunities, and MVP-first strategy
+- Coverage of your clarified requirements (slug tenancy, role templates, multi-org guardians, duplicate warning confirmation, org-wide enrollment limit)
+
+If you want, I can start `/speckit.implement` from Phase 1 and check off tasks incrementally.
+
+---
+
+_**User**_
+
+/speckit.implement Phase 1
+
+---
+
+_**Agent (default)**_
+
+I’ll implement only Phase 1 tasks (`T001–T005`) and mark them complete in `tasks.md`, starting by checking current files so I only add what’s missing.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.env.local.example</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/app/globals.css</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/app/layout.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/app/page.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/activiqhq_icon_clipped.svg</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **5** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (5 files)
+
+| File |
+|------|
+| `public/window.svg` |
+| `public/vercel.svg` |
+| `public/next.svg` |
+| `public/globe.svg` |
+| `public/file.svg` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+I’m now applying Phase 1 edits: scripts/env/tokens/layout plus a reusable brand logo component and public icon asset, then I’ll check lint diagnostics and mark `T001–T005` as complete.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/package.json</summary>
 
 </details>
 
@@ -21524,3 +21703,568 @@ Status: **loading**
 <summary>Tool use: **edit_file_v2**</summary>
 
 </details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.env.local.example</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/globals.css</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/public/activiqhq_icon_clipped.svg</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/components/brand/brand-logo.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/layout.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/tsconfig.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/app/layout.tsx",
+    "/Users/ronessaacquesta/activiqhq/components/brand/brand-logo.tsx",
+    "/Users/ronessaacquesta/activiqhq/app/globals.css",
+    "/Users/ronessaacquesta/activiqhq/package.json",
+    "/Users/ronessaacquesta/activiqhq/.env.local.example"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/app/layout.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/components/brand/brand-logo.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/app/globals.css"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/package.json"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/.env.local.example"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: git status --short</summary>
+
+```bash
+git status --short
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Implemented `Phase 1` of `/speckit.implement` and marked tasks complete in `specs/001-kids-activities-platform/tasks.md`.
+
+### Completed (`T001–T005`)
+
+- **T001** `package.json`
+  - Added Supabase local workflow scripts:
+  - `db:start`, `db:stop`, `db:status`, `db:reset` (using `npx supabase ...`)
+
+- **T002** `.env.local.example`
+  - Added `NEXT_PUBLIC_APP_BASE_URL=http://localhost:3000`
+  - Added optional brand font override note
+
+- **T003** `app/globals.css`
+  - Added ActiviqHQ design tokens for:
+    - neutral surfaces/text
+    - primary and activity colors
+    - radius tokens (button/card/input)
+  - Set sans font stack to Plus Jakarta/Inter
+  - Removed dark-scheme override to match your light-first system
+
+- **T004** brand asset usage component
+  - Added `components/brand/brand-logo.tsx`
+  - Added `public/activiqhq_icon_clipped.svg` for runtime logo usage
+
+- **T005** `app/layout.tsx`
+  - Switched font to `Plus_Jakarta_Sans` (+ `Geist_Mono`)
+  - Updated metadata to ActiviqHQ values
+  - Added a simple branded header shell with `BrandLogo`
+
+### Task tracking updated
+
+In `specs/001-kids-activities-platform/tasks.md`, these are now checked:
+
+- `T001` ✅
+- `T002` ✅
+- `T003` ✅
+- `T004` ✅
+- `T005` ✅
+
+### Validation
+
+- Ran lint diagnostics on edited files: **no linter errors**.
+
+If you want, I can continue directly with `/speckit.implement Phase 2` next.
+
+---
+
+_**User**_
+
+what are the phase 2 tasks?
+
+---
+
+_**Agent (default)**_
+
+Phase 2 tasks in `specs/001-kids-activities-platform/tasks.md` are `T006` to `T015`:
+
+- `T006` Create/refresh core Supabase schema migration in `supabase/migrations/*_core_tables.sql`
+- `T007` Add role template + org policy tables in `supabase/migrations/*_rbac_policy.sql`
+- `T008` Add RLS policies and tenant isolation rules in `supabase/migrations/*_rls.sql`
+- `T009` `[P]` Implement Supabase server/client helpers in `lib/supabase/`
+- `T010` `[P]` Implement authenticated user guard in `lib/auth/require-user.ts`
+- `T011` Implement org-slug tenant resolver middleware in `middleware.ts`
+- `T012` Implement reusable org context loader in `lib/auth/org-context.ts`
+- `T013` Add shared validation schemas for org/member/child/enrollment payloads in `lib/validations/`
+- `T014` Add API route scaffolding for `/api/organizations` and `/api/o/[orgSlug]/*` in `app/api/`
+- `T015` Add base error response helpers in `lib/api/errors.ts`
+
+If you want, I can start Phase 2 and do them in small reviewable chunks (e.g., `T006–T008` first, then `T009–T012`, then `T013–T015`).
+
+---
+
+_**User**_
+
+/speckit.implement T006
+
+---
+
+_**Agent (default)**_
+
+I’ll implement only `T006`: refresh the core Supabase schema migration file, keep it isolated, and then mark just that task complete in `tasks.md`.
+
+_**Agent (default)**_
+
+Path does not exist: /Users/ronessaacquesta/activiqhq/supabase/migrations
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/data-model.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+File not found
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (1 file)
+
+| File |
+|------|
+| `supabase/.branches/_current_branch` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: ls "/Users/ronessaacquesta/activiqhq/supabase" && mkdir -p "/Users/ronessaacquesta/activiqhq/supabase/migrations"</summary>
+
+```bash
+ls "/Users/ronessaacquesta/activiqhq/supabase" && mkdir -p "/Users/ronessaacquesta/activiqhq/supabase/migrations"
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/987223.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/supabase** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331150000_core_tables.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/supabase/migrations** (1 file)
+
+| File |
+|------|
+| `20260331150000_core_tables.sql` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Implemented `/speckit.implement T006` only.
+
+### What I changed
+
+- Added core migration file:
+  - `supabase/migrations/20260331150000_core_tables.sql`
+
+### What’s in this migration (core only)
+
+- Core tables:
+  - `organizations`
+  - `profiles`
+  - `organization_memberships`
+  - `invites`
+  - `guardian_memberships`
+  - `child_profiles`
+  - `activities`
+  - `enrollments`
+- Core enums:
+  - `membership_role`, `membership_status`
+  - `invite_role`, `invite_status`
+  - `enrollment_status`
+- Shared `updated_at` trigger function and update triggers on mutable tables
+- Core indexes (including active enrollment uniqueness and duplicate-child probe index)
+
+### Task tracking
+
+- Marked `T006` as complete in:
+  - `specs/001-kids-activities-platform/tasks.md`
+
+No other tasks were modified.
+
+---
+
+_**User**_
+
+what is the best way to create a sub task or an additional task in speckit?
+
+---
+
+_**Agent (default)**_
+
+Best practice is to add it directly in `specs/001-kids-activities-platform/tasks.md` as a **small, reviewable unit** that fits an existing phase/story.
+
+### Recommended approach
+
+- Put the new task under the correct phase (`Setup`, `Foundational`, `US1`, etc.).
+- Use the same format: `- [ ] T### [P?] [Story] Description with exact file path(s)`.
+- Keep it atomic: one clear outcome, minimal surface area.
+- If it can run independently, mark `[P]`.
+- If it depends on another task, mention that in the description (e.g., “depends on T014”).
+- Update the dependency/checkpoint sections only if the execution order truly changes.
+
+### For a “sub-task”
+
+Speckit doesn’t require a nested format, so the clean pattern is:
+
+- Add a **new numbered task** right after its parent task (e.g., `T014`, then `T014a` is less ideal; prefer `T015`, `T016`, etc.).
+- In the description, tie it back to parent intent:
+  - `- [ ] T0XX [US1] Extract invite token validation helper in lib/auth/invite.ts (supports T020)`
+
+### Numbering strategy (important)
+
+- Keep IDs unique and sequential in that phase.
+- If you insert between existing IDs, either:
+  - renumber later tasks (cleanest), or
+  - append at the end of that phase and reference dependency (least disruptive in active work).
+
+### Quick template you can reuse
+
+```md
+- [ ] T0XX [P] [US2] Add duplicate-child warning copy in `messages/en.json`
+```
+
+If you want, I can suggest exactly where to insert a new task for your current `T006–T015` block and propose the next valid IDs.
+
+---
+
+_**User**_
+
+I will complete the task manually, this will be for tracking only
+
+---
+
+_**Agent (default)**_
+
+Perfect — for **tracking-only** tasks, keep them lightweight and explicit so they don’t imply extra implementation work.
+
+Use this pattern in `specs/001-kids-activities-platform/tasks.md`:
+
+```md
+- [ ] T0XX [Shared] Tracking: <short outcome statement> in `<path-or-scope>`
+```
+
+### Good tracking-only examples
+
+- `- [ ] T0XX [Shared] Tracking: Validate T006 migration manually in local Supabase (`supabase/migrations/20260331150000_core_tables.sql`)`
+- `- [ ] T0XX [US1] Tracking: Confirm role-template rules with product owner (US1 acceptance alignment)`
+- `- [ ] T0XX [Shared] Tracking: Record manual QA notes for org slug routing in specs/001-kids-activities-platform/plan.md`
+
+### Tips
+
+- Prefix with `Tracking:` so reviewers know it’s not code work.
+- Keep one verifiable output (note, screenshot, checklist entry, signoff).
+- Don’t mark `[P]` unless it is truly independent.
+- Check it off `[X]` only after you’ve captured the evidence/outcome.
+
+If you want, I can draft 3-5 tracking-only tasks for your current Phase 2 block wording.
