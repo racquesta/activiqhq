@@ -18167,6 +18167,3353 @@ _**Agent (default)**_
 
 <details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/memory/constitution.md</summary>
 
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/templates/plan-template.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/templates/tasks-template.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+I’ve applied the constitution and template edits; I’m doing a quick validation pass now (version/date/report consistency and no leftover placeholders).
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/memory/constitution.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/templates/plan-template.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/templates/tasks-template.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/memory/constitution.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Updated `/speckit.constitution` change is now applied.
+
+### What changed
+
+- Updated `.specify/memory/constitution.md` to add a new principle:
+  - **VI. Small, Reviewable Delivery Units**
+  - Requires tasks/changes to be broken into small, self-contained, easy-to-review chunks.
+- Updated the **Sync Impact Report** at the top of the constitution.
+- Updated `.specify/templates/plan-template.md` Constitution Check with a **Reviewable chunking** gate.
+- Updated `.specify/templates/tasks-template.md` to require tasks/commits as small reviewable units.
+
+### Version bump
+
+- **Old → New**: `1.0.0` → `1.1.0`
+- **Rationale**: This is a **MINOR** bump because a new enforceable principle was added (materially expanded obligations).
+- **Last Amended** set to `2026-03-31` (ratified date unchanged).
+
+### Manual follow-up flags
+
+- No required manual follow-up for this request.
+- Noted as informational in report: `.specify/templates/commands/*.md` is absent (already reflected in the file comment).
+
+### Suggested commit message
+
+`docs: amend constitution to v1.1.0 with small reviewable change units`
+
+---
+
+_**User**_
+
+/specify @2026-03-30_23-48-58Z-clean-code-practices-and-guidelines.md (475-485) 
+
+---
+
+_**Agent (default)**_
+
+I’ll treat this as a `/specify` request using that source text, generate a concise feature spec draft, and write it into the existing feature spec file so it’s ready for plan/tasks.
+
+_**Agent (default)**_
+
+File not found
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: ls</summary>
+
+```bash
+ls
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/292615.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: pwd && /bin/ls -1</summary>
+
+```bash
+pwd && /bin/ls -1
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/999164.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **10000** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (10000 files)
+
+| File |
+|------|
+| `.specstory/history/2026-03-30_23-48-58Z-clean-code-practices-and-guidelines.md` |
+| `.specstory/statistics.json` |
+| `.git/logs/refs/heads/restart-mvp` |
+| `.git/logs/HEAD` |
+| `.git/refs/heads/restart-mvp` |
+| `.git/COMMIT_EDITMSG` |
+| `.git/objects/33/ced7d76a06db7efaaa3f4767ea89dfb3f918a0` |
+| `.git/logs/refs/remotes/origin/restart-mvp` |
+| `.git/refs/remotes/origin/restart-mvp` |
+| `.git/config` |
+| `.specify/memory/constitution.md` |
+| `.specify/templates/tasks-template.md` |
+| `.specify/templates/plan-template.md` |
+| `.git/HEAD` |
+| `.git/ORIG_HEAD` |
+| `.git/FETCH_HEAD` |
+| `app/layout.tsx` |
+| `app/globals.css` |
+| `.git/logs/refs/remotes/origin/001-kids-activities-platform` |
+| `.git/refs/remotes/origin/001-kids-activities-platform` |
+| `.git/logs/refs/heads/001-kids-activities-platform` |
+| `.git/refs/heads/001-kids-activities-platform` |
+| `.git/objects/55/7bd50f4663669c0115fe08d2384d3e47fda0b5` |
+| `.git/objects/fb/f756fad64327090f23c844398175c9aba466ad` |
+| `.git/objects/03/141e2bc4c0228e9cab924117f106dd8742ef79` |
+| `.git/objects/51/98a2b404947de22287f1835ceffa57a8465269` |
+| `.git/objects/a1/aeed6b4f25e56645a2a861882d17d47fbb54ea` |
+| `package.json` |
+| `package-lock.json` |
+| `next.config.ts` |
+| `app/page.tsx` |
+| `.git/logs/refs/stash` |
+| `.git/refs/stash` |
+| `.git/objects/0d/de53969fe48f48f26279d6b4012845a511e09c` |
+| `.git/objects/84/1cca4d69f60c9cdf50c593881897dc93f18c5b` |
+| `.git/objects/05/407a8f4d3402d799ac95838e2595d29c32c404` |
+| `.git/objects/95/0fa7931767a13f078c6bc9e766bfe83eb69940` |
+| `supabase/.branches/_current_branch` |
+| `node_modules/.package-lock.json` |
+| `node_modules/web-streams-polyfill/dist/types/ts3.6/ponyfill.d.ts` |
+| `node_modules/web-streams-polyfill/dist/types/ponyfill.d.ts` |
+| `node_modules/web-streams-polyfill/dist/types/ts3.6/polyfill.d.ts` |
+| `node_modules/web-streams-polyfill/dist/types/polyfill.d.ts` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.mjs` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.es6.mjs` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.es2018.mjs` |
+| `node_modules/web-streams-polyfill/dist/polyfill.mjs` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es6.mjs` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es2018.mjs` |
+| `node_modules/web-streams-polyfill/README.md` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.mjs.map` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.js.map` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.es6.mjs.map` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.es6.js.map` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.es2018.mjs.map` |
+| `node_modules/tar/dist/esm/write-entry.d.ts` |
+| `node_modules/tar/dist/commonjs/write-entry.d.ts` |
+| `node_modules/tar/dist/esm/winchars.d.ts` |
+| `node_modules/tar/dist/commonjs/winchars.d.ts` |
+| `node_modules/tar/dist/esm/warn-method.d.ts` |
+| `node_modules/tar/dist/commonjs/warn-method.d.ts` |
+| `node_modules/tar/dist/esm/update.d.ts` |
+| `node_modules/tar/dist/commonjs/update.d.ts` |
+| `node_modules/tar/dist/esm/unpack.d.ts` |
+| `node_modules/tar/dist/commonjs/unpack.d.ts` |
+| `node_modules/tar/dist/esm/types.d.ts` |
+| `node_modules/tar/dist/commonjs/types.d.ts` |
+| `node_modules/tar/dist/esm/symlink-error.d.ts` |
+| `node_modules/tar/dist/commonjs/symlink-error.d.ts` |
+| `node_modules/tar/dist/esm/strip-trailing-slashes.d.ts` |
+| `node_modules/tar/dist/commonjs/strip-trailing-slashes.d.ts` |
+| `node_modules/tar/dist/esm/strip-absolute-path.d.ts` |
+| `node_modules/tar/dist/esm/replace.d.ts` |
+| `node_modules/tar/dist/commonjs/strip-absolute-path.d.ts` |
+| `node_modules/tar/dist/commonjs/replace.d.ts` |
+| `node_modules/tar/dist/esm/read-entry.d.ts` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.es2018.js.map` |
+| `node_modules/tar/dist/commonjs/read-entry.d.ts` |
+| `node_modules/tar/dist/esm/process-umask.d.ts` |
+| `node_modules/tar/dist/commonjs/process-umask.d.ts` |
+| `node_modules/tar/dist/esm/pax.d.ts` |
+| `node_modules/tar/dist/commonjs/pax.d.ts` |
+| `node_modules/tar/dist/esm/path-reservations.d.ts` |
+| `node_modules/tar/dist/commonjs/path-reservations.d.ts` |
+| `node_modules/tar/dist/esm/parse.d.ts` |
+| `node_modules/tar/dist/commonjs/parse.d.ts` |
+| `node_modules/tar/dist/esm/pack.d.ts` |
+| `node_modules/tar/dist/commonjs/pack.d.ts` |
+| `node_modules/tar/dist/esm/options.d.ts` |
+| `node_modules/tar/dist/commonjs/options.d.ts` |
+| `node_modules/tar/dist/esm/normalize-windows-path.d.ts` |
+| `node_modules/tar/dist/commonjs/normalize-windows-path.d.ts` |
+| `node_modules/tar/dist/esm/normalize-unicode.d.ts` |
+| `node_modules/tar/dist/commonjs/normalize-unicode.d.ts` |
+| `node_modules/tar/dist/esm/mode-fix.d.ts` |
+| `node_modules/tar/dist/commonjs/mode-fix.d.ts` |
+| `node_modules/tar/dist/esm/mkdir.d.ts` |
+| `node_modules/tar/dist/commonjs/mkdir.d.ts` |
+| `node_modules/web-streams-polyfill/dist/polyfill.mjs.map` |
+| `node_modules/tar/dist/esm/make-command.d.ts` |
+| `node_modules/tar/dist/commonjs/make-command.d.ts` |
+| `node_modules/tar/dist/esm/list.d.ts` |
+| `node_modules/tar/dist/commonjs/list.d.ts` |
+| `node_modules/tar/dist/esm/large-numbers.d.ts` |
+| `node_modules/tar/dist/commonjs/large-numbers.d.ts` |
+| `node_modules/tar/dist/esm/index.d.ts` |
+| `node_modules/tar/dist/commonjs/index.d.ts` |
+| `node_modules/tar/dist/esm/header.d.ts` |
+| `node_modules/tar/dist/commonjs/header.d.ts` |
+| `node_modules/tar/dist/esm/get-write-flag.d.ts` |
+| `node_modules/tar/dist/commonjs/get-write-flag.d.ts` |
+| `node_modules/tar/dist/esm/extract.d.ts` |
+| `node_modules/tar/dist/commonjs/extract.d.ts` |
+| `node_modules/tar/dist/esm/cwd-error.d.ts` |
+| `node_modules/tar/dist/commonjs/cwd-error.d.ts` |
+| `node_modules/tar/dist/esm/create.d.ts` |
+| `node_modules/tar/dist/commonjs/create.d.ts` |
+| `node_modules/tar/README.md` |
+| `node_modules/tar/LICENSE.md` |
+| `node_modules/tar/dist/esm/write-entry.js.map` |
+| `node_modules/web-streams-polyfill/dist/polyfill.min.js.map` |
+| `node_modules/tar/dist/commonjs/write-entry.js.map` |
+| `node_modules/tar/dist/esm/write-entry.d.ts.map` |
+| `node_modules/tar/dist/commonjs/write-entry.d.ts.map` |
+| `node_modules/tar/dist/esm/winchars.js.map` |
+| `node_modules/tar/dist/commonjs/winchars.js.map` |
+| `node_modules/tar/dist/esm/winchars.d.ts.map` |
+| `node_modules/tar/dist/commonjs/winchars.d.ts.map` |
+| `node_modules/tar/dist/esm/warn-method.js.map` |
+| `node_modules/tar/dist/commonjs/warn-method.js.map` |
+| `node_modules/tar/dist/esm/warn-method.d.ts.map` |
+| `node_modules/tar/dist/commonjs/warn-method.d.ts.map` |
+| `node_modules/tar/dist/esm/update.js.map` |
+| `node_modules/tar/dist/commonjs/update.js.map` |
+| `node_modules/tar/dist/esm/update.d.ts.map` |
+| `node_modules/tar/dist/commonjs/update.d.ts.map` |
+| `node_modules/tar/dist/esm/unpack.js.map` |
+| `node_modules/web-streams-polyfill/dist/polyfill.js.map` |
+| `node_modules/tar/dist/commonjs/unpack.js.map` |
+| `node_modules/tar/dist/esm/unpack.d.ts.map` |
+| `node_modules/tar/dist/commonjs/unpack.d.ts.map` |
+| `node_modules/tar/dist/esm/types.js.map` |
+| `node_modules/tar/dist/commonjs/types.js.map` |
+| `node_modules/tar/dist/esm/types.d.ts.map` |
+| `node_modules/tar/dist/commonjs/types.d.ts.map` |
+| `node_modules/tar/dist/esm/symlink-error.js.map` |
+| `node_modules/tar/dist/commonjs/symlink-error.js.map` |
+| `node_modules/tar/dist/esm/symlink-error.d.ts.map` |
+| `node_modules/tar/dist/commonjs/symlink-error.d.ts.map` |
+| `node_modules/tar/dist/esm/strip-trailing-slashes.js.map` |
+| `node_modules/tar/dist/commonjs/strip-trailing-slashes.js.map` |
+| `node_modules/tar/dist/esm/strip-trailing-slashes.d.ts.map` |
+| `node_modules/tar/dist/commonjs/strip-trailing-slashes.d.ts.map` |
+| `node_modules/tar/dist/esm/strip-absolute-path.js.map` |
+| `node_modules/tar/dist/commonjs/strip-absolute-path.js.map` |
+| `node_modules/tar/dist/esm/strip-absolute-path.d.ts.map` |
+| `node_modules/tar/dist/commonjs/strip-absolute-path.d.ts.map` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es6.mjs.map` |
+| `node_modules/tar/dist/esm/replace.js.map` |
+| `node_modules/tar/dist/commonjs/replace.js.map` |
+| `node_modules/tar/dist/esm/replace.d.ts.map` |
+| `node_modules/tar/dist/commonjs/replace.d.ts.map` |
+| `node_modules/tar/dist/esm/read-entry.js.map` |
+| `node_modules/tar/dist/commonjs/read-entry.js.map` |
+| `node_modules/tar/dist/esm/read-entry.d.ts.map` |
+| `node_modules/tar/dist/commonjs/read-entry.d.ts.map` |
+| `node_modules/tar/dist/esm/process-umask.js.map` |
+| `node_modules/tar/dist/commonjs/process-umask.js.map` |
+| `node_modules/tar/dist/esm/process-umask.d.ts.map` |
+| `node_modules/tar/dist/commonjs/process-umask.d.ts.map` |
+| `node_modules/tar/dist/esm/pax.js.map` |
+| `node_modules/tar/dist/commonjs/pax.js.map` |
+| `node_modules/tar/dist/esm/pax.d.ts.map` |
+| `node_modules/tar/dist/commonjs/pax.d.ts.map` |
+| `node_modules/tar/dist/esm/path-reservations.js.map` |
+| `node_modules/tar/dist/commonjs/path-reservations.js.map` |
+| `node_modules/tar/dist/esm/path-reservations.d.ts.map` |
+| `node_modules/tar/dist/commonjs/path-reservations.d.ts.map` |
+| `node_modules/tar/dist/esm/parse.js.map` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es6.min.js.map` |
+| `node_modules/tar/dist/commonjs/parse.js.map` |
+| `node_modules/tar/dist/esm/parse.d.ts.map` |
+| `node_modules/tar/dist/commonjs/parse.d.ts.map` |
+| `node_modules/tar/dist/esm/pack.js.map` |
+| `node_modules/tar/dist/commonjs/pack.js.map` |
+| `node_modules/tar/dist/esm/pack.d.ts.map` |
+| `node_modules/tar/dist/commonjs/pack.d.ts.map` |
+| `node_modules/tar/dist/esm/options.js.map` |
+| `node_modules/tar/dist/commonjs/options.js.map` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es6.js.map` |
+| `node_modules/tar/dist/esm/options.d.ts.map` |
+| `node_modules/tar/dist/commonjs/options.d.ts.map` |
+| `node_modules/tar/dist/esm/normalize-windows-path.js.map` |
+| `node_modules/tar/dist/commonjs/normalize-windows-path.js.map` |
+| `node_modules/tar/dist/esm/normalize-windows-path.d.ts.map` |
+| `node_modules/tar/dist/commonjs/normalize-windows-path.d.ts.map` |
+| `node_modules/tar/dist/esm/normalize-unicode.js.map` |
+| `node_modules/tar/dist/commonjs/normalize-unicode.js.map` |
+| `node_modules/tar/dist/esm/normalize-unicode.d.ts.map` |
+| `node_modules/tar/dist/commonjs/normalize-unicode.d.ts.map` |
+| `node_modules/tar/dist/esm/mode-fix.js.map` |
+| `node_modules/tar/dist/commonjs/mode-fix.js.map` |
+| `node_modules/tar/dist/esm/mode-fix.d.ts.map` |
+| `node_modules/tar/dist/commonjs/mode-fix.d.ts.map` |
+| `node_modules/tar/dist/esm/mkdir.js.map` |
+| `node_modules/tar/dist/commonjs/mkdir.js.map` |
+| `node_modules/tar/dist/esm/mkdir.d.ts.map` |
+| `node_modules/tar/dist/esm/make-command.js.map` |
+| `node_modules/tar/dist/commonjs/mkdir.d.ts.map` |
+| `node_modules/tar/dist/commonjs/make-command.js.map` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es2018.mjs.map` |
+| `node_modules/tar/dist/commonjs/make-command.d.ts.map` |
+| `node_modules/tar/dist/esm/make-command.d.ts.map` |
+| `node_modules/tar/dist/esm/list.js.map` |
+| `node_modules/tar/dist/commonjs/list.js.map` |
+| `node_modules/tar/dist/esm/list.d.ts.map` |
+| `node_modules/tar/dist/commonjs/list.d.ts.map` |
+| `node_modules/tar/dist/esm/large-numbers.js.map` |
+| `node_modules/tar/dist/commonjs/large-numbers.js.map` |
+| `node_modules/tar/dist/esm/large-numbers.d.ts.map` |
+| `node_modules/tar/dist/commonjs/large-numbers.d.ts.map` |
+| `node_modules/tar/dist/esm/index.min.js.map` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es2018.min.js.map` |
+| `node_modules/tar/dist/commonjs/index.min.js.map` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es2018.js.map` |
+| `node_modules/tar/dist/esm/index.js.map` |
+| `node_modules/tar/dist/commonjs/index.js.map` |
+| `node_modules/tar/dist/esm/index.d.ts.map` |
+| `node_modules/tar/dist/commonjs/index.d.ts.map` |
+| `node_modules/web-streams-polyfill/dist/types/tsdoc-metadata.json` |
+| `node_modules/tar/dist/esm/header.js.map` |
+| `node_modules/web-streams-polyfill/ponyfill/package.json` |
+| `node_modules/tar/dist/commonjs/header.js.map` |
+| `node_modules/web-streams-polyfill/ponyfill/es6/package.json` |
+| `node_modules/tar/dist/esm/header.d.ts.map` |
+| `node_modules/tar/dist/commonjs/header.d.ts.map` |
+| `node_modules/tar/dist/esm/get-write-flag.js.map` |
+| `node_modules/tar/dist/commonjs/get-write-flag.js.map` |
+| `node_modules/web-streams-polyfill/ponyfill/es2018/package.json` |
+| `node_modules/tar/dist/esm/get-write-flag.d.ts.map` |
+| `node_modules/tar/dist/commonjs/get-write-flag.d.ts.map` |
+| `node_modules/tar/dist/esm/extract.js.map` |
+| `node_modules/web-streams-polyfill/package.json` |
+| `node_modules/tar/dist/commonjs/extract.js.map` |
+| `node_modules/web-streams-polyfill/es6/package.json` |
+| `node_modules/tar/dist/esm/extract.d.ts.map` |
+| `node_modules/tar/dist/commonjs/extract.d.ts.map` |
+| `node_modules/web-streams-polyfill/es2018/package.json` |
+| `node_modules/tar/dist/esm/cwd-error.js.map` |
+| `node_modules/tar/dist/commonjs/cwd-error.js.map` |
+| `node_modules/tar/dist/esm/cwd-error.d.ts.map` |
+| `node_modules/tar/dist/commonjs/cwd-error.d.ts.map` |
+| `node_modules/tar/dist/esm/create.js.map` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.js` |
+| `node_modules/tar/dist/commonjs/create.js.map` |
+| `node_modules/tar/dist/esm/create.d.ts.map` |
+| `node_modules/tar/dist/commonjs/create.d.ts.map` |
+| `node_modules/tar/package.json` |
+| `node_modules/tar/dist/esm/package.json` |
+| `node_modules/tar/dist/commonjs/package.json` |
+| `node_modules/tar/dist/esm/write-entry.js` |
+| `node_modules/tar/dist/commonjs/write-entry.js` |
+| `node_modules/tar/dist/esm/winchars.js` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.es6.js` |
+| `node_modules/tar/dist/commonjs/winchars.js` |
+| `node_modules/tar/dist/esm/warn-method.js` |
+| `node_modules/tar/dist/commonjs/warn-method.js` |
+| `node_modules/tar/dist/esm/update.js` |
+| `node_modules/tar/dist/commonjs/update.js` |
+| `node_modules/tar/dist/esm/unpack.js` |
+| `node_modules/tar/dist/commonjs/unpack.js` |
+| `node_modules/web-streams-polyfill/dist/ponyfill.es2018.js` |
+| `node_modules/tar/dist/esm/types.js` |
+| `node_modules/tar/dist/commonjs/types.js` |
+| `node_modules/tar/dist/esm/symlink-error.js` |
+| `node_modules/tar/dist/commonjs/symlink-error.js` |
+| `node_modules/tar/dist/esm/strip-trailing-slashes.js` |
+| `node_modules/tar/dist/commonjs/strip-trailing-slashes.js` |
+| `node_modules/tar/dist/esm/strip-absolute-path.js` |
+| `node_modules/tar/dist/commonjs/strip-absolute-path.js` |
+| `node_modules/tar/dist/esm/replace.js` |
+| `node_modules/tar/dist/commonjs/replace.js` |
+| `node_modules/web-streams-polyfill/dist/polyfill.min.js` |
+| `node_modules/tar/dist/esm/read-entry.js` |
+| `node_modules/tar/dist/commonjs/read-entry.js` |
+| `node_modules/tar/dist/esm/process-umask.js` |
+| `node_modules/tar/dist/commonjs/process-umask.js` |
+| `node_modules/tar/dist/esm/pax.js` |
+| `node_modules/tar/dist/commonjs/pax.js` |
+| `node_modules/web-streams-polyfill/dist/polyfill.js` |
+| `node_modules/tar/dist/esm/path-reservations.js` |
+| `node_modules/tar/dist/commonjs/path-reservations.js` |
+| `node_modules/tar/dist/esm/parse.js` |
+| `node_modules/tar/dist/commonjs/parse.js` |
+| `node_modules/tar/dist/esm/pack.js` |
+| `node_modules/node-fetch/@types/index.d.ts` |
+| `node_modules/tar/dist/commonjs/pack.js` |
+| `node_modules/tar/dist/esm/options.js` |
+| `node_modules/minipass/dist/esm/index.d.ts` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es6.min.js` |
+| `node_modules/node-fetch/README.md` |
+| `node_modules/tar/dist/commonjs/options.js` |
+| `node_modules/minipass/dist/commonjs/index.d.ts` |
+| `node_modules/tar/dist/esm/normalize-windows-path.js` |
+| `node_modules/tar/dist/commonjs/normalize-windows-path.js` |
+| `node_modules/minipass/README.md` |
+| `node_modules/tar/dist/esm/normalize-unicode.js` |
+| `node_modules/tar/dist/commonjs/normalize-unicode.js` |
+| `node_modules/tar/dist/esm/mode-fix.js` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es6.js` |
+| `node_modules/minipass/LICENSE.md` |
+| `node_modules/tar/dist/commonjs/mode-fix.js` |
+| `node_modules/tar/dist/esm/mkdir.js` |
+| `node_modules/node-fetch/LICENSE.md` |
+| `node_modules/minipass/dist/esm/index.js.map` |
+| `node_modules/node-fetch/package.json` |
+| `node_modules/tar/dist/commonjs/mkdir.js` |
+| `node_modules/tar/dist/esm/make-command.js` |
+| `node_modules/node-fetch/src/response.js` |
+| `node_modules/tar/dist/commonjs/make-command.js` |
+| `node_modules/tar/dist/esm/list.js` |
+| `node_modules/minizlib/dist/esm/index.d.ts` |
+| `node_modules/node-fetch/src/request.js` |
+| `node_modules/node-domexception/README.md` |
+| `node_modules/tar/dist/commonjs/list.js` |
+| `node_modules/minizlib/dist/commonjs/index.d.ts` |
+| `node_modules/minizlib/dist/esm/constants.d.ts` |
+| `node_modules/minipass/dist/commonjs/index.js.map` |
+| `node_modules/node-fetch/src/utils/referrer.js` |
+| `node_modules/node-domexception/.history/README_20210527214408.md` |
+| `node_modules/tar/dist/esm/large-numbers.js` |
+| `node_modules/minizlib/dist/commonjs/constants.d.ts` |
+| `node_modules/node-domexception/.history/README_20210527214323.md` |
+| `node_modules/tar/dist/commonjs/large-numbers.js` |
+| `node_modules/signal-exit/LICENSE.txt` |
+| `node_modules/node-domexception/.history/README_20210527213803.md` |
+| `node_modules/tar/dist/esm/index.min.js` |
+| `node_modules/minizlib/README.md` |
+| `node_modules/signal-exit/dist/mjs/signals.d.ts` |
+| `node_modules/node-domexception/.history/README_20210527213411.md` |
+| `node_modules/signal-exit/dist/cjs/signals.d.ts` |
+| `node_modules/node-fetch/src/utils/multipart-parser.js` |
+| `node_modules/signal-exit/dist/mjs/index.d.ts` |
+| `node_modules/node-domexception/.history/README_20210527213345.md` |
+| `node_modules/minizlib/dist/esm/index.js.map` |
+| `node_modules/signal-exit/dist/cjs/index.d.ts` |
+| `node_modules/signal-exit/dist/mjs/browser.d.ts` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es2018.min.js` |
+| `node_modules/minipass/dist/esm/index.d.ts.map` |
+| `node_modules/node-domexception/.history/README_20210527212714.md` |
+| `node_modules/node-fetch/src/utils/is.js` |
+| `node_modules/signal-exit/dist/cjs/browser.d.ts` |
+| `node_modules/node-domexception/.history/README_20210527203617.md` |
+| `node_modules/minizlib/dist/commonjs/index.js.map` |
+| `node_modules/signal-exit/README.md` |
+| `node_modules/node-domexception/package.json` |
+| `node_modules/node-fetch/src/utils/is-redirect.js` |
+| `node_modules/tar/dist/commonjs/index.min.js` |
+| `node_modules/signal-exit/dist/mjs/signals.js.map` |
+| `node_modules/tar/node_modules/yallist/dist/esm/index.d.ts` |
+| `node_modules/node-domexception/.history/package_20210527205156.json` |
+| `node_modules/node-fetch/src/index.js` |
+| `node_modules/signal-exit/dist/cjs/signals.js.map` |
+| `node_modules/node-domexception/.history/package_20210527205145.json` |
+| `node_modules/signal-exit/dist/mjs/signals.d.ts.map` |
+| `node_modules/tar/node_modules/yallist/dist/commonjs/index.d.ts` |
+| `node_modules/node-domexception/.history/package_20210527204925.json` |
+| `node_modules/signal-exit/dist/cjs/signals.d.ts.map` |
+| `node_modules/bin-links/README.md` |
+| `node_modules/node-domexception/.history/package_20210527204913.json` |
+| `node_modules/@isaacs/fs-minipass/dist/esm/index.d.ts` |
+| `node_modules/node-fetch/src/headers.js` |
+| `node_modules/node-domexception/.history/package_20210527204621.json` |
+| `node_modules/@isaacs/fs-minipass/dist/commonjs/index.d.ts` |
+| `node_modules/minipass/dist/commonjs/index.d.ts.map` |
+| `node_modules/minizlib/dist/esm/index.d.ts.map` |
+| `node_modules/signal-exit/dist/mjs/index.js.map` |
+| `node_modules/bin-links/package.json` |
+| `node_modules/tar/node_modules/yallist/README.md` |
+| `node_modules/node-domexception/.history/package_20210527203825.json` |
+| `node_modules/minizlib/dist/commonjs/index.d.ts.map` |
+| `node_modules/node-domexception/.history/package_20210527203733.json` |
+| `node_modules/node-fetch/src/utils/get-search.js` |
+| `node_modules/@isaacs/fs-minipass/README.md` |
+| `node_modules/minizlib/dist/esm/constants.js.map` |
+| `node_modules/bin-links/lib/shim-bin.js` |
+| `node_modules/tar/node_modules/yallist/LICENSE.md` |
+| `node_modules/web-streams-polyfill/dist/polyfill.es2018.js` |
+| `node_modules/node-domexception/.history/test_20210527210021.js` |
+| `node_modules/agent-base/dist/index.d.ts` |
+| `node_modules/signal-exit/dist/cjs/index.js.map` |
+| `node_modules/node-domexception/.history/test_20210527205957.js` |
+| `node_modules/tar/node_modules/yallist/dist/esm/index.js.map` |
+| `node_modules/agent-base/dist/helpers.d.ts` |
+| `node_modules/tar/dist/esm/index.js` |
+| `node_modules/node-fetch/src/errors/fetch-error.js` |
+| `node_modules/minizlib/dist/commonjs/constants.js.map` |
+| `node_modules/bin-links/lib/man-target.js` |
+| `node_modules/tar/dist/commonjs/index.js` |
+| `node_modules/@isaacs/fs-minipass/dist/esm/index.js.map` |
+| `node_modules/bin-links/lib/link-mans.js` |
+| `node_modules/signal-exit/dist/mjs/index.d.ts.map` |
+| `node_modules/https-proxy-agent/dist/parse-proxy-response.d.ts` |
+| `node_modules/node-domexception/index.js` |
+| `node_modules/agent-base/README.md` |
+| `node_modules/minizlib/dist/esm/constants.d.ts.map` |
+| `node_modules/node-fetch/src/body.js` |
+| `node_modules/signal-exit/dist/cjs/index.d.ts.map` |
+| `node_modules/node-domexception/.history/index_20210527214700.js` |
+| `node_modules/https-proxy-agent/dist/index.d.ts` |
+| `node_modules/tar/node_modules/yallist/dist/commonjs/index.js.map` |
+| `node_modules/tar/dist/esm/header.js` |
+| `node_modules/minizlib/dist/commonjs/constants.d.ts.map` |
+| `node_modules/@isaacs/fs-minipass/dist/commonjs/index.js.map` |
+| `node_modules/node-domexception/.history/index_20210527214654.js` |
+| `node_modules/signal-exit/dist/mjs/browser.js.map` |
+| `node_modules/bin-links/lib/link-gently.js` |
+| `node_modules/https-proxy-agent/README.md` |
+| `node_modules/minizlib/package.json` |
+| `node_modules/signal-exit/dist/cjs/browser.js.map` |
+| `node_modules/node-domexception/.history/index_20210527214643.js` |
+| `node_modules/https-proxy-agent/dist/parse-proxy-response.js.map` |
+| `node_modules/agent-base/dist/index.js.map` |
+| `node_modules/minizlib/dist/esm/package.json` |
+| `node_modules/bin-links/lib/link-bins.js` |
+| `node_modules/node-domexception/.history/index_20210527214034.js` |
+| `node_modules/https-proxy-agent/dist/parse-proxy-response.d.ts.map` |
+| `node_modules/signal-exit/dist/mjs/browser.d.ts.map` |
+| `node_modules/minipass/package.json` |
+| `node_modules/tar/node_modules/yallist/dist/esm/index.d.ts.map` |
+| `node_modules/tar/dist/commonjs/header.js` |
+| `node_modules/minizlib/dist/commonjs/package.json` |
+| `node_modules/bin-links/lib/link-bin.js` |
+| `node_modules/node-domexception/.history/index_20210527213910.js` |
+| `node_modules/signal-exit/dist/cjs/browser.d.ts.map` |
+| `node_modules/https-proxy-agent/dist/index.js.map` |
+| `node_modules/minipass/dist/esm/package.json` |
+| `node_modules/tar/node_modules/yallist/dist/commonjs/index.d.ts.map` |
+| `node_modules/agent-base/dist/index.d.ts.map` |
+| `node_modules/bin-links/lib/is-windows.js` |
+| `node_modules/node-domexception/.history/index_20210527213852.js` |
+| `node_modules/chownr/dist/esm/index.d.ts` |
+| `node_modules/minipass/dist/commonjs/package.json` |
+| `node_modules/agent-base/dist/helpers.js.map` |
+| `node_modules/bin-links/lib/index.js` |
+| `node_modules/minizlib/dist/esm/index.js` |
+| `node_modules/tar/dist/esm/get-write-flag.js` |
+| `node_modules/@isaacs/fs-minipass/dist/esm/index.d.ts.map` |
+| `node_modules/node-fetch/src/errors/base.js` |
+| `node_modules/chownr/dist/commonjs/index.d.ts` |
+| `node_modules/node-domexception/.history/index_20210527213843.js` |
+| `node_modules/signal-exit/package.json` |
+| `node_modules/https-proxy-agent/dist/index.d.ts.map` |
+| `node_modules/agent-base/dist/helpers.d.ts.map` |
+| `node_modules/minipass/dist/esm/index.js` |
+| `node_modules/tar/node_modules/yallist/package.json` |
+| `node_modules/bin-links/lib/get-prefix.js` |
+| `node_modules/node-fetch/src/errors/abort-error.js` |
+| `node_modules/chownr/README.md` |
+| `node_modules/node-domexception/.history/index_20210527213822.js` |
+| `node_modules/data-uri-to-buffer/src/index.ts` |
+| `node_modules/tar/dist/commonjs/get-write-flag.js` |
+| `node_modules/@isaacs/fs-minipass/dist/commonjs/index.d.ts.map` |
+| `node_modules/chownr/LICENSE.md` |
+| `node_modules/node-domexception/.history/index_20210527213022.js` |
+| `node_modules/signal-exit/dist/mjs/package.json` |
+| `node_modules/https-proxy-agent/package.json` |
+| `node_modules/tar/node_modules/yallist/dist/esm/package.json` |
+| `node_modules/read-cmd-shim/README.md` |
+| `node_modules/agent-base/package.json` |
+| `node_modules/bin-links/lib/get-paths.js` |
+| `node_modules/minizlib/dist/commonjs/index.js` |
+| `node_modules/chownr/dist/esm/index.js.map` |
+| `node_modules/node-domexception/.history/index_20210527212900.js` |
+| `node_modules/signal-exit/dist/cjs/package.json` |
+| `node_modules/tar/node_modules/yallist/dist/commonjs/package.json` |
+| `node_modules/tar/dist/esm/extract.js` |
+| `node_modules/@isaacs/fs-minipass/package.json` |
+| `node_modules/chownr/dist/commonjs/index.js.map` |
+| `node_modules/node-domexception/.history/index_20210527212746.js` |
+| `node_modules/signal-exit/dist/mjs/signals.js` |
+| `node_modules/https-proxy-agent/dist/parse-proxy-response.js` |
+| `node_modules/read-cmd-shim/package.json` |
+| `node_modules/tar/node_modules/yallist/dist/esm/index.js` |
+| `node_modules/data-uri-to-buffer/dist/index.d.ts` |
+| `node_modules/bin-links/lib/get-node-modules.js` |
+| `node_modules/tar/dist/commonjs/extract.js` |
+| `node_modules/@isaacs/fs-minipass/dist/esm/package.json` |
+| `node_modules/chownr/dist/esm/index.d.ts.map` |
+| `node_modules/node-domexception/.history/index_20210527212731.js` |
+| `node_modules/read-cmd-shim/lib/index.js` |
+| `node_modules/agent-base/dist/index.js` |
+| `node_modules/bin-links/lib/fix-bin.js` |
+| `node_modules/data-uri-to-buffer/README.md` |
+| `node_modules/tar/dist/esm/cwd-error.js` |
+| `node_modules/supabase/README.md` |
+| `node_modules/@isaacs/fs-minipass/dist/commonjs/package.json` |
+| `node_modules/chownr/dist/commonjs/index.d.ts.map` |
+| `node_modules/node-domexception/.history/index_20210527212722.js` |
+| `node_modules/signal-exit/dist/cjs/signals.js` |
+| `node_modules/data-uri-to-buffer/dist/index.js.map` |
+| `node_modules/bin-links/lib/check-bins.js` |
+| `node_modules/tar/dist/commonjs/cwd-error.js` |
+| `node_modules/minizlib/dist/esm/constants.js` |
+| `node_modules/formdata-polyfill/esm.min.d.ts` |
+| `node_modules/chownr/package.json` |
+| `node_modules/@isaacs/fs-minipass/dist/esm/index.js` |
+| `node_modules/node-domexception/.history/index_20210527211248.js` |
+| `node_modules/fetch-blob/index.d.ts` |
+| `node_modules/https-proxy-agent/dist/index.js` |
+| `node_modules/read-cmd-shim/LICENSE` |
+| `node_modules/agent-base/dist/helpers.js` |
+| `node_modules/data-uri-to-buffer/package.json` |
+| `node_modules/tar/dist/esm/create.js` |
+| `node_modules/supabase/package.json` |
+| `node_modules/chownr/dist/esm/package.json` |
+| `node_modules/formdata-polyfill/README.md` |
+| `node_modules/node-domexception/.history/index_20210527211208.js` |
+| `node_modules/signal-exit/dist/mjs/index.js` |
+| `node_modules/fetch-blob/from.d.ts` |
+| `node_modules/bin-links/lib/check-bin.js` |
+| `node_modules/chownr/dist/commonjs/package.json` |
+| `node_modules/proc-log/README.md` |
+| `node_modules/formdata-polyfill/package.json` |
+| `node_modules/node-domexception/.history/index_20210527204833.js` |
+| `node_modules/fetch-blob/file.d.ts` |
+| `node_modules/signal-exit/dist/cjs/index.js` |
+| `node_modules/minipass/dist/commonjs/index.js` |
+| `node_modules/data-uri-to-buffer/dist/index.js` |
+| `node_modules/tar/node_modules/yallist/dist/commonjs/index.js` |
+| `node_modules/supabase/scripts/postinstall.js` |
+| `node_modules/cmd-shim/README.md` |
+| `node_modules/chownr/dist/esm/index.js` |
+| `node_modules/node-domexception/.history/index_20210527204756.js` |
+| `node_modules/fetch-blob/README.md` |
+| `node_modules/agent-base/LICENSE` |
+| `node_modules/bin-links/lib/bin-target.js` |
+| `node_modules/proc-log/package.json` |
+| `node_modules/cmd-shim/package.json` |
+| `node_modules/npm-normalize-package-bin/README.md` |
+| `node_modules/node-domexception/.history/index_20210527204418.js` |
+| `node_modules/formdata-polyfill/formdata.min.js` |
+| `node_modules/fetch-blob/package.json` |
+| `node_modules/https-proxy-agent/LICENSE` |
+| `node_modules/tar/dist/commonjs/create.js` |
+| `node_modules/minizlib/dist/commonjs/constants.js` |
+| `node_modules/proc-log/lib/index.js` |
+| `node_modules/cmd-shim/lib/to-batch-syntax.js` |
+| `node_modules/npm-normalize-package-bin/package.json` |
+| `node_modules/node-domexception/.history/index_20210527204259.js` |
+| `node_modules/signal-exit/dist/mjs/browser.js` |
+| `node_modules/bin-links/LICENSE` |
+| `node_modules/cmd-shim/lib/index.js` |
+| `node_modules/npm-normalize-package-bin/lib/index.js` |
+| `node_modules/node-domexception/.history/index_20210527203947.js` |
+| `node_modules/write-file-atomic/README.md` |
+| `node_modules/fetch-blob/index.js` |
+| `node_modules/supabase/LICENSE` |
+| `node_modules/proc-log/LICENSE` |
+| `node_modules/@isaacs/fs-minipass/dist/commonjs/index.js` |
+| `node_modules/formdata-polyfill/FormData.js` |
+| `node_modules/cmd-shim/LICENSE` |
+| `node_modules/npm-normalize-package-bin/LICENSE` |
+| `node_modules/write-file-atomic/LICENSE.md` |
+| `node_modules/chownr/dist/commonjs/index.js` |
+| `node_modules/fetch-blob/from.js` |
+| `node_modules/write-file-atomic/package.json` |
+| `node_modules/fetch-blob/file.js` |
+| `node_modules/signal-exit/dist/cjs/browser.js` |
+| `node_modules/formdata-polyfill/formdata-to-blob.js` |
+| `node_modules/minizlib/LICENSE` |
+| `node_modules/write-file-atomic/lib/index.js` |
+| `node_modules/web-streams-polyfill/LICENSE` |
+| `node_modules/node-domexception/LICENSE` |
+| `node_modules/fetch-blob/streams.cjs` |
+| `node_modules/formdata-polyfill/esm.min.js` |
+| `node_modules/@isaacs/fs-minipass/LICENSE` |
+| `node_modules/fetch-blob/LICENSE` |
+| `node_modules/formdata-polyfill/LICENSE` |
+| `.env.local.example` |
+| `.next/trace` |
+| `.next/trace-build` |
+| `.next/diagnostics/route-bundle-stats.json` |
+| `.next/export-marker.json` |
+| `.next/images-manifest.json` |
+| `.next/static/ZiV0gGFnCeMhXG8LSjffg/_ssgManifest.js` |
+| `.next/server/prefetch-hints.json` |
+| `.next/prerender-manifest.json` |
+| `.next/routes-manifest.json` |
+| `.next/server/pages-manifest.json` |
+| `.next/server/pages/500.html` |
+| `.next/server/pages/404.html` |
+| `.next/server/app/_not-found.segments/_not-found/__PAGE__.segment.rsc` |
+| `.next/server/app/index.html` |
+| `.next/server/app/index.meta` |
+| `.next/server/app/index.rsc` |
+| `.next/server/app/_not-found.meta` |
+| `.next/server/app/_not-found.rsc` |
+| `.next/server/app/_not-found.html` |
+| `.next/server/app/index.segments/_index.segment.rsc` |
+| `.next/server/app/index.segments/_head.segment.rsc` |
+| `.next/server/app/index.segments/__PAGE__.segment.rsc` |
+| `.next/server/app/index.segments/_full.segment.rsc` |
+| `.next/server/app/index.segments/_tree.segment.rsc` |
+| `.next/server/app/_not-found.segments/_head.segment.rsc` |
+| `.next/server/app/_not-found.segments/_not-found.segment.rsc` |
+| `.next/server/app/_not-found.segments/_full.segment.rsc` |
+| `.next/server/app/_not-found.segments/_index.segment.rsc` |
+| `.next/server/app/_not-found.segments/_tree.segment.rsc` |
+| `.next/server/app/_global-error.html` |
+| `.next/server/app/_global-error.meta` |
+| `.next/server/app/_global-error.rsc` |
+| `.next/server/app/_global-error.segments/_head.segment.rsc` |
+| `.next/server/app/_global-error.segments/_full.segment.rsc` |
+| `.next/server/app/_global-error.segments/_index.segment.rsc` |
+| `.next/server/app/_global-error.segments/__PAGE__.segment.rsc` |
+| `.next/server/app/_global-error.segments/_tree.segment.rsc` |
+| `.next/server/app/favicon.ico.meta` |
+| `.next/diagnostics/build-diagnostics.json` |
+| `.next/BUILD_ID` |
+| `.next/server/functions-config-manifest.json` |
+| `.next/app-path-routes-manifest.json` |
+| `.next/required-server-files.js` |
+| `.next/required-server-files.json` |
+| `.next/cache/.tsbuildinfo` |
+| `.next/server/next-font-manifest.js` |
+| `.next/server/next-font-manifest.json` |
+| `.next/server/interception-route-rewrite-manifest.js` |
+| `.next/fallback-build-manifest.json` |
+| `.next/server/middleware-build-manifest.js` |
+| `.next/build-manifest.json` |
+| `.next/static/ZiV0gGFnCeMhXG8LSjffg/_clientMiddlewareManifest.js` |
+| `.next/server/middleware-manifest.json` |
+| `.next/static/ZiV0gGFnCeMhXG8LSjffg/_buildManifest.js` |
+| `.next/server/app-paths-manifest.json` |
+| `.next/server/server-reference-manifest.js` |
+| `.next/server/server-reference-manifest.json` |
+| `.next/server/edge/chunks/[root-of-the-server]__0x4n.4m._.js.map` |
+| `.next/static/chunks/00ilazh50sdzh.js` |
+| `.next/server/middleware/middleware-manifest.json` |
+| `.next/server/app/_global-error/page.js.map` |
+| `.next/static/chunks/0ht900cau6_ur.js` |
+| `.next/server/app/favicon.ico/route/build-manifest.json` |
+| `.next/static/chunks/0dgq26a5_oy.a.js` |
+| `.next/server/app/favicon.ico/route.js.map` |
+| `.next/server/app/_not-found/page.js.map` |
+| `.next/server/app/page_client-reference-manifest.js` |
+| `.next/server/app/page/react-loadable-manifest.json` |
+| `.next/static/chunks/0d3shmwh5_nmn.js` |
+| `.next/server/app/favicon.ico/route/app-paths-manifest.json` |
+| `.next/static/chunks/0ka051yepewro.js` |
+| `.next/server/app/_not-found/page.js` |
+| `.next/server/app/page/app-paths-manifest.json` |
+| `.next/server/app/page.js` |
+| `.next/next-minimal-server.js.nft.json` |
+| `.next/static/chunks/03~yq9q893hmn.js` |
+| `.next/server/app/_not-found/page.js.nft.json` |
+| `.next/static/chunks/0257pdz1-imal.js` |
+| `.next/server/app/page/build-manifest.json` |
+| `.next/static/chunks/01xlw8hd842-c.js` |
+| `.next/server/app/page.js.map` |
+| `.next/server/app/page.js.nft.json` |
+| `.next/server/app/favicon.ico/route.js.nft.json` |
+| `.next/server/app/favicon.ico/route.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_0r7q78f._.js.map` |
+| `.next/server/app/page/next-font-manifest.json` |
+| `.next/server/app/_global-error/page_client-reference-manifest.js` |
+| `.next/server/app/_global-error/page.js` |
+| `.next/server/app/page/server-reference-manifest.json` |
+| `.next/static/chunks/08_chjm548z7_.js` |
+| `.next/static/chunks/turbopack-0nj_l9cbicepu.js` |
+| `.next/next-server.js.nft.json` |
+| `.next/server/chunks/[externals]_next_dist_0sqmaqd._.js.map` |
+| `.next/server/chunks/ssr/node_modules_next_dist_0f7nlua._.js.map` |
+| `.next/static/chunks/05.t.0fkokprs.css` |
+| `.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_002l7yi.js` |
+| `.next/server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_0r07cx_.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_client_components_0inhx6q._.js` |
+| `.next/server/app/_not-found/page_client-reference-manifest.js` |
+| `.next/server/chunks/ssr/[root-of-the-server]__0h2~sz5._.js` |
+| `.next/server/chunks/ssr/[root-of-the-server]__0dyd~ta._.js` |
+| `.next/server/app/_global-error/page.js.nft.json` |
+| `.next/server/chunks/ssr/messages_en_json_[json]_cjs_13ct_8v._.js.map` |
+| `.next/server/chunks/ssr/_next-internal_server_app__global-error_page_actions_0k77kol.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_0cjv-23.js.map` |
+| `.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_0ghu-f7.js` |
+| `.next/server/chunks/ssr/[turbopack]_runtime.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__02hi65f._.js` |
+| `.next/server/app/_not-found/page/react-loadable-manifest.json` |
+| `.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_0cjv-23.js` |
+| `.next/server/chunks/ssr/[root-of-the-server]__0159hjf._.js.map` |
+| `.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_0eq97pa.js.map` |
+| `.next/server/chunks/ssr/node_modules_09w7yel._.js.map` |
+| `.next/server/chunks/[externals]_next_dist_0sqmaqd._.js` |
+| `.next/server/chunks/ssr/messages_en_json_[json]_cjs_13ct_8v._.js` |
+| `.next/server/chunks/ssr/[root-of-the-server]__02hi65f._.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__0jwv6bp._.js.map` |
+| `.next/server/chunks/ssr/node_modules_0fnro4t._.js` |
+| `.next/server/app/_global-error/page/next-font-manifest.json` |
+| `.next/server/chunks/[turbopack]_runtime.js.map` |
+| `.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_0lgvd_..js` |
+| `.next/server/chunks/ssr/[root-of-the-server]__06-2p1a._.js` |
+| `.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_095lj93.js.map` |
+| `.next/server/chunks/[turbopack]_runtime.js` |
+| `.next/server/edge/chunks/node_modules_next_dist_esm_build_templates_edge-wrapper_0a9gg_0.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__00v35lz._.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__0159hjf._.js` |
+| `.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_095lj93.js` |
+| `.next/server/chunks/ssr/[turbopack]_runtime.js` |
+| `.next/server/chunks/ssr/node_modules_09w7yel._.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_0en5di~._.js.map` |
+| `.next/server/chunks/ssr/node_modules_next-intl_dist_esm_production_shared_NextIntlClientProvider_0zr380x.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_0f7nlua._.js` |
+| `.next/server/edge/chunks/[root-of-the-server]__0x4n.4m._.js` |
+| `.next/server/app/_not-found/page/build-manifest.json` |
+| `.next/server/app/_global-error/page/react-loadable-manifest.json` |
+| `.next/server/chunks/ssr/[root-of-the-server]__06s51u5._.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__00v35lz._.js` |
+| `.next/server/chunks/ssr/[root-of-the-server]__06-2p1a._.js.map` |
+| `.next/server/chunks/ssr/node_modules_next-intl_dist_esm_production_shared_NextIntlClientProvider_0zr380x.js.map` |
+| `.next/server/chunks/ssr/node_modules_next_dist_client_components_0inhx6q._.js.map` |
+| `.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_02suzhc.js` |
+| `.next/server/chunks/[root-of-the-server]__0pvd518._.js.map` |
+| `.next/server/chunks/ssr/node_modules_0fnro4t._.js.map` |
+| `.next/server/chunks/ssr/node_modules_0i2xw~e._.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_0r7q78f._.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_002l7yi.js.map` |
+| `.next/server/app/_global-error/page/build-manifest.json` |
+| `.next/server/app/_not-found/page/server-reference-manifest.json` |
+| `.next/server/app/_not-found/page/app-paths-manifest.json` |
+| `.next/server/chunks/ssr/_next-internal_server_app__global-error_page_actions_0k77kol.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__0h2~sz5._.js.map` |
+| `.next/server/edge/chunks/node_modules_next_dist_esm_build_templates_edge-wrapper_0a9gg_0.js` |
+| `.next/server/chunks/ssr/_next-internal_server_app_page_actions_09-gtaw.js` |
+| `.next/server/chunks/ssr/node_modules_0i2xw~e._.js.map` |
+| `.next/server/chunks/[root-of-the-server]__0pvd518._.js` |
+| `.next/server/app/_global-error/page/app-paths-manifest.json` |
+| `.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_0eq97pa.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_0ghu-f7.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__0dyd~ta._.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__06s51u5._.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_02suzhc.js.map` |
+| `.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_0nsg22r.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_0en5di~._.js` |
+| `.next/server/edge/chunks/node_modules_next_dist_esm_build_templates_edge-wrapper_0r07cx_.js.map` |
+| `.next/server/chunks/ssr/[root-of-the-server]__0jwv6bp._.js` |
+| `.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_0lgvd_..js.map` |
+| `.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_0nsg22r.js.map` |
+| `.next/server/app/_global-error/page/server-reference-manifest.json` |
+| `.next/server/chunks/ssr/_next-internal_server_app_page_actions_09-gtaw.js.map` |
+| `.next/server/app/_not-found/page/next-font-manifest.json` |
+| `.next/build/chunks/node_modules_13sb.px._.js` |
+| `.next/build/chunks/node_modules_13sb.px._.js.map` |
+| `.next/build/chunks/[root-of-the-server]__0ubbtyl._.js.map` |
+| `.next/build/chunks/[root-of-the-server]__0d-m0h0._.js.map` |
+| `.next/build/chunks/[turbopack]_runtime.js` |
+| `.next/build/chunks/[root-of-the-server]__0ubbtyl._.js` |
+| `.next/build/chunks/[root-of-the-server]__0d-m0h0._.js` |
+| `.next/build/postcss.js` |
+| `.next/build/chunks/[turbopack]_runtime.js.map` |
+| `.next/build/package.json` |
+| `.next/build/chunks/[turbopack-node]_transforms_postcss_ts_06e.r3r._.js` |
+| `.next/build/chunks/[turbopack-node]_transforms_postcss_ts_06e.r3r._.js.map` |
+| `.next/build/postcss.js.map` |
+| `.next/package.json` |
+| `.next/diagnostics/framework.json` |
+| `.next/types/validator.ts` |
+| `.next/types/routes.d.ts` |
+| `node_modules/server-only/package.json` |
+| `node_modules/server-only/index.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/index.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_write_only_error.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_wrap_reg_exp.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_wrap_native_super.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_wrap_async_generator.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_using_ctx.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_using.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_update.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_unsupported_iterable_to_array.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_type_of.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_ts_values.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_ts_rewrite_relative_import_extension.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_ts_param.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_ts_metadata.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_ts_generator.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_ts_dispose_resources.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_ts_decorate.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_ts_add_disposable_resource.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_to_property_key.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_to_primitive.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_to_consumable_array.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_to_array.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_throw.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_tagged_template_literal.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_tagged_template_literal_loose.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_super_prop_base.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_sliced_to_array.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_sliced_to_array_loose.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_skip_first_generator_next.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_set.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_set_prototype_of.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_read_only_error.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_possible_constructor_return.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_overload_yield.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_object_without_properties.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_object_without_properties_loose.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_object_spread.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_object_spread_props.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_object_destructuring_empty.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_non_iterable_spread.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_non_iterable_rest.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_new_arrow_check.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_jsx.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_iterable_to_array.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_iterable_to_array_limit.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_iterable_to_array_limit_loose.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_is_native_reflect_construct.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_is_native_function.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_interop_require_wildcard.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_interop_require_default.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_instanceof.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_initializer_warning_helper.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_initializer_define_property.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_inherits.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_inherits_loose.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_identity.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_get.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_get_prototype_of.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_extends.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_export_star.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_dispose.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_define_property.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_define_enumerable_properties.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_defaults.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_decorate.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_create_super.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_create_for_of_iterator_helper_loose.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_create_class.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_construct.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_static_private_method_get.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_static_private_field_update.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_static_private_field_spec_set.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_static_private_field_spec_get.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_static_private_field_destructure.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_method_set.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_method_init.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_method_get.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_field_update.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_field_set.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_field_loose_key.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_field_loose_base.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_field_get.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_field_init.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_name_tdz_error.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_private_field_destructure.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_extract_field_descriptor.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_check_private_static_field_descriptor.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_check_private_static_access.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_call_check.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_apply_descriptor_update.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_apply_descriptor_set.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_apply_descriptor_get.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_class_apply_descriptor_destructure.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_check_private_redeclaration.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_call_super.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_await_value.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_await_async_generator.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_async_to_generator.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_async_iterator.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_async_generator.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_async_generator_delegate.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_assert_this_initialized.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_array_without_holes.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_array_with_holes.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_array_like_to_array.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_apply_decs_2311.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_apply_decs_2203_r.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/src/_apply_decorated_descriptor.mjs` |
+| `node_modules/next-intl/node_modules/@swc/helpers/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/index/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_write_only_error/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_wrap_reg_exp/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_wrap_native_super/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_wrap_async_generator/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_using/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_using_ctx/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_update/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_unsupported_iterable_to_array/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_type_of/package.json` |
+| `node_modules/next-intl/dist/types/plugin/watchFile.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_ts_values/package.json` |
+| `node_modules/next-intl/dist/types/server/react-server/validateLocale.d.ts` |
+| `node_modules/next-intl/dist/types/shared/utils.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_ts_rewrite_relative_import_extension/package.json` |
+| `node_modules/next-intl/dist/types/plugin/utils.d.ts` |
+| `node_modules/next-intl/dist/types/navigation/shared/utils.d.ts` |
+| `node_modules/next-intl/dist/types/middleware/utils.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/utils.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_ts_param/package.json` |
+| `node_modules/next-intl/dist/types/react-server/useTranslations.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/useTimeZone.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/useNow.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/useMessages.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/useLocale.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_ts_metadata/package.json` |
+| `node_modules/next-intl/dist/types/react-server/useFormatter.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/useExtracted.d.ts` |
+| `node_modules/next-intl/dist/types/navigation/react-client/useBasePathname.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/useConfig.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_ts_generator/package.json` |
+| `node_modules/next-intl/dist/types/shared/use.d.ts` |
+| `node_modules/next-intl/dist/types/shared/types.d.ts` |
+| `node_modules/next-intl/dist/types/routing/types.d.ts` |
+| `node_modules/next-intl/dist/types/plugin/types.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_ts_dispose_resources/package.json` |
+| `node_modules/next-intl/dist/types/extractor/types.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/format/types.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/testUtils.d.ts` |
+| `node_modules/next-intl/dist/types/navigation/shared/syncLocaleCookie.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_ts_decorate/package.json` |
+| `node_modules/next-intl/dist/types/middleware/syncCookie.d.ts` |
+| `node_modules/next-intl/dist/types/navigation/shared/StrictParams.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/source/SourceFileWatcher.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/source/SourceFileScanner.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_ts_add_disposable_resource/package.json` |
+| `node_modules/next-intl/dist/types/extractor/source/SourceFileFilter.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_to_property_key/package.json` |
+| `node_modules/next-intl/dist/types/server.react-server.d.ts` |
+| `node_modules/next-intl/dist/types/server.react-client.d.ts` |
+| `node_modules/next-intl/server.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/catalog/SaveScheduler.d.ts` |
+| `node_modules/next-intl/routing.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_to_primitive/package.json` |
+| `node_modules/next-intl/dist/types/routing.d.ts` |
+| `node_modules/next-intl/dist/types/middleware/resolveLocale.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/RequestLocaleCache.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/RequestLocale.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/format/codecs/fixtures/POCodecSourceMessageKey.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_to_consumable_array/package.json` |
+| `node_modules/next-intl/dist/types/extractor/format/codecs/POCodec.d.ts` |
+| `node_modules/next-intl/plugin.d.ts` |
+| `node_modules/next-intl/dist/types/plugin.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/NextIntlClientProviderServer.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_to_array/package.json` |
+| `node_modules/next-intl/dist/types/shared/NextIntlClientProvider.d.ts` |
+| `node_modules/next-intl/dist/types/plugin/nextFlags.d.ts` |
+| `node_modules/next-intl/dist/types/navigation.react-server.d.ts` |
+| `node_modules/next-intl/dist/types/navigation.react-client.d.ts` |
+| `node_modules/next-intl/navigation.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_throw/package.json` |
+| `node_modules/next-intl/middleware.d.ts` |
+| `node_modules/next-intl/dist/types/middleware/middleware.d.ts` |
+| `node_modules/next-intl/dist/types/middleware.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/extractor/MessageExtractor.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_tagged_template_literal/package.json` |
+| `node_modules/next-intl/dist/types/extractor/extractor/MessageExtractor.bench.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/extractor/LRUCache.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/extractor/KeyGenerator.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_tagged_template_literal_loose/package.json` |
+| `node_modules/next-intl/dist/types/extractor/format/codecs/fixtures/JSONCodecStructured.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_super_prop_base/package.json` |
+| `node_modules/next-intl/dist/types/extractor/format/codecs/JSONCodec.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_sliced_to_array/package.json` |
+| `node_modules/next-intl/dist/types/plugin/extractor/initExtractionCompiler.d.ts` |
+| `node_modules/next-intl/dist/types/index.react-server.d.ts` |
+| `node_modules/next-intl/dist/types/index.react-client.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/index.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_sliced_to_array_loose/package.json` |
+| `node_modules/next-intl/dist/types/server/react-client/index.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_skip_first_generator_next/package.json` |
+| `node_modules/next-intl/dist/types/routing/index.d.ts` |
+| `node_modules/next-intl/dist/types/react-server/index.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_set/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_set_prototype_of/package.json` |
+| `node_modules/next-intl/dist/types/react-client/index.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_read_only_error/package.json` |
+| `node_modules/next-intl/dist/types/plugin/index.d.ts` |
+| `node_modules/next-intl/dist/types/plugin/declaration/index.d.ts` |
+| `node_modules/next-intl/dist/types/navigation/react-server/index.d.ts` |
+| `node_modules/next-intl/dist/types/navigation/react-client/index.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_possible_constructor_return/package.json` |
+| `node_modules/next-intl/dist/types/middleware/index.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/index.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/format/index.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getTranslations.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getTimeZone.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_overload_yield/package.json` |
+| `node_modules/next-intl/dist/types/server/react-server/getServerTranslator.d.ts` |
+| `node_modules/next-intl/dist/types/navigation/react-server/getServerLocale.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getServerFormatter.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getServerExtractor.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_object_without_properties/package.json` |
+| `node_modules/next-intl/dist/types/server/react-server/getRequestConfig.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getNow.d.ts` |
+| `node_modules/next-intl/dist/types/plugin/getNextConfig.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getMessages.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getLocale.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_object_without_properties_loose/package.json` |
+| `node_modules/next-intl/dist/types/server/react-server/getFormatter.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getFormats.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getExtracted.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getDefaultNow.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_object_spread/package.json` |
+| `node_modules/next-intl/dist/types/server/react-server/getConfigNow.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/getConfig.d.ts` |
+| `node_modules/next-intl/dist/types/middleware/getAlternateLinksHeaderValue.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_object_spread_props/package.json` |
+| `node_modules/next-intl/dist/types/extractor/format/ExtractorCodec.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_object_destructuring_empty/package.json` |
+| `node_modules/next-intl/extractor.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_non_iterable_spread/package.json` |
+| `node_modules/next-intl/dist/types/extractor.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/extractMessages.d.ts` |
+| `node_modules/next-intl/extractor/extractionLoader.d.ts` |
+| `node_modules/next-intl/dist/types/plugin/extractor/extractionLoader.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_non_iterable_rest/package.json` |
+| `node_modules/next-intl/dist/types/extractor/ExtractionCompiler.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_new_arrow_check/package.json` |
+| `node_modules/next-intl/dist/types/routing/defineRouting.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_jsx/package.json` |
+| `node_modules/next-intl/dist/types/navigation/shared/createSharedNavigationFns.d.ts` |
+| `node_modules/next-intl/dist/types/server/react-server/createRequestConfig.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_iterable_to_array/package.json` |
+| `node_modules/next-intl/dist/types/plugin/createNextIntlPlugin.d.ts` |
+| `node_modules/next-intl/dist/types/navigation/react-server/createNavigation.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_iterable_to_array_limit/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_iterable_to_array_limit_loose/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_is_native_reflect_construct/package.json` |
+| `node_modules/next-intl/dist/types/navigation/react-client/createNavigation.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_is_native_function/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_interop_require_wildcard/package.json` |
+| `node_modules/next-intl/dist/types/plugin/declaration/createMessagesDeclaration.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_interop_require_default/package.json` |
+| `node_modules/next-intl/dist/types/shared/constants.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_instanceof/package.json` |
+| `node_modules/next-intl/dist/types/routing/config.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_initializer_warning_helper/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_initializer_define_property/package.json` |
+| `node_modules/next-intl/dist/types/plugin/config.d.ts` |
+| `node_modules/@supabase/auth-js/dist/tsconfig.tsbuildinfo` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_inherits/package.json` |
+| `node_modules/next-intl/dist/types/config.d.ts` |
+| `node_modules/@supabase/auth-js/dist/tsconfig.module.tsbuildinfo` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_inherits_loose/package.json` |
+| `node_modules/next-intl/config.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/catalog/CatalogPersister.d.ts` |
+| `node_modules/next-intl/dist/types/extractor/catalog/CatalogManager.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_identity/package.json` |
+| `node_modules/next-intl/dist/types/extractor/catalog/CatalogLocales.d.ts` |
+| `node_modules/@supabase/auth-js/src/lib/webauthn.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_get/package.json` |
+| `node_modules/@supabase/auth-js/src/lib/webauthn.errors.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_get_prototype_of/package.json` |
+| `node_modules/next-intl/extractor/catalogLoader.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.errors.d.ts` |
+| `node_modules/next-intl/dist/types/plugin/catalog/catalogLoader.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.errors.d.ts` |
+| `node_modules/@supabase/auth-js/src/lib/webauthn.dom.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_extends/package.json` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.dom.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_export_star/package.json` |
+| `node_modules/next-intl/dist/types/navigation/shared/BaseLink.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.dom.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_dispose/package.json` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_define_property/package.json` |
+| `node_modules/next-intl/README.md` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_define_enumerable_properties/package.json` |
+| `node_modules/next-intl/package.json` |
+| `node_modules/next-intl/dist/esm/production/plugin/watchFile.js` |
+| `node_modules/@supabase/auth-js/src/lib/version.ts` |
+| `node_modules/next-intl/dist/esm/development/plugin/watchFile.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/version.d.ts` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/validateLocale.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_defaults/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/lib/version.d.ts` |
+| `node_modules/next-intl/dist/esm/production/shared/utils.js` |
+| `node_modules/next-intl/dist/esm/production/plugin/utils.js` |
+| `node_modules/@supabase/auth-js/src/lib/types.ts` |
+| `node_modules/next-intl/dist/esm/production/navigation/shared/utils.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_decorate/package.json` |
+| `node_modules/next-intl/dist/esm/production/middleware/utils.js` |
+| `node_modules/next-intl/dist/esm/production/extractor/utils.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_create_super/package.json` |
+| `node_modules/next-intl/dist/esm/development/shared/utils.js` |
+| `node_modules/next-intl/dist/esm/development/plugin/utils.js` |
+| `node_modules/next-intl/dist/esm/development/navigation/shared/utils.js` |
+| `node_modules/next-intl/dist/esm/development/middleware/utils.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/types.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_create_for_of_iterator_helper_loose/package.json` |
+| `node_modules/next-intl/dist/esm/development/extractor/utils.js` |
+| `node_modules/next-intl/dist/esm/production/react-server/useTranslations.js` |
+| `node_modules/next-intl/dist/esm/development/react-server/useTranslations.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/types.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_create_class/package.json` |
+| `node_modules/next-intl/dist/esm/production/react-server/useTimeZone.js` |
+| `node_modules/next-intl/dist/esm/development/react-server/useTimeZone.js` |
+| `node_modules/next-intl/dist/esm/production/react-server/useNow.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_construct/package.json` |
+| `node_modules/next-intl/dist/esm/development/react-server/useNow.js` |
+| `node_modules/next-intl/dist/esm/production/react-server/useMessages.js` |
+| `node_modules/next-intl/dist/esm/development/react-server/useMessages.js` |
+| `node_modules/@supabase/auth-js/src/lib/web3/solana.ts` |
+| `node_modules/next-intl/dist/esm/production/react-server/useLocale.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/web3/solana.d.ts` |
+| `node_modules/next-intl/dist/esm/development/react-server/useLocale.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_static_private_method_get/package.json` |
+| `node_modules/next-intl/dist/esm/production/react-server/useFormatter.js` |
+| `node_modules/next-intl/dist/esm/development/react-server/useFormatter.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/web3/solana.d.ts` |
+| `node_modules/next-intl/dist/esm/production/react-server/useExtracted.js` |
+| `node_modules/@supabase/auth-js/src/lib/polyfills.ts` |
+| `node_modules/next-intl/dist/esm/development/react-server/useExtracted.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/polyfills.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_static_private_field_update/package.json` |
+| `node_modules/next-intl/dist/esm/production/react-server/useConfig.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/polyfills.d.ts` |
+| `node_modules/next-intl/dist/esm/development/react-server/useConfig.js` |
+| `node_modules/next-intl/dist/esm/production/navigation/react-client/useBasePathname.js` |
+| `node_modules/@supabase/auth-js/src/lib/locks.ts` |
+| `node_modules/next-intl/dist/esm/development/navigation/react-client/useBasePathname.js` |
+| `node_modules/next-intl/dist/esm/production/shared/use.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_static_private_field_spec_set/package.json` |
+| `node_modules/next-intl/dist/esm/development/shared/use.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/locks.d.ts` |
+| `node_modules/next-intl/dist/esm/production/navigation/shared/syncLocaleCookie.js` |
+| `node_modules/next-intl/dist/esm/development/navigation/shared/syncLocaleCookie.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/locks.d.ts` |
+| `node_modules/next-intl/dist/esm/development/middleware/syncCookie.js` |
+| `node_modules/next-intl/dist/esm/production/middleware/syncCookie.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_static_private_field_spec_get/package.json` |
+| `node_modules/@supabase/auth-js/src/lib/local-storage.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/local-storage.d.ts` |
+| `node_modules/next-intl/dist/esm/production/extractor/source/SourceFileWatcher.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/local-storage.d.ts` |
+| `node_modules/next-intl/dist/esm/development/extractor/source/SourceFileWatcher.js` |
+| `node_modules/@supabase/auth-js/src/index.ts` |
+| `node_modules/next-intl/dist/esm/production/extractor/source/SourceFileScanner.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_static_private_field_destructure/package.json` |
+| `node_modules/@supabase/auth-js/dist/module/index.d.ts` |
+| `node_modules/next-intl/dist/esm/development/extractor/source/SourceFileScanner.js` |
+| `node_modules/@supabase/auth-js/dist/main/index.d.ts` |
+| `node_modules/next-intl/dist/esm/production/extractor/source/SourceFileFilter.js` |
+| `node_modules/@supabase/auth-js/src/lib/helpers.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_method_set/package.json` |
+| `node_modules/@supabase/auth-js/dist/module/lib/helpers.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/helpers.d.ts` |
+| `node_modules/next-intl/dist/esm/development/extractor/source/SourceFileFilter.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_method_init/package.json` |
+| `node_modules/@supabase/auth-js/src/GoTrueClient.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_method_get/package.json` |
+| `node_modules/next-intl/dist/esm/production/server.react-server.js` |
+| `node_modules/next-intl/dist/esm/development/server.react-server.js` |
+| `node_modules/next-intl/dist/esm/production/server.react-client.js` |
+| `node_modules/next-intl/dist/esm/development/server.react-client.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_field_update/package.json` |
+| `node_modules/next-intl/dist/esm/production/extractor/catalog/SaveScheduler.js` |
+| `node_modules/next-intl/dist/esm/development/extractor/catalog/SaveScheduler.js` |
+| `node_modules/next-intl/dist/esm/production/routing.js` |
+| `node_modules/next-intl/dist/esm/development/routing.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_field_set/package.json` |
+| `node_modules/next-intl/dist/esm/production/middleware/resolveLocale.js` |
+| `node_modules/next-intl/dist/esm/development/middleware/resolveLocale.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/RequestLocaleCache.js` |
+| `node_modules/@supabase/auth-js/dist/module/GoTrueClient.d.ts` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/RequestLocaleCache.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_field_loose_key/package.json` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/RequestLocale.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/RequestLocale.js` |
+| `node_modules/next-intl/dist/esm/production/extractor/format/codecs/POCodec.js` |
+| `node_modules/next-intl/dist/esm/development/extractor/format/codecs/POCodec.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_field_loose_base/package.json` |
+| `node_modules/next-intl/dist/esm/production/plugin.js` |
+| `node_modules/next-intl/dist/esm/development/plugin.js` |
+| `node_modules/next-intl/dist/esm/production/react-server/NextIntlClientProviderServer.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_field_init/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/GoTrueClient.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_field_get/package.json` |
+| `node_modules/next-intl/dist/esm/development/react-server/NextIntlClientProviderServer.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_private_field_destructure/package.json` |
+| `node_modules/next-intl/dist/esm/production/shared/NextIntlClientProvider.js` |
+| `node_modules/@supabase/auth-js/src/GoTrueAdminApi.ts` |
+| `node_modules/next-intl/dist/esm/development/shared/NextIntlClientProvider.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_name_tdz_error/package.json` |
+| `node_modules/next-intl/dist/esm/production/plugin/nextFlags.js` |
+| `node_modules/next-intl/dist/esm/development/plugin/nextFlags.js` |
+| `node_modules/next-intl/dist/esm/production/navigation.react-server.js` |
+| `node_modules/next-intl/dist/esm/development/navigation.react-server.js` |
+| `node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.d.ts` |
+| `node_modules/next-intl/dist/esm/production/navigation.react-client.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_extract_field_descriptor/package.json` |
+| `node_modules/next-intl/dist/esm/development/navigation.react-client.js` |
+| `node_modules/next-intl/dist/esm/production/middleware/middleware.js` |
+| `node_modules/@supabase/auth-js/dist/main/GoTrueAdminApi.d.ts` |
+| `node_modules/next-intl/dist/esm/production/middleware.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_check_private_static_field_descriptor/package.json` |
+| `node_modules/next-intl/dist/esm/development/middleware/middleware.js` |
+| `node_modules/next-intl/dist/esm/development/middleware.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_check_private_static_access/package.json` |
+| `node_modules/@supabase/auth-js/src/lib/fetch.ts` |
+| `node_modules/next-intl/dist/esm/production/extractor/extractor/MessageExtractor.js` |
+| `node_modules/next-intl/dist/esm/development/extractor/extractor/MessageExtractor.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/fetch.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/fetch.d.ts` |
+| `node_modules/@supabase/auth-js/src/lib/web3/ethereum.ts` |
+| `node_modules/next-intl/dist/esm/production/extractor/extractor/LRUCache.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_call_check/package.json` |
+| `node_modules/@supabase/auth-js/dist/module/lib/web3/ethereum.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_apply_descriptor_update/package.json` |
+| `node_modules/next-intl/dist/esm/development/extractor/extractor/LRUCache.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/web3/ethereum.d.ts` |
+| `node_modules/@supabase/auth-js/src/lib/errors.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_apply_descriptor_set/package.json` |
+| `node_modules/@supabase/auth-js/dist/module/lib/errors.d.ts` |
+| `node_modules/next-intl/dist/esm/production/extractor/format/codecs/JSONCodec.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/errors.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_apply_descriptor_get/package.json` |
+| `node_modules/@supabase/auth-js/src/lib/error-codes.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/error-codes.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/error-codes.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_class_apply_descriptor_destructure/package.json` |
+| `node_modules/next-intl/dist/esm/development/extractor/format/codecs/JSONCodec.js` |
+| `node_modules/@supabase/auth-js/src/lib/constants.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/constants.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/constants.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_check_private_redeclaration/package.json` |
+| `node_modules/@supabase/auth-js/src/lib/base64url.ts` |
+| `node_modules/next-intl/dist/esm/production/plugin/extractor/initExtractionCompiler.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/base64url.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_call_super/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/lib/base64url.d.ts` |
+| `node_modules/@supabase/auth-js/src/AuthClient.ts` |
+| `node_modules/@supabase/auth-js/dist/module/AuthClient.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_await_value/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/AuthClient.d.ts` |
+| `node_modules/next-intl/dist/esm/development/plugin/extractor/initExtractionCompiler.js` |
+| `node_modules/@supabase/auth-js/src/AuthAdminApi.ts` |
+| `node_modules/@supabase/auth-js/dist/module/AuthAdminApi.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_await_async_generator/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/AuthAdminApi.d.ts` |
+| `node_modules/next-intl/dist/esm/production/index.react-server.js` |
+| `node_modules/@supabase/auth-js/README.md` |
+| `node_modules/next-intl/dist/esm/development/index.react-server.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_async_to_generator/package.json` |
+| `node_modules/next-intl/dist/esm/production/index.react-client.js` |
+| `node_modules/next-intl/dist/esm/development/index.react-client.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.js.map` |
+| `node_modules/next-intl/dist/esm/production/server/react-client/index.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_async_iterator/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.js.map` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.errors.js.map` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.errors.js.map` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.errors.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_async_generator/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.errors.d.ts.map` |
+| `node_modules/next-intl/dist/esm/production/react-client/index.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.dom.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_async_generator_delegate/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.dom.js.map` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.dom.d.ts.map` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.dom.d.ts.map` |
+| `node_modules/next-intl/dist/esm/production/extractor/format/index.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-client/index.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_assert_this_initialized/package.json` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.d.ts.map` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_array_without_holes/package.json` |
+| `node_modules/@supabase/auth-js/dist/module/lib/version.js.map` |
+| `node_modules/@supabase/auth-js/dist/main/lib/version.js.map` |
+| `node_modules/@supabase/auth-js/dist/module/lib/version.d.ts.map` |
+| `node_modules/@supabase/auth-js/dist/main/lib/version.d.ts.map` |
+| `node_modules/next-intl/dist/esm/development/react-client/index.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/types.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_array_with_holes/package.json` |
+| `node_modules/@supabase/auth-js/dist/main/lib/types.js.map` |
+| `node_modules/@supabase/auth-js/dist/module/lib/types.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_array_like_to_array/package.json` |
+| `node_modules/next-intl/dist/esm/development/extractor/format/index.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getTranslations.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getTranslations.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getTimeZone.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/types.d.ts.map` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getTimeZone.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_apply_decs_2311/package.json` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getServerTranslator.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getServerTranslator.js` |
+| `node_modules/next-intl/dist/esm/production/navigation/react-server/getServerLocale.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/web3/solana.js.map` |
+| `node_modules/next-intl/dist/esm/development/navigation/react-server/getServerLocale.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/web3/solana.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_apply_decs_2203_r/package.json` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getServerFormatter.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/web3/solana.d.ts.map` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getServerFormatter.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/web3/solana.d.ts.map` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getServerExtractor.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/polyfills.js.map` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getServerExtractor.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/polyfills.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/_/_apply_decorated_descriptor/package.json` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getRequestConfig.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/polyfills.d.ts.map` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getRequestConfig.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/polyfills.d.ts.map` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getNow.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/locks.js.map` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getNow.js` |
+| `node_modules/next-intl/dist/esm/production/plugin/getNextConfig.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/scripts/utils.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/locks.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/index.js` |
+| `node_modules/next-intl/dist/esm/development/plugin/getNextConfig.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/scripts/errors.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/locks.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/scripts/build.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/locks.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/scripts/ast_grep.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/local-storage.js.map` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getMessages.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/local-storage.js.map` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getMessages.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_write_only_error.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/local-storage.d.ts.map` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getLocale.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/local-storage.d.ts.map` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getLocale.js` |
+| `node_modules/@supabase/auth-js/dist/module/index.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_wrap_reg_exp.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getFormatter.js` |
+| `node_modules/@supabase/auth-js/dist/main/index.js.map` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getFormatter.js` |
+| `node_modules/@supabase/auth-js/dist/module/index.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_wrap_native_super.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getFormats.js` |
+| `node_modules/@supabase/auth-js/dist/main/index.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_wrap_async_generator.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getFormats.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/helpers.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_using.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getExtracted.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/helpers.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_using_ctx.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getExtracted.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/helpers.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_update.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getDefaultNow.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_unsupported_iterable_to_array.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getDefaultNow.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/helpers.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_type_of.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getConfigNow.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_ts_values.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getConfigNow.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_ts_rewrite_relative_import_extension.js` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/getConfig.js` |
+| `node_modules/@supabase/auth-js/dist/module/GoTrueClient.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_ts_param.js` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/getConfig.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_ts_metadata.js` |
+| `node_modules/next-intl/dist/esm/production/middleware/getAlternateLinksHeaderValue.js` |
+| `node_modules/@supabase/realtime-js/dist/tsconfig.tsbuildinfo` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_ts_generator.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_ts_dispose_resources.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_ts_decorate.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_ts_add_disposable_resource.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_to_property_key.js` |
+| `node_modules/@supabase/realtime-js/dist/tsconfig.module.tsbuildinfo` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_to_primitive.js` |
+| `node_modules/next-intl/dist/esm/development/middleware/getAlternateLinksHeaderValue.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_to_consumable_array.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_to_array.js` |
+| `node_modules/@supabase/auth-js/dist/main/GoTrueClient.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_throw.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_tagged_template_literal.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_tagged_template_literal_loose.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_super_prop_base.js` |
+| `node_modules/next-intl/dist/esm/production/extractor/format/ExtractorCodec.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_sliced_to_array.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_sliced_to_array_loose.js` |
+| `node_modules/@supabase/realtime-js/src/lib/websocket-factory.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_skip_first_generator_next.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_set.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_set_prototype_of.js` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_read_only_error.js` |
+| `node_modules/@supabase/auth-js/dist/module/GoTrueClient.d.ts.map` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/websocket-factory.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_possible_constructor_return.js` |
+| `node_modules/@supabase/realtime-js/src/lib/version.ts` |
+| `node_modules/next-intl/dist/esm/development/extractor/format/ExtractorCodec.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_overload_yield.js` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/version.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/GoTrueClient.d.ts.map` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/version.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_object_without_properties.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_object_without_properties_loose.js` |
+| `node_modules/@supabase/realtime-js/src/phoenix/types.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_object_spread.js` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/types.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_object_spread_props.js` |
+| `node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/types.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_object_destructuring_empty.js` |
+| `node_modules/next-intl/dist/esm/production/extractor.js` |
+| `node_modules/@supabase/auth-js/dist/main/GoTrueAdminApi.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_non_iterable_spread.js` |
+| `node_modules/next-intl/dist/esm/development/extractor.js` |
+| `node_modules/@supabase/realtime-js/src/lib/transformers.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_non_iterable_rest.js` |
+| `node_modules/next-intl/dist/esm/production/extractor/extractMessages.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_new_arrow_check.js` |
+| `node_modules/next-intl/dist/esm/development/extractor/extractMessages.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_jsx.js` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/transformers.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.d.ts.map` |
+| `node_modules/next-intl/dist/esm/production/extractor/extractionLoader.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_iterable_to_array.js` |
+| `node_modules/@supabase/auth-js/dist/main/GoTrueAdminApi.d.ts.map` |
+| `node_modules/next-intl/dist/esm/development/extractor/extractionLoader.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_iterable_to_array_limit.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/transformers.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/fetch.js.map` |
+| `node_modules/next-intl/dist/esm/production/extractor/ExtractionCompiler.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_iterable_to_array_limit_loose.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/fetch.js.map` |
+| `node_modules/next-intl/dist/esm/development/extractor/ExtractionCompiler.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_is_native_reflect_construct.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/fetch.d.ts.map` |
+| `node_modules/@supabase/realtime-js/src/phoenix/socketAdapter.ts` |
+| `node_modules/next-intl/dist/esm/production/routing/defineRouting.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_is_native_function.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/fetch.d.ts.map` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/socketAdapter.d.ts` |
+| `node_modules/next-intl/dist/esm/development/routing/defineRouting.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_interop_require_wildcard.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/web3/ethereum.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/socketAdapter.d.ts` |
+| `node_modules/next-intl/dist/esm/production/navigation/shared/createSharedNavigationFns.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_interop_require_default.js` |
+| `node_modules/next-intl/dist/esm/development/navigation/shared/createSharedNavigationFns.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_instanceof.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/web3/ethereum.js.map` |
+| `node_modules/@supabase/realtime-js/src/lib/serializer.ts` |
+| `node_modules/next-intl/dist/esm/production/server/react-server/createRequestConfig.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_initializer_warning_helper.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_initializer_define_property.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/web3/ethereum.d.ts.map` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/serializer.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_inherits.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/web3/ethereum.d.ts.map` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/serializer.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_inherits_loose.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/errors.js.map` |
+| `node_modules/@supabase/realtime-js/src/RealtimePresence.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_identity.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/errors.js.map` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimePresence.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_get.js` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimePresence.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_get_prototype_of.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/errors.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_extends.js` |
+| `node_modules/@supabase/realtime-js/src/RealtimeClient.ts` |
+| `node_modules/next-intl/dist/esm/development/server/react-server/createRequestConfig.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_export_star.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/errors.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_dispose.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/error-codes.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_define_property.js` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimeClient.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/error-codes.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_define_enumerable_properties.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/error-codes.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_defaults.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/error-codes.d.ts.map` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimeClient.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_decorate.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/constants.js.map` |
+| `node_modules/@supabase/auth-js/dist/main/lib/constants.js.map` |
+| `node_modules/@supabase/realtime-js/src/RealtimeChannel.ts` |
+| `node_modules/next-intl/dist/esm/production/plugin/createNextIntlPlugin.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/constants.d.ts.map` |
+| `node_modules/next-intl/dist/esm/development/plugin/createNextIntlPlugin.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_create_super.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/constants.d.ts.map` |
+| `node_modules/next-intl/dist/esm/production/navigation/react-server/createNavigation.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_create_for_of_iterator_helper_loose.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/base64url.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_create_class.js` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_construct.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_static_private_method_get.js` |
+| `node_modules/@supabase/auth-js/dist/main/lib/base64url.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_static_private_field_update.js` |
+| `node_modules/@supabase/auth-js/dist/module/lib/base64url.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_static_private_field_spec_set.js` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimeChannel.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/base64url.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_static_private_field_spec_get.js` |
+| `node_modules/@supabase/auth-js/dist/module/AuthClient.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_static_private_field_destructure.js` |
+| `node_modules/@supabase/realtime-js/src/phoenix/presenceAdapter.ts` |
+| `node_modules/@supabase/auth-js/dist/main/AuthClient.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_method_set.js` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/presenceAdapter.d.ts` |
+| `node_modules/next-intl/dist/esm/production/navigation/react-client/createNavigation.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_method_init.js` |
+| `node_modules/@supabase/auth-js/dist/module/AuthClient.d.ts.map` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/presenceAdapter.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/AuthClient.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_method_get.js` |
+| `node_modules/@supabase/realtime-js/src/index.ts` |
+| `node_modules/@supabase/auth-js/dist/module/AuthAdminApi.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_field_update.js` |
+| `node_modules/@supabase/auth-js/dist/main/AuthAdminApi.js.map` |
+| `node_modules/@supabase/ssr/src/version.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_field_set.js` |
+| `node_modules/@supabase/auth-js/dist/module/AuthAdminApi.d.ts.map` |
+| `node_modules/@supabase/ssr/dist/module/version.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_field_loose_key.js` |
+| `node_modules/@supabase/realtime-js/dist/module/index.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/AuthAdminApi.d.ts.map` |
+| `node_modules/@supabase/ssr/dist/main/version.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_field_loose_base.js` |
+| `node_modules/@supabase/realtime-js/dist/main/index.d.ts` |
+| `node_modules/@supabase/ssr/src/types.ts` |
+| `node_modules/@supabase/auth-js/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_field_init.js` |
+| `node_modules/@supabase/realtime-js/src/lib/constants.ts` |
+| `node_modules/@supabase/ssr/dist/module/types.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_field_get.js` |
+| `node_modules/@supabase/ssr/dist/main/types.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_private_field_destructure.js` |
+| `node_modules/next-intl/dist/esm/development/navigation/react-server/createNavigation.js` |
+| `node_modules/@supabase/ssr/src/utils/index.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_name_tdz_error.js` |
+| `node_modules/@supabase/ssr/src/index.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_extract_field_descriptor.js` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/constants.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/index.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_check_private_static_field_descriptor.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/constants.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/index.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_check_private_static_access.js` |
+| `node_modules/@supabase/realtime-js/src/phoenix/channelAdapter.ts` |
+| `node_modules/@supabase/ssr/dist/main/utils/index.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_call_check.js` |
+| `node_modules/@supabase/ssr/dist/main/index.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_apply_descriptor_update.js` |
+| `node_modules/@supabase/ssr/src/utils/helpers.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_apply_descriptor_set.js` |
+| `node_modules/@supabase/ssr/dist/module/utils/helpers.spec.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/channelAdapter.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_apply_descriptor_get.js` |
+| `node_modules/next-intl/dist/esm/development/navigation/react-client/createNavigation.js` |
+| `node_modules/@supabase/ssr/dist/main/utils/helpers.spec.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/channelAdapter.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_class_apply_descriptor_destructure.js` |
+| `node_modules/@supabase/storage-js/src/lib/version.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/helpers.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.errors.js` |
+| `node_modules/@supabase/realtime-js/README.md` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_check_private_redeclaration.js` |
+| `node_modules/@supabase/ssr/dist/main/utils/helpers.d.ts` |
+| `node_modules/@supabase/storage-js/src/packages/VectorIndexApi.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_call_super.js` |
+| `node_modules/@formatjs/ecma402-abstract/utils.d.ts` |
+| `node_modules/@supabase/storage-js/src/packages/VectorDataApi.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_await_value.js` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/ToRawPrecision.d.ts` |
+| `node_modules/@supabase/ssr/src/createServerClient.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_await_async_generator.js` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/ToRawFixed.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.errors.js` |
+| `node_modules/@supabase/storage-js/src/packages/VectorBucketApi.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_async_to_generator.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/websocket-factory.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/ToIntlMathematicalValue.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/createServerClient.spec.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/SupportedLocales.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_async_iterator.js` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.d.ts.map` |
+| `node_modules/@supabase/ssr/dist/main/createServerClient.spec.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/webauthn.dom.js` |
+| `node_modules/next-intl/dist/esm/production/plugin/declaration/createMessagesDeclaration.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_async_generator.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/websocket-factory.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/SetNumberFormatUnitOptions.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/createServerClient.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/webauthn.dom.js` |
+| `node_modules/@supabase/storage-js/src/lib/types.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_async_generator_delegate.js` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/version.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/SetNumberFormatDigitOptions.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/version.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_assert_this_initialized.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/version.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/types/relative-time.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/version.js` |
+| `node_modules/@supabase/ssr/dist/main/createServerClient.d.ts` |
+| `node_modules/@supabase/storage-js/src/packages/StreamDownloadBuilder.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_array_without_holes.js` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/version.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/regex.generated.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/types.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_array_with_holes.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/version.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/types/plural-rules.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/types.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_array_like_to_array.js` |
+| `node_modules/@supabase/storage-js/src/packages/StorageVectorsClient.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/types.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/PartitionPattern.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/web3/solana.js` |
+| `node_modules/@supabase/ssr/src/createBrowserClient.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/types.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/PartitionNumberRangePattern.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/web3/solana.js` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/types.d.ts.map` |
+| `node_modules/next-intl/dist/esm/development/plugin/declaration/createMessagesDeclaration.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_apply_decs_2311.js` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/PartitionNumberPattern.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/polyfills.js` |
+| `node_modules/@supabase/storage-js/src/packages/StorageFileApi.ts` |
+| `node_modules/@supabase/ssr/dist/module/createBrowserClient.spec.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/types.d.ts.map` |
+| `node_modules/@supabase/auth-js/dist/main/lib/polyfills.js` |
+| `node_modules/@supabase/ssr/dist/main/createBrowserClient.spec.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/transformers.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/types/number.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/createBrowserClient.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/locks.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_apply_decs_2203_r.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/transformers.js.map` |
+| `node_modules/@supabase/ssr/dist/main/createBrowserClient.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/transformers.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/types/list.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/esm/_apply_decorated_descriptor.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/transformers.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/IsWellFormedUnitIdentifier.d.ts` |
+| `node_modules/@supabase/storage-js/src/StorageClient.ts` |
+| `node_modules/@supabase/ssr/src/cookies.ts` |
+| `node_modules/@formatjs/ecma402-abstract/IsWellFormedCurrencyCode.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/socketAdapter.js.map` |
+| `node_modules/next-intl/dist/esm/production/shared/constants.js` |
+| `node_modules/@supabase/storage-js/src/packages/StorageBucketApi.ts` |
+| `node_modules/@formatjs/ecma402-abstract/IsValidTimeZoneName.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/locks.js` |
+| `node_modules/@supabase/postgrest-js/src/version.ts` |
+| `node_modules/@formatjs/ecma402-abstract/IsSanctionedSimpleUnitIdentifier.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/index.cjs` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/socketAdapter.js.map` |
+| `node_modules/@supabase/storage-js/src/packages/StorageAnalyticsClient.ts` |
+| `node_modules/@supabase/postgrest-js/src/select-query-parser/utils.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/InitializeNumberFormat.d.ts` |
+| `node_modules/@supabase/auth-js/dist/module/lib/local-storage.js` |
+| `node_modules/@supabase/ssr/dist/module/cookies.spec.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/index.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/socketAdapter.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_write_only_error.cjs` |
+| `node_modules/@supabase/auth-js/dist/main/lib/local-storage.js` |
+| `node_modules/@supabase/ssr/dist/main/cookies.spec.d.ts` |
+| `node_modules/@supabase/storage-js/src/index.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/GetUnsignedRoundingMode.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_wrap_reg_exp.cjs` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/socketAdapter.d.ts.map` |
+| `node_modules/@supabase/auth-js/dist/module/index.js` |
+| `node_modules/@supabase/ssr/dist/module/cookies.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/GetStringOrBooleanOption.d.ts` |
+| `node_modules/@supabase/postgrest-js/src/types/types.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/serializer.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_wrap_native_super.cjs` |
+| `node_modules/@supabase/auth-js/dist/main/index.js` |
+| `node_modules/next-intl/dist/esm/development/shared/constants.js` |
+| `node_modules/@formatjs/ecma402-abstract/GetOptionsObject.d.ts` |
+| `node_modules/@supabase/postgrest-js/src/select-query-parser/types.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_wrap_async_generator.cjs` |
+| `node_modules/use-intl/dist/types/core/validateMessages.d.ts` |
+| `node_modules/@supabase/postgrest-js/src/types/common/rpc.ts` |
+| `node_modules/@formatjs/ecma402-abstract/GetOption.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/cookies.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_using.cjs` |
+| `node_modules/use-intl/dist/types/react/useTranslationsImpl.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/serializer.js.map` |
+| `node_modules/@supabase/auth-js/dist/module/lib/helpers.js` |
+| `node_modules/@supabase/storage-js/src/lib/common/helpers.ts` |
+| `node_modules/@formatjs/ecma402-abstract/GetNumberOption.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_using_ctx.cjs` |
+| `node_modules/use-intl/dist/types/react/useTranslations.d.ts` |
+| `node_modules/@supabase/ssr/src/utils/constants.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/FormatNumericToString.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_update.cjs` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/serializer.d.ts.map` |
+| `node_modules/@supabase/postgrest-js/src/select-query-parser/result.ts` |
+| `node_modules/use-intl/dist/types/react/useTimeZone.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/constants.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/FormatNumericToParts.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_unsupported_iterable_to_array.cjs` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/serializer.d.ts.map` |
+| `node_modules/use-intl/dist/types/react/useNow.d.ts` |
+| `node_modules/@supabase/auth-js/dist/main/lib/helpers.js` |
+| `node_modules/@supabase/ssr/dist/main/utils/constants.d.ts` |
+| `node_modules/@supabase/storage-js/src/lib/common/fetch.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/FormatNumericRangeToParts.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_type_of.cjs` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimePresence.js.map` |
+| `node_modules/@supabase/postgrest-js/src/PostgrestTransformBuilder.ts` |
+| `node_modules/use-intl/dist/types/react/useMessages.d.ts` |
+| `node_modules/next-intl/dist/esm/production/routing/config.js` |
+| `node_modules/@supabase/ssr/src/utils/chunker.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/FormatNumericRange.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_ts_values.cjs` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimePresence.js.map` |
+| `node_modules/use-intl/dist/types/react/useLocale.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/chunker.spec.d.ts` |
+| `node_modules/@supabase/storage-js/src/lib/common/errors.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/FormatNumeric.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_ts_rewrite_relative_import_extension.cjs` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimePresence.d.ts.map` |
+| `node_modules/use-intl/dist/types/react/useIntlContext.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/utils/chunker.spec.d.ts` |
+| `node_modules/@supabase/storage-js/src/lib/constants.ts` |
+| `node_modules/@supabase/auth-js/dist/module/GoTrueClient.js` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/FormatApproximately.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_ts_param.cjs` |
+| `node_modules/use-intl/dist/types/react/useFormatter.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/chunker.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/format_to_parts.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_ts_metadata.cjs` |
+| `node_modules/use-intl/dist/types/react/useExtracted.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimePresence.d.ts.map` |
+| `node_modules/@supabase/postgrest-js/src/PostgrestQueryBuilder.ts` |
+| `node_modules/@supabase/ssr/dist/main/utils/chunker.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/types/displaynames.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_ts_generator.cjs` |
+| `node_modules/use-intl/dist/types/core/types.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/digit-mapping.generated.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_ts_dispose_resources.cjs` |
+| `node_modules/next-intl/dist/esm/production/plugin/config.js` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimeClient.js.map` |
+| `node_modules/use-intl/dist/types/core/format-message/types.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/DefaultNumberOption.d.ts` |
+| `node_modules/@supabase/ssr/src/utils/base64url.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_ts_decorate.cjs` |
+| `node_modules/use-intl/dist/types/core/TranslationValues.d.ts` |
+| `node_modules/@supabase/storage-js/src/packages/BlobDownloadBuilder.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/decimal-cache.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_ts_add_disposable_resource.cjs` |
+| `node_modules/use-intl/dist/types/core/TimeZone.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/types/date-time.d.ts` |
+| `node_modules/@supabase/ssr/src/utils/base64url.test.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_to_property_key.cjs` |
+| `node_modules/@supabase/postgrest-js/src/PostgrestFilterBuilder.ts` |
+| `node_modules/@formatjs/ecma402-abstract/data.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_to_primitive.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/CurrencyDigits.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_to_consumable_array.cjs` |
+| `node_modules/use-intl/dist/types/core/resolveNamespace.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimeClient.d.ts.map` |
+| `node_modules/@supabase/storage-js/src/lib/common/BaseApiClient.ts` |
+| `node_modules/@formatjs/ecma402-abstract/types/core.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_to_array.cjs` |
+| `node_modules/next-intl/dist/esm/production/config.js` |
+| `node_modules/use-intl/dist/types/core/RelativeTimeFormatOptions.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/base64url.test.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_throw.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/constants.d.ts` |
+| `node_modules/use-intl/react.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/utils/base64url.test.d.ts` |
+| `node_modules/@supabase/postgrest-js/src/PostgrestError.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimeClient.d.ts.map` |
+| `node_modules/@supabase/phoenix/priv/static/types/utils.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/ComputeExponentForMagnitude.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_tagged_template_literal.cjs` |
+| `node_modules/use-intl/dist/types/react.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/base64url.d.ts` |
+| `node_modules/@supabase/postgrest-js/src/PostgrestClient.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_tagged_template_literal_loose.cjs` |
+| `node_modules/@supabase/phoenix/priv/static/types/types.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/ComputeExponent.d.ts` |
+| `node_modules/use-intl/dist/types/core/NumberFormatOptions.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/utils/base64url.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/CollapseNumberRange.d.ts` |
+| `node_modules/@supabase/phoenix/priv/static/types/timer.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_super_prop_base.cjs` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.js.map` |
+| `node_modules/use-intl/dist/types/core/MessageKeys.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/CoerceOptionsToObject.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_sliced_to_array.cjs` |
+| `node_modules/use-intl/dist/types/core/joinPath.d.ts` |
+| `node_modules/@supabase/storage-js/dist/index.d.mts` |
+| `node_modules/@supabase/ssr/README.md` |
+| `node_modules/@formatjs/ecma402-abstract/CanonicalizeTimeZoneName.d.ts` |
+| `node_modules/@supabase/phoenix/priv/static/types/socket.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_sliced_to_array_loose.cjs` |
+| `node_modules/use-intl/dist/types/react/IntlProvider.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/CanonicalizeLocaleList.d.ts` |
+| `node_modules/next-intl/dist/esm/development/routing/config.js` |
+| `node_modules/@supabase/postgrest-js/src/PostgrestBuilder.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_skip_first_generator_next.cjs` |
+| `node_modules/use-intl/dist/types/core/IntlErrorCode.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimeChannel.js.map` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/ApplyUnsignedRoundingMode.d.ts` |
+| `node_modules/@supabase/phoenix/priv/static/types/serializer.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_set.cjs` |
+| `node_modules/use-intl/dist/types/core/IntlError.d.ts` |
+| `node_modules/@supabase/ssr/docs/design.md` |
+| `node_modules/@supabase/phoenix/priv/static/types/push.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_set_prototype_of.cjs` |
+| `node_modules/use-intl/dist/types/react/IntlContext.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/262.d.ts` |
+| `node_modules/@supabase/postgrest-js/src/select-query-parser/parser.ts` |
+| `node_modules/@supabase/phoenix/priv/static/types/presence.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_read_only_error.cjs` |
+| `node_modules/use-intl/dist/types/core/IntlConfig.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/RealtimeChannel.d.ts.map` |
+| `node_modules/@supabase/phoenix/priv/static/types/longpoll.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_possible_constructor_return.cjs` |
+| `node_modules/use-intl/dist/types/core/initializeConfig.d.ts` |
+| `node_modules/@supabase/ssr/CHANGELOG.md` |
+| `node_modules/@formatjs/ecma402-abstract/README.md` |
+| `node_modules/@supabase/auth-js/dist/main/GoTrueClient.js` |
+| `node_modules/@supabase/phoenix/priv/static/types/index.d.ts` |
+| `node_modules/@supabase/supabase-js/src/lib/version.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_overload_yield.cjs` |
+| `node_modules/use-intl/dist/types/react/index.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/version.js.map` |
+| `node_modules/next-intl/dist/esm/development/plugin/config.js` |
+| `node_modules/@formatjs/ecma402-abstract/LICENSE.md` |
+| `node_modules/@supabase/phoenix/priv/static/types/constants.d.ts` |
+| `node_modules/@supabase/postgrest-js/src/index.ts` |
+| `node_modules/@supabase/supabase-js/src/lib/types.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_object_without_properties.cjs` |
+| `node_modules/@supabase/functions-js/dist/tsconfig.tsbuildinfo` |
+| `node_modules/@supabase/ssr/dist/main/version.js.map` |
+| `node_modules/@supabase/storage-js/dist/index.mjs` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/presenceAdapter.js.map` |
+| `node_modules/@supabase/postgrest-js/src/types/feature-flags.ts` |
+| `node_modules/@supabase/phoenix/priv/static/types/channel.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_object_without_properties_loose.cjs` |
+| `node_modules/@supabase/ssr/dist/module/types.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/presenceAdapter.js.map` |
+| `node_modules/@supabase/phoenix/priv/static/types/ajax.d.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_object_spread.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/package.json` |
+| `node_modules/@supabase/supabase-js/src/SupabaseClient.ts` |
+| `node_modules/@supabase/ssr/dist/main/types.js.map` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/presenceAdapter.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_object_spread_props.cjs` |
+| `node_modules/use-intl/dist/types/index.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/index.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/presenceAdapter.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/utils.js` |
+| `node_modules/@supabase/postgrest-js/src/constants.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_object_destructuring_empty.cjs` |
+| `node_modules/@supabase/supabase-js/src/lib/SupabaseAuthClient.ts` |
+| `node_modules/@supabase/ssr/dist/module/index.js.map` |
+| `node_modules/@supabase/realtime-js/dist/module/index.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_non_iterable_spread.cjs` |
+| `node_modules/@supabase/supabase-js/src/lib/rest/types/common/rpc.ts` |
+| `node_modules/use-intl/dist/types/core/index.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/utils/index.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/index.js.map` |
+| `node_modules/next-intl/dist/esm/development/config.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_non_iterable_rest.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/ToRawPrecision.js` |
+| `node_modules/@supabase/ssr/dist/main/index.js.map` |
+| `node_modules/@supabase/realtime-js/dist/module/index.d.ts.map` |
+| `node_modules/@supabase/postgrest-js/src/types/common/common.ts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_new_arrow_check.cjs` |
+| `node_modules/use-intl/dist/types/core/format-message/index.d.ts` |
+| `node_modules/@supabase/supabase-js/src/index.ts` |
+| `node_modules/@supabase/functions-js/dist/tsconfig.module.tsbuildinfo` |
+| `node_modules/@supabase/ssr/dist/module/utils/helpers.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/index.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_jsx.cjs` |
+| `node_modules/use-intl/dist/types/core/ICUTags.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/utils/helpers.js.map` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/constants.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_iterable_to_array.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/ToRawFixed.js` |
+| `node_modules/@supabase/supabase-js/src/lib/helpers.ts` |
+| `node_modules/@supabase/phoenix/priv/static/phoenix.mjs` |
+| `node_modules/use-intl/dist/types/core/ICUArgs.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/createServerClient.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/constants.js.map` |
+| `node_modules/@supabase/storage-js/README.md` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_iterable_to_array_limit.cjs` |
+| `node_modules/@supabase/supabase-js/src/lib/fetch.ts` |
+| `node_modules/use-intl/dist/types/core/hasLocale.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/createServerClient.js.map` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/constants.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_iterable_to_array_limit_loose.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/ToIntlMathematicalValue.js` |
+| `node_modules/@supabase/supabase-js/src/cors.ts` |
+| `node_modules/@supabase/postgrest-js/dist/index.d.mts` |
+| `node_modules/use-intl/dist/types/core/formatters.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/createBrowserClient.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/constants.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_is_native_reflect_construct.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/SupportedLocales.js` |
+| `node_modules/use-intl/dist/types/core/Formats.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/createBrowserClient.js.map` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/channelAdapter.js.map` |
+| `node_modules/next-intl/dist/esm/production/extractor/catalog/CatalogPersister.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_is_native_function.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/SetNumberFormatUnitOptions.js` |
+| `node_modules/@supabase/ssr/dist/module/cookies.js.map` |
+| `node_modules/use-intl/format-message/format-only.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/channelAdapter.js.map` |
+| `node_modules/next-intl/dist/esm/development/extractor/catalog/CatalogPersister.js` |
+| `node_modules/@supabase/storage-js/dist/index.mjs.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs` |
+| `node_modules/@supabase/supabase-js/src/lib/constants.ts` |
+| `node_modules/@supabase/phoenix/README.md` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/channelAdapter.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_interop_require_default.cjs` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/SetNumberFormatDigitOptions.js` |
+| `node_modules/@supabase/phoenix/LICENSE.md` |
+| `node_modules/use-intl/dist/types/core/format-message/format-only.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/cookies.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/channelAdapter.d.ts.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_instanceof.cjs` |
+| `node_modules/next-intl/dist/esm/production/extractor/catalog/CatalogManager.js` |
+| `node_modules/@supabase/phoenix/priv/static/types/utils.d.ts.map` |
+| `node_modules/use-intl/format-message.d.ts` |
+| `node_modules/@supabase/functions-js/src/version.ts` |
+| `node_modules/@supabase/realtime-js/package.json` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_initializer_warning_helper.cjs` |
+| `node_modules/@supabase/phoenix/priv/static/types/types.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/types/relative-time.js` |
+| `node_modules/use-intl/dist/types/core/defaults.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js` |
+| `node_modules/@supabase/functions-js/dist/module/version.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/constants.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_initializer_define_property.cjs` |
+| `node_modules/@supabase/phoenix/priv/static/types/timer.d.ts.map` |
+| `node_modules/@supabase/functions-js/dist/main/version.d.ts` |
+| `node_modules/@supabase/ssr/dist/main/utils/constants.js.map` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/websocket-factory.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_inherits.cjs` |
+| `node_modules/next-intl/dist/esm/development/extractor/catalog/CatalogManager.js` |
+| `node_modules/@supabase/supabase-js/src/lib/rest/types/common/common.ts` |
+| `node_modules/@supabase/phoenix/priv/static/types/socket.d.ts.map` |
+| `node_modules/@supabase/functions-js/src/types.ts` |
+| `node_modules/@formatjs/ecma402-abstract/regex.generated.js` |
+| `node_modules/use-intl/dist/types/core/DateTimeFormatOptions.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/chunker.js.map` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/version.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_inherits_loose.cjs` |
+| `node_modules/@supabase/phoenix/priv/static/types/serializer.d.ts.map` |
+| `node_modules/@supabase/functions-js/dist/module/types.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/version.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_identity.cjs` |
+| `node_modules/next-intl/dist/esm/production/extractor/catalog/CatalogLocales.js` |
+| `node_modules/@supabase/phoenix/priv/static/types/push.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/types/plural-rules.js` |
+| `node_modules/use-intl/dist/types/core/createTranslatorImpl.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/phoenix/types.js` |
+| `node_modules/@supabase/ssr/dist/main/utils/chunker.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_get.cjs` |
+| `node_modules/@parcel/watcher/index.d.ts` |
+| `node_modules/@supabase/postgrest-js/dist/index.mjs` |
+| `node_modules/@supabase/functions-js/dist/main/types.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/PartitionPattern.js` |
+| `node_modules/use-intl/dist/types/core/createTranslator.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/main/phoenix/types.js` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_get_prototype_of.cjs` |
+| `node_modules/@parcel/watcher/README.md` |
+| `node_modules/@supabase/phoenix/priv/static/types/presence.d.ts.map` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/PartitionNumberRangePattern.js` |
+| `node_modules/use-intl/dist/types/core/createFormatter.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/base64url.test.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_extends.cjs` |
+| `node_modules/@parcel/watcher/package.json` |
+| `node_modules/@supabase/functions-js/src/index.ts` |
+| `node_modules/use-intl/dist/types/core/createBaseTranslator.d.ts` |
+| `node_modules/@supabase/realtime-js/dist/module/lib/transformers.js` |
+| `node_modules/@supabase/ssr/dist/main/utils/base64url.test.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_export_star.cjs` |
+| `node_modules/@parcel/watcher/wrapper.js` |
+| `node_modules/@supabase/functions-js/dist/module/index.d.ts` |
+| `node_modules/@formatjs/ecma402-abstract/NumberFormat/PartitionNumberPattern.js` |
+| `node_modules/@supabase/phoenix/priv/static/phoenix.mjs.map` |
+| `node_modules/use-intl/dist/types/core.d.ts` |
+| `node_modules/@supabase/ssr/dist/module/utils/base64url.js.map` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_dispose.cjs` |
+| `node_modules/@supabase/functions-js/dist/main/index.d.ts` |
+| `node_modules/@parcel/watcher/index.js` |
+| `node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.js` |
+| `node_modules/@supabase/realtime-js/dist/main/lib/transformers.js` |
+| `node_modules/@supabase/supabase-js/dist/index.d.mts` |
+| `node_modules/next-intl/node_modules/@swc/helpers/cjs/_define_property.cjs` |
+| `node_modules/@parcel/watcher/scripts/build-from-source.js` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+I found this branch currently doesn’t have a `specs/.../spec.md`, so I’m creating a fresh feature spec from your selected text under `specs/001-kids-activities-platform/spec.md`.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Created the `/specify` output from your selected lines at:
+
+- `specs/001-kids-activities-platform/spec.md`
+
+It includes:
+- 3 prioritized user stories with independent tests
+- acceptance scenarios
+- edge cases
+- functional requirements (`FR-001` to `FR-010`)
+- key entities
+- measurable success criteria
+- assumptions
+
+If you want, I can run the next step and generate `plan.md` from this spec.
+
+---
+
+_**User**_
+
+/speckit.clarify 
+
+---
+
+_**Agent (default)**_
+
+I’ll run the prerequisites script to locate the active spec, then scan it for high-impact ambiguities and ask you one targeted clarification question at a time (max 5).
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: .specify/scripts/bash/check-prerequisites.sh --json --paths-only</summary>
+
+```bash
+.specify/scripts/bash/check-prerequisites.sh --json --paths-only
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/188932.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: sleep 2 && /bin/echo done</summary>
+
+```bash
+sleep 2 && /bin/echo done
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/188932.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: kill 52458; /bin/echo killed</summary>
+
+```bash
+kill 52458; /bin/echo killed
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+**Recommended:** Option B — It keeps implementation simple for MVP while still supporting your requirement that admins can control what other staff can do through role templates, and it avoids per-user permission complexity too early.
+
+| Option | Description |
+|--------|-------------|
+| A | Fixed role permissions only (`owner`, `admin`, `instructor/coach`) with no customization |
+| B | Role templates with limited customization by admin (toggle key capabilities per role) |
+| C | Fully custom per-user permissions matrix managed by admin |
+| Short | Provide a different short answer (<=5 words) |
+
+You can reply with the option letter (e.g., "A"), accept the recommendation by saying "yes" or "recommended", or provide your own short answer.
+
+---
+
+_**User**_
+
+B
+
+---
+
+_**Agent (default)**_
+
+Got it — I’m recording Option B in the spec now (clarifications log + updated requirements), then I’ll ask the next highest-impact clarification question.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+**Recommended:** Option A — A unique organization slug in the URL is the most common and scalable tenant-routing pattern, and it cleanly supports dedicated sign-in links without creating extra auth complexity.
+
+| Option | Description |
+|--------|-------------|
+| A | Organization URL is slug-based (e.g., `/o/{org-slug}`), slug must be globally unique |
+| B | Organization URL uses custom domain/subdomain per org |
+| C | Organization selected after login (no dedicated org URL) |
+| Short | Provide a different short answer (<=5 words) |
+
+You can reply with the option letter (e.g., "A"), accept the recommendation by saying "yes" or "recommended", or provide your own short answer.
+
+---
+
+_**User**_
+
+A
+
+---
+
+_**Agent (default)**_
+
+Recording this in the spec now, then I’ll continue with the next clarification question.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+**Recommended:** Option B — Per-program limits support both “one team only” and “many classes” behavior from your requirements while keeping policy logic manageable for MVP.
+
+| Option | Description |
+|--------|-------------|
+| A | One global limit per child across all activities |
+| B | Limits per program/activity type (e.g., soccer max 1, dance max 3) |
+| C | Limits per individual activity instance only |
+| Short | Provide a different short answer (<=5 words) |
+
+You can reply with the option letter (e.g., "A"), accept the recommendation by saying "yes" or "recommended", or provide your own short answer.
+
+---
+
+_**User**_
+
+each organization will set an activity limit
+
+---
+
+_**Agent (default)**_
+
+Quick disambiguation for this same question:
+
+Do you mean **one org-wide limit per child** or **org-defined limits per activity/program**?
+
+Reply with one:
+- `org-wide`
+- `per-activity`
+
+---
+
+_**User**_
+
+org-wide
+
+---
+
+_**Agent (default)**_
+
+Perfect — I’ll lock this as an org-wide child activity limit in the spec and then move to the next high-impact clarification.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+**Recommended:** Option A — This gives you strong tenant isolation and simpler security guarantees for MVP, especially with role-based access and child data.
+
+| Option | Description |
+|--------|-------------|
+| A | Guardian accounts are scoped to one organization (separate account/membership per org) |
+| B | One guardian account can belong to multiple organizations |
+| Short | Provide a different short answer (<=5 words) |
+
+You can reply with the option letter (e.g., "A"), accept the recommendation by saying "yes" or "recommended", or provide your own short answer.
+
+---
+
+_**User**_
+
+B
+
+---
+
+_**Agent (default)**_
+
+Great — I’ll record multi-organization guardian membership in the spec now, then ask one final clarification to close the loop.
+
+_**Agent (default)**_
+
+Failed to find context:
+- What happens when a user belongs to multiple organizations and accesses a dedicated org URL?
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Failed to find context:
+- What happens when a user belongs to multiple organizations and accesses a dedicated org URL?
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+**Recommended:** Option B — It balances safety and usability: prevents accidental duplicates while still allowing intentional duplicates when needed (e.g., same first name and birthday in blended families or twins with same name edge cases).
+
+| Option | Description |
+|--------|-------------|
+| A | Hard block duplicates by exact match (first name + birthday) within org |
+| B | Warn on potential duplicate and require explicit confirmation to continue |
+| C | Allow duplicates silently (no detection) |
+| Short | Provide a different short answer (<=5 words) |
+
+You can reply with the option letter (e.g., "A"), accept the recommendation by saying "yes" or "recommended", or provide your own short answer.
+
+---
+
+_**User**_
+
+B
+
+---
+
+_**Agent (default)**_
+
+Final clarification noted — I’m writing it into the spec now and then I’ll return the clarification completion report with coverage status and recommended next command.
+
+_**Agent (default)**_
+
+Failed to find context:
+- When a guardian belongs to multiple organizations, the organization in the URL MUST be used
+  as the active tenant context for browsing and enrollment.
+- How does system handle duplicate child records with same first name and birthday?
+- What happens when an invite is sent to an email that already has a role in the organization?
+- How does system handle role changes for users currently managing classes?
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Clarification complete — 5 questions asked and answered (max reached).
+
+- Updated spec: `specs/001-kids-activities-platform/spec.md`
+- Sections touched:
+  - `## Clarifications` → `### Session 2026-03-31`
+  - `### Edge Cases`
+  - `### Functional Requirements`
+
+### Coverage Summary
+
+| Category | Status |
+|---|---|
+| Functional Scope & Behavior | Resolved |
+| Domain & Data Model | Resolved |
+| Interaction & UX Flow | Resolved |
+| Non-Functional Quality Attributes | Deferred |
+| Integration & External Dependencies | Deferred |
+| Edge Cases & Failure Handling | Resolved |
+| Constraints & Tradeoffs | Clear |
+| Terminology & Consistency | Clear |
+| Completion Signals | Clear |
+| Misc / Placeholders | Clear |
+
+### Notes on deferred areas
+- Deferred to planning phase because they are implementation-level and not blocking functional correctness now:
+  - observability targets (logs/metrics/traces),
+  - reliability/availability SLO expectations,
+  - external integration failure modes (if email/notifications are added in MVP).
+
+Proceeding to planning is appropriate now.
+
+**Suggested next command:** `/speckit.plan`
+
+---
+
+_**User**_
+
+/speckit.plan create the application using next.js and tailwind for the front end, the backend will start as a supabase DB.  Local env variables to be provided. 
+
+## Visual Style
+# ActiviqHQ — Visual Identity System
+
+## 1. Brand Summary
+
+ActiviqHQ is a class management system designed for admins, instructors, and families.
+The visual identity balances **clarity, structure, and operational control** with **subtle energy and movement** inspired by kids’ activities.
+
+Core idea:
+**Organized system + visible activity**
+
+---
+
+## 2. Core Aesthetic
+
+* Light, clean interface (primary)
+* Soft color wash backgrounds
+* Structured layouts with rounded edges
+* Abstract motion (flowing ribbons, not literal icons)
+* Color used to represent activity—not decoration
+
+---
+
+## 3. Color System
+
+### Neutrals
+
+Background / Base: #FAFAFA
+Surface / Card: #FFFFFF
+Border: #E5E7EB
+Text Primary: #0F172A
+Text Secondary: #64748B
+
+---
+
+### Brand Colors (Activity Colors)
+
+Red: #EF4444
+Yellow: #FACC15
+Blue: #3B82F6
+Green: #22C55E
+
+Use these for:
+
+* Class types
+* Tags
+* Calendar blocks
+* Visual differentiation
+
+---
+
+### Primary Accent (Actions)
+
+Primary: #3B82F6
+Hover: #2563EB
+Active: #1D4ED8
+
+Use for:
+
+* Buttons
+* Links
+* Active states
+
+---
+
+### Utility Colors
+
+Success: #22C55E
+Warning: #F59E0B
+Error: #EF4444
+
+---
+
+## 4. Gradients
+
+Flow Gradient (Primary Visual Motif):
+
+* Red → Orange → Yellow
+* Blue → Green
+
+Soft Background Wash:
+
+* White → Light Blue tint (#EEF2FF or #ECFEFF)
+
+Usage:
+
+* Hero backgrounds
+* Section accents
+* Decorative motion elements
+
+Avoid overuse.
+
+---
+
+## 5. Typography
+
+Primary Font:
+Plus Jakarta Sans
+
+Fallback:
+Inter
+
+---
+
+### Type Scale
+
+H1: 48px / Bold
+H2: 36px / Semibold
+H3: 28px / Semibold
+
+Body Large: 18px / Regular
+Body: 16px / Regular
+Body Small: 14px / Regular
+
+Button: 16px / Medium
+Label: 12px / Medium
+
+---
+
+## 6. Logo Usage
+
+* Icon sits inside a rounded square
+* Always maintain internal padding (~20–25%)
+* Do not stretch or rotate
+* Do not change ribbon colors
+* Use on light backgrounds primarily
+
+---
+
+## 7. UI Principles
+
+1. Clarity over decoration
+2. Color = meaning (not styling)
+3. Movement inside structure
+4. One system, multiple roles
+5. Minimize cognitive load
+
+---
+
+## 8. Layout System
+
+* Max width: 1200px
+* 12-column grid
+* 24px gutter
+* 8pt spacing system
+
+Spacing scale:
+4 / 8 / 12 / 16 / 24 / 32 / 48 / 64
+
+---
+
+## 9. Core Components
+
+### Buttons
+
+Primary:
+
+* Background: Blue (#3B82F6)
+* Text: White
+* Radius: 12px
+
+Secondary:
+
+* Border: #E5E7EB
+* Background: White
+
+---
+
+### Cards
+
+* Background: White
+* Radius: 16px
+* Shadow: subtle (0,4,20,5%)
+
+---
+
+### Inputs
+
+* Border: light gray
+* Radius: 10px
+* Focus: blue border
+
+---
+
+## 10. Product-Specific UI
+
+### Calendar Events
+
+* Rounded rectangles
+* Color-coded by activity
+* Clear labels
+
+---
+
+### Attendance Rows
+
+* Avatar + name + toggle
+* Fast scanning layout
+
+---
+
+### Tags / Chips
+
+* Rounded pills
+* Use brand colors
+
+---
+
+## 11. Motion & Visual Language
+
+Use abstract flowing shapes inspired by the logo:
+
+* Soft curves
+* Intersections
+* Ribbon-like paths
+
+Use for:
+
+* Background accents
+* Empty states
+* Section dividers
+
+Avoid:
+
+* literal icons (kids, sports, etc.)
+* excessive motion clutter
+
+---
+
+## 12. Voice & Tone
+
+* Clear and direct
+* Functional, not emotional
+* Helpful, not clever
+* Focused on usability
+
+Example:
+"Manage your classes in one place."
+NOT:
+"Transform your world with seamless harmony."
+
+---
+
+## 13. Do / Don’t
+
+DO:
+
+* Use light backgrounds
+* Use color intentionally
+* Keep layouts clean
+* Show real product UI
+
+DON’T:
+
+* Use dark full-page backgrounds
+* Overuse bright colors
+* Add unnecessary decoration
+* Make it feel like a kids app
+
+---
+
+## 14. Brand One-Liner
+
+ActiviqHQ is the system that runs your classes—clearly, simply, and in one place.
+
+## Sample images
+Two sample images are now in the repo for reference on style
+Brand Icon: @activiqhq_icon_clipped.svg 
+Landing Page: @landing_sample.png 
+
+---
+
+_**Agent (default)**_
+
+I’ll run the planning step against your current spec and bake in your stack decisions (Next.js + Tailwind + Supabase + local env vars) plus the visual identity constraints and sample assets into the implementation plan.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.plan.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/spec.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/memory/constitution.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/templates/plan-template.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/.specify** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **5** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/.specify/scripts/bash** (5 files)
+
+| File |
+|------|
+| `setup-plan.sh` |
+| `create-new-feature.sh` |
+| `update-agent-context.sh` |
+| `check-prerequisites.sh` |
+| `common.sh` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/specs** (1 file)
+
+| File |
+|------|
+| `001-kids-activities-platform/spec.md` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: .specify/scripts/bash/setup-plan.sh --json</summary>
+
+```bash
+.specify/scripts/bash/setup-plan.sh --json
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/337935.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+The setup script is hanging in this environment, so I’m inspecting the script logic directly and will proceed by generating the same plan artifacts manually in the expected paths.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/setup-plan.sh</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/common.sh</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/plan.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/research.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/data-model.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/contracts/README.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/quickstart.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: .specify/scripts/bash/update-agent-context.sh cursor-agent</summary>
+
+```bash
+.specify/scripts/bash/update-agent-context.sh cursor-agent
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/568307.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Implemented `/speckit.plan` outputs for your current feature and baked in your requested stack + visual identity.
+
+### Created planning artifacts
+
+- `specs/001-kids-activities-platform/plan.md`
+- `specs/001-kids-activities-platform/research.md`
+- `specs/001-kids-activities-platform/data-model.md`
+- `specs/001-kids-activities-platform/contracts/README.md`
+- `specs/001-kids-activities-platform/quickstart.md`
+
+### What was captured from your request
+
+- **Frontend**: Next.js + Tailwind CSS
+- **Backend (MVP)**: Supabase Postgres/Auth foundation
+- **Local env vars**: Explicit `.env.local` setup in quickstart
+- **Visual system**: Included ActiviqHQ design constraints (color tokens, typography, component radii, gradient usage, layout principles, sample asset references)
+  - `activiqhq_icon_clipped.svg`
+  - `landing_sample.png`
+
+### Plan status
+
+- **Branch**: `001-kids-activities-platform`
+- **Implementation plan path**: `specs/001-kids-activities-platform/plan.md`
+- **Constitution checks**: Included and marked pass in plan (including small reviewable chunks rule)
+
+### Note
+
+The provided helper scripts (`setup-plan.sh`, `update-agent-context.sh`) appear to hang in this environment, so I generated the equivalent planning artifacts directly in the expected locations.
+
+### Suggested next command
+
+- `/speckit.tasks`
+
+---
+
+_**User**_
+
+/speckit.tasks
+
+---
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
 Status: **loading**
 
 </details>
