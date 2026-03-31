@@ -1,0 +1,49 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="40" x2="430" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3D3C83"/>
+      <stop offset="1" stop-color="#1E215B"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="512" height="512" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#0C1030" flood-opacity="0.22"/>
+    </filter>
+    <linearGradient id="ribbonRed" x1="108" y1="160" x2="375" y2="318" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF934D"/>
+      <stop offset="0.45" stop-color="#F94B4B"/>
+      <stop offset="1" stop-color="#FF6B3D"/>
+    </linearGradient>
+    <linearGradient id="ribbonGreenBlue" x1="165" y1="345" x2="435" y2="138" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A7D63E"/>
+      <stop offset="0.42" stop-color="#48C97E"/>
+      <stop offset="0.78" stop-color="#31A6F0"/>
+      <stop offset="1" stop-color="#2587F7"/>
+    </linearGradient>
+    <linearGradient id="ribbonYellow" x1="38" y1="302" x2="364" y2="405" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD84A"/>
+      <stop offset="0.58" stop-color="#FFC83C"/>
+      <stop offset="1" stop-color="#FFB43A"/>
+    </linearGradient>
+    <linearGradient id="ribbonBlue" x1="24" y1="375" x2="272" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E58E8"/>
+      <stop offset="1" stop-color="#21A1FF"/>
+    </linearGradient>
+    <clipPath id="iconClip">
+      <rect x="56" y="56" width="400" height="400" rx="96"/>
+    </clipPath>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="56" y="56" width="400" height="400" rx="96" fill="url(#bg)"/>
+
+    <g clip-path="url(#iconClip)">
+      <path d="M-10 350C66 290 138 299 220 337C291 370 351 374 448 332" stroke="url(#ribbonBlue)" stroke-width="48" stroke-linecap="round"/>
+      <path d="M-4 343C62 312 121 298 170 306C218 315 263 340 323 379" stroke="#182C83" stroke-opacity="0.55" stroke-width="18" stroke-linecap="round"/>
+      <path d="M118 187C165 138 220 147 255 208C290 269 350 307 439 299" stroke="url(#ribbonRed)" stroke-width="46" stroke-linecap="round"/>
+      <path d="M164 355C220 326 259 273 301 214C347 149 397 140 446 173" stroke="url(#ribbonGreenBlue)" stroke-width="48" stroke-linecap="round"/>
+      <path d="M-5 323C65 316 129 335 190 370C246 402 308 410 375 392" stroke="url(#ribbonYellow)" stroke-width="46" stroke-linecap="round"/>
+      <circle cx="214" cy="135" r="18" fill="#F84A45"/>
+      <circle cx="286" cy="129" r="22" fill="#F9C93A"/>
+      <circle cx="364" cy="136" r="18" fill="#20B8DE"/>
+    </g>
+  </g>
+</svg>

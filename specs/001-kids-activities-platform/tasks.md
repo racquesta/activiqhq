@@ -16,11 +16,11 @@
 
 **Purpose**: Ensure local tooling, visual tokens, and baseline project wiring are ready.
 
-- [ ] T001 [Shared] Add/confirm npm scripts for Supabase local workflow in `package.json`
-- [ ] T002 [Shared] Add/verify local env template in `.env.local.example`
-- [ ] T003 [P] [Shared] Add typography/color/design tokens to `app/globals.css`
-- [ ] T004 [P] [Shared] Add brand asset usage component(s) in `components/brand/`
-- [ ] T005 [Shared] Align base app shell and metadata in `app/layout.tsx`
+- [X] T001 [Shared] Add/confirm npm scripts for Supabase local workflow in `package.json`
+- [X] T002 [Shared] Add/verify local env template in `.env.local.example`
+- [X] T003 [P] [Shared] Add typography/color/design tokens to `app/globals.css`
+- [X] T004 [P] [Shared] Add brand asset usage component(s) in `components/brand/`
+- [X] T005 [Shared] Align base app shell and metadata in `app/layout.tsx`
 
 **Checkpoint**: Local app boots with brand token baseline and env guidance.
 
