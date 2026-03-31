@@ -44,6 +44,8 @@ Per `.specify/memory/constitution.md`:
   functions/modules; avoid duplicated plans for identical behavior.
 - **Spec fidelity**: Plan matches the feature spec; deviations are listed under Complexity
   Tracking or spec updates before implementation proceeds.
+- **Reviewable chunking**: Work is partitioned into small, self-contained tasks that can be
+  reviewed independently with clear acceptance outcomes.
 
 ## Project Structure
 

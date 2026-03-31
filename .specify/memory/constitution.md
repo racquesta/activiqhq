@@ -1,9 +1,9 @@
 <!--
 Sync Impact Report
-- Version change: unversioned template → 1.0.0
-- Modified principles: (initial adoption) placeholder principles → I–V as below
-- Added sections: Stack & Framework Alignment; Review & Quality Gates
-- Removed sections: none (template placeholders replaced)
+- Version change: 1.0.0 → 1.1.0
+- Modified principles: none
+- Added sections: none
+- Removed sections: none
 - Templates: .specify/templates/plan-template.md ✅ updated |
   .specify/templates/tasks-template.md ✅ updated |
   .specify/templates/spec-template.md ✅ n/a (no mandatory spec sections added) |
@@ -65,6 +65,16 @@ with recorded rationale) before merge.
 **Rationale**: The spec/plan chain is the system of record; code drift without documentation
 is technical debt.
 
+### VI. Small, Reviewable Delivery Units
+
+Tasks and code changes MUST be scoped into small, self-contained chunks that are easy to
+review and validate. Large efforts MUST be split into ordered subtasks with clear boundaries
+and acceptance outcomes so reviewers can reason about correctness without reconstructing the
+entire system at once.
+
+**Rationale**: Smaller diffs reduce review risk, shorten feedback cycles, and improve defect
+discovery before merge.
+
 ## Stack & Framework Alignment
 
 This project uses Next.js and related tooling documented in the repository. Contributors MUST
@@ -74,10 +84,10 @@ instead of them.
 
 ## Review & Quality Gates
 
-Pull requests SHOULD be reviewed for: adherence to principles I–V; proportionality of
-complexity; and presence of comments where the diff introduces or preserves non-obvious
-logic. Reviewers MAY request perf validation when the change touches hot paths or
-performance-sensitive requirements.
+Pull requests SHOULD be reviewed for: adherence to principles I–VI; proportionality of
+complexity; presence of comments where the diff introduces or preserves non-obvious logic;
+and chunk size that is practical to review end-to-end. Reviewers MAY request perf validation
+when the change touches hot paths or performance-sensitive requirements.
 
 ## Governance
 
@@ -93,4 +103,4 @@ clarifications, wording, typos, non-semantic edits.
 Phase 0 research and re-check after Phase 1 design. Maintainers SHOULD spot-check compliance
 on substantive refactors.
 
-**Version**: 1.0.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-30
+**Version**: 1.1.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-31
