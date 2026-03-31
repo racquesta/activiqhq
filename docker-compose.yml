@@ -1,0 +1,17 @@
+# Optional local Postgres for applying SQL migrations without full Supabase stack.
+# For auth + RLS parity with production, prefer: supabase start
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: activiqhq-postgres
+    environment:
+      POSTGRES_USER: activiq
+      POSTGRES_PASSWORD: activiq
+      POSTGRES_DB: activiq
+    ports:
+      - "5432:5432"
+    volumes:
+      - activiqhq_pgdata:/var/lib/postgresql/data
+
+volumes:
+  activiqhq_pgdata:
