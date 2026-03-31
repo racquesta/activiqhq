@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "supabase/migrations/**"
+    # paths:
+    #   - "supabase/migrations/**"
 jobs:
   sync-db:
     runs-on: ubuntu-latest
