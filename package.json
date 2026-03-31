@@ -10,7 +10,9 @@
     "db:start": "npx supabase start",
     "db:stop": "npx supabase stop",
     "db:status": "npx supabase status",
-    "db:reset": "npx supabase db reset"
+    "db:reset": "npx supabase db reset",
+    "db:migrate": "npx supabase migration up",
+    "db:migrations": "npx supabase migration list"
   },
   "dependencies": {
     "next": "16.2.0",

@@ -34,8 +34,8 @@
 
 - [X] T006 [Shared] Create/refresh core Supabase schema migration in `supabase/migrations/*_core_tables.sql`
 - [X] T006a [Shared] Create github action to ensure database migrations are synced prior to vercel deployment
-- [ ] T006b [Shared] Tracking: Set github env vars with supabase env vars
-- [ ] T006c [Shared] Tracking: Update vercel to enable deployment checks
+- [X] T006b [Shared] Tracking: Set github env vars with supabase env vars
+- [X] T006c [Shared] Tracking: Update vercel to enable deployment checks
 - [ ] T007 [Shared] Add role template + org policy tables in `supabase/migrations/*_rbac_policy.sql`
 - [ ] T008 [Shared] Add RLS policies and tenant isolation rules in `supabase/migrations/*_rls.sql`
 - [ ] T009 [P] [Shared] Implement Supabase server/client helpers in `lib/supabase/`

@@ -21501,123 +21501,6 @@ _**Agent (default)**_
 
 _**Agent (default)**_
 
-<tool-use data-tool-type="search" data-tool-name="glob_file_search">
-<details>
-<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **0** directories</summary>
-
-No results found
-</details>
-</tool-use>
-
-<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
-<summary>Tool use: **glob_file_search**</summary>
-
-</details></tool-use>
-
-_**Agent (default)**_
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
-
-<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/package.json</summary>
-
-Status: **loading**
-
-</details>
-
-</tool-use>
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
-<summary>Tool use: **edit_file_v2**</summary>
-
-</details></tool-use>
-
-_**Agent (default)**_
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
-
-<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.env.local.example</summary>
-
-Status: **loading**
-
-</details>
-
-</tool-use>
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
-<summary>Tool use: **edit_file_v2**</summary>
-
-</details></tool-use>
-
-_**Agent (default)**_
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
-
-<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/globals.css</summary>
-
-Status: **loading**
-
-</details>
-
-</tool-use>
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
-<summary>Tool use: **edit_file_v2**</summary>
-
-</details></tool-use>
-
-_**Agent (default)**_
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
-
-<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/public/activiqhq_icon_clipped.svg</summary>
-
-Status: **loading**
-
-</details>
-
-</tool-use>
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
-<summary>Tool use: **edit_file_v2**</summary>
-
-</details></tool-use>
-
-_**Agent (default)**_
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
-
-<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/components/brand/brand-logo.tsx</summary>
-
-Status: **loading**
-
-</details>
-
-</tool-use>
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
-<summary>Tool use: **edit_file_v2**</summary>
-
-</details></tool-use>
-
-_**Agent (default)**_
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
-
-<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/layout.tsx</summary>
-
-Status: **loading**
-
-</details>
-
-</tool-use>
-
-<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
-<summary>Tool use: **edit_file_v2**</summary>
-
-</details></tool-use>
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/templates/tasks-template.md</summary>
 
@@ -22385,3 +22268,189 @@ Use this pattern in `specs/001-kids-activities-platform/tasks.md`:
 - Check it off `[X]` only after you’ve captured the evidence/outcome.
 
 If you want, I can draft 3-5 tracking-only tasks for your current Phase 2 block wording.
+
+---
+
+_**User**_
+
+how do I perform the migrations in my local DB?
+
+---
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/supabase** (1 file)
+
+| File |
+|------|
+| `migrations/20260331150000_core_tables.sql` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/quickstart.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Use your existing npm scripts from `package.json`:
+
+1. **Install deps** (if needed)
+   - `npm install`
+
+2. **Start local Supabase stack** (Docker must be running)
+   - `npm run db:start`
+
+3. **Run migrations on local DB**
+   - `npm run db:reset`
+   - This recreates the local DB and applies all files in `supabase/migrations/` (currently includes `20260331150000_core_tables.sql`).
+
+4. **Check connection info / keys**
+   - `npm run db:status`
+   - Use values for your `.env.local` (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`).
+
+---
+
+### Common issues
+
+- **`supabase: command not found`**
+  - Use scripts exactly (`npm run db:*`) since they call `npx supabase ...`.
+
+- **Docker errors / containers not starting**
+  - Start Docker Desktop first, then rerun `npm run db:start`.
+
+- **Migration SQL error**
+  - Supabase will show which line failed during `db:reset`; fix SQL and rerun `npm run db:reset`.
+
+---
+
+If you want, I can also give you the exact one-command sequence to run from a fresh clone.
+
+---
+
+_**User**_
+
+ill a reset of the database also delete all the current local data I have?
+
+---
+
+_**Agent (default)**_
+
+Yes — `supabase db reset` will wipe and recreate your **local** database, so all local data is deleted unless it’s re-seeded by migrations/seed scripts.
+
+In your setup, that means:
+- It drops/rebuilds the local DB
+- Re-runs SQL in `supabase/migrations/`
+- Any manual test rows you added locally are lost
+
+It does **not** reset your hosted/prod Supabase project unless you explicitly target that environment with different commands.
+
+If you want to keep local data, use a non-destructive flow:
+- keep stack running: `npm run db:start`
+- apply only new migrations (instead of reset) via Supabase migration push/up flow when you’re ready.
+
+---
+
+_**User**_
+
+apply only new migrations (instead of reset) via Supabase migration push/up flow when you’re ready.
+
+---
+
+_**Agent (default)**_
+
+Exactly — use the **up/push** flow instead of reset.
+
+For local development with Supabase CLI, the typical non-destructive command is:
+
+```bash
+npx supabase migration up
+```
+
+That applies only pending migrations (based on migration history), without dropping existing data.
+
+### Suggested safe sequence
+
+```bash
+npm run db:start
+npx supabase migration list
+npx supabase migration up
+```
+
+### Notes
+
+- `migration up` = apply unapplied migrations only.
+- `db reset` = destructive rebuild (drops local data).
+- Keep migration files append-only (don’t edit already-applied ones); create a new timestamped migration for each change.
+
+If you want, I can help you add an npm script like `db:migrate` that runs `npx supabase migration up` for consistency.
+
+---
+
+_**User**_
+
+yes
+
+---
+
+_**Agent (default)**_
+
+Great — add this to your `scripts` in `package.json`:
+
+```json
+"db:migrate": "npx supabase migration up"
+```
+
+Then your flow becomes:
+
+```bash
+npm run db:start
+npm run db:migrate
+```
+
+Optional companion script (to inspect pending/applied):
+
+```json
+"db:migrations": "npx supabase migration list"
+```
+
+So you can run:
+
+```bash
+npm run db:migrations
+npm run db:migrate
+```
+
+If you want, I can also suggest a clean final scripts block including `db:start`, `db:status`, `db:migrate`, and `db:reset` together.
