@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --foreground: #0f172a;
+  --foreground-muted: #64748b;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-active: #1d4ed8;
+  --activity-red: #ef4444;
+  --activity-yellow: #facc15;
+  --activity-blue: #3b82f6;
+  --activity-green: #22c55e;
+  --radius-button: 12px;
+  --radius-card: 16px;
+  --radius-input: 10px;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-activity-red: var(--activity-red);
+  --color-activity-yellow: var(--activity-yellow);
+  --color-activity-blue: var(--activity-blue);
+  --color-activity-green: var(--activity-green);
+  --font-sans: var(--font-plus-jakarta), Inter, ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), Inter, ui-sans-serif, system-ui, sans-serif;
 }
