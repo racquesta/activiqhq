@@ -37,7 +37,7 @@
 - [X] T006b [Shared] Tracking: Set github env vars with supabase env vars
 - [X] T006c [Shared] Tracking: Update vercel to enable deployment checks
 - [X] T007 [Shared] Add role template + org policy tables in `supabase/migrations/*_rbac_policy.sql`
-- [ ] T008 [Shared] Add RLS policies and tenant isolation rules in `supabase/migrations/*_rls.sql`
+- [X] T008 [Shared] Add RLS policies and tenant isolation rules in `supabase/migrations/*_rls.sql`
 - [ ] T009 [P] [Shared] Implement Supabase server/client helpers in `lib/supabase/`
 - [ ] T010 [P] [Shared] Implement authenticated user guard in `lib/auth/require-user.ts`
 - [ ] T011 [Shared] Implement org-slug tenant resolver middleware in `middleware.ts`
