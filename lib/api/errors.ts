@@ -1,0 +1,76 @@
+import { NextResponse } from "next/server";
+import type { ZodError } from "zod";
+
+export type ApiErrorCode =
+  | "403_forbidden_tenant_access"
+  | "404_organization_not_found"
+  | "409_slug_conflict"
+  | "409_duplicate_child_confirmation_required"
+  | "409_enrollment_limit_reached"
+  | "422_validation_error";
+
+export type ApiErrorBody = {
+  code: ApiErrorCode;
+  message: string;
+  details?: unknown;
+};
+
+export function apiErrorResponse(
+  status: number,
+  code: ApiErrorCode,
+  message: string,
+  details?: unknown,
+): NextResponse<ApiErrorBody> {
+  const body: ApiErrorBody = { code, message };
+  if (details !== undefined) {
+    body.details = details;
+  }
+  return NextResponse.json(body, { status });
+}
+
+export function forbiddenTenantAccess(
+  message = "You do not have access to this organization.",
+) {
+  return apiErrorResponse(403, "403_forbidden_tenant_access", message);
+}
+
+export function organizationNotFound(
+  message = "No organization exists for this slug.",
+) {
+  return apiErrorResponse(404, "404_organization_not_found", message);
+}
+
+export function slugConflict(
+  message = "This organization URL is already taken.",
+) {
+  return apiErrorResponse(409, "409_slug_conflict", message);
+}
+
+export function duplicateChildConfirmationRequired(
+  message = "A child with similar details may already exist; confirm to proceed.",
+) {
+  return apiErrorResponse(
+    409,
+    "409_duplicate_child_confirmation_required",
+    message,
+  );
+}
+
+export function enrollmentLimitReached(
+  message = "This child is already enrolled in the maximum number of activities allowed by the organization.",
+) {
+  return apiErrorResponse(409, "409_enrollment_limit_reached", message);
+}
+
+export function validationError(
+  message = "Request validation failed.",
+  details?: unknown,
+) {
+  return apiErrorResponse(422, "422_validation_error", message, details);
+}
+
+export function validationErrorFromZod(error: ZodError) {
+  return validationError("Request validation failed.", {
+    issues: error.issues,
+  });
+}

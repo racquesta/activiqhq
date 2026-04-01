@@ -196,3 +196,3047 @@ _**Agent (default)**_
 <summary>Tool use: **read_file_v2**</summary>
 
 </details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I need to:
+1. Read Next.js 16 docs for route handlers in app/api
+2. Create scaffolding for:
+   - `app/api/organizations/route.ts` - POST will be T018, for now scaffold GET/POST stub or 501
+   - `app/api/o/[orgSlug]/...` - nested routes for all contract endpoints
+
+Let me list what routes need scaffolding per the task:
+- `/api/organizations` 
+- `/api/o/[orgSlug]/*` - could be:
+  - role-templates (with [role] dynamic segment)
+  - invites
+  - guardians/join
+  - children
+  - enrollment-policy
+  - activities
+  - enrollments
+
+I'll read require-user.ts and check if there's a pattern for API routes. Also read node_modules next docs for Route Handlers.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/auth/require-user.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **2** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/node_modules/next/dist/docs** (2 files)
+
+| File |
+|------|
+| `01-app/03-api-reference/03-file-conventions/route.md` |
+| `01-app/03-api-reference/03-file-conventions/route-groups.md` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": "*.ts",
+  "path": "/Users/ronessaacquesta/activiqhq",
+  "pattern": "route\\.ts"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq",
+  "pattern": "route\\.ts",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "./lib/supabase/server.ts"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Let me read the Next.js route.md for route handler conventions and lib/supabase/server.ts for createClient usage in API routes.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/route.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+For scaffolding I should:
+1. Create a small shared helper for API responses that doesn't duplicate T015 (base error helpers) - T015 is separate. I'll use inline Response.json for not implemented or a minimal pattern.
+
+2. The task says "scaffolding" - typically 501 Not Implemented with a JSON body indicating the endpoint exists, or OPTIONS listing allowed methods.
+
+Let me think about what "scaffolding" means in this codebase:
+- File structure for all future routes
+- Each route exports the HTTP methods that will be implemented later
+- Return 501 with a consistent `{ code: "not_implemented", ... }` or similar
+
+Actually re-reading the task: "Add API route scaffolding for `/api/organizations` and `/api/o/[orgSlug]/*`"
+
+So I need:
+- `app/api/organizations/route.ts` - POST will be T018
+- Under `app/api/o/[orgSlug]/`:
+  - `role-templates/route.ts` - GET
+  - `role-templates/[role]/route.ts` - PATCH
+  - `invites/route.ts` - POST
+  - `guardians/join/route.ts` - POST
+  - `children/route.ts` - POST
+  - `enrollment-policy/route.ts` - GET, PATCH
+  - `activities/route.ts` - GET
+  - `enrollments/route.ts` - POST
+
+I could add a tiny `lib/api/scaffolding.ts` or put helpers in each file. T015 adds `lib/api/errors.ts` - so I shouldn't duplicate error helpers. I'll use a minimal inline JSON for 501.
+
+Alternatively I could create `lib/api/not-implemented.ts` with one function - but that might be scope creep. The task says only `app/api/`. I'll use a single internal pattern in each file or one small file under app/api - actually the task explicitly says "in `app/api/`" so I'll keep responses inline or use a co-located `_utils.ts` in app/api - but that's extra. Simplest: duplicate one-liner Response.json in each route for 501.
+
+Actually for consistency I could add `app/api/_not-implemented.ts` - but that's not in the task paths. I'll duplicate minimal 501 responses.
+
+Wait - for `/api` routes, the middleware sets x-org-slug for `/o/...` paths but API routes are `/api/o/[orgSlug]/...` - the middleware won't set x-org-slug from pathname for `/api/o/foo/...` because resolveOrgSlug checks segments[0] === "o" but API path is `/api/o/foo` so segments are `api`, `o`, `foo` - segments[0] is "api" not "o"!
+
+So `loadOrgContext` won't get org slug from API routes via headers unless we set middleware to also parse `/api/o/` paths.
+
+Let me check middleware again:
+```javascript
+function resolveOrgSlug(pathname: string) {
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments[0] !== "o") {
+    return "";
+  }
+  return segments[1] ?? "";
+}
+```
+
+For `/api/o/myorg/children`, segments = [api, o, myorg, children] - segments[0] is "api", not "o". So x-org-slug would be empty for API routes!
+
+This is a bug for future implementation but T014 is scaffolding. The future tasks will need to pass orgSlug from `params` in the route handler: `context.params.orgSlug` from `[orgSlug]` dynamic segment. So `loadOrgContext({ orgSlug: params.orgSlug })` is the right approach for API routes - not relying on `x-org-slug` header.
+
+So scaffolding should accept `params: Promise<{ orgSlug: string }>` and pass orgSlug where needed.
+
+For scaffolding:
+1. **organizations/route.ts** - export POST that returns 501 (and maybe GET 405 or not)
+2. **o/[orgSlug]/...** - each route with params
+
+I'll use Next.js 16 pattern with `params` as Promise.
+
+Let me verify dynamic route folder structure:
+- `app/api/o/[orgSlug]/role-templates/route.ts`
+- `app/api/o/[orgSlug]/role-templates/[role]/route.ts`
+- etc.
+
+I'll create a shared `notImplementedResponse` in one file - the task says scaffolding in app/api - I could use `app/api/_lib/not-implemented.ts` or similar. Actually the spec says only file paths for tasks - I'll add minimal duplication.
+
+Better: create `app/api/utils.ts` or `lib/api/scaffolding.ts` - task says `app/api/` only. I'll put a single `app/api/not-implemented.ts` with export function notImplementedJson() - hmm that's an extra file not listed. The task list says "in `app/api/`" as the directory - subfiles are fine.
+
+I'll create `app/api/_not-implemented.ts` as internal helper (leading underscore).
+
+Structure:
+```
+app/api/
+  _not-implemented.ts   // shared helper
+  organizations/route.ts
+  o/[orgSlug]/role-templates/route.ts
+  o/[orgSlug]/role-templates/[role]/route.ts
+  o/[orgSlug]/invites/route.ts
+  o/[orgSlug]/guardians/join/route.ts
+  o/[orgSlug]/children/route.ts
+  o/[orgSlug]/enrollment-policy/route.ts
+  o/[orgSlug]/activities/route.ts
+  o/[orgSlug]/enrollments/route.ts
+```
+
+Let me also check if middleware needs updating for `/api/o/` - the task is T014 scaffolding only. I'll add a note in code or fix middleware. For consistency, loadOrgContext for API should use explicit orgSlug from route params. The middleware fix would help Server Components under `/o/...` but API routes use params. I could update middleware to also set x-org-slug for `/api/o/{slug}/...` paths - that would be a good foundational fix. Let me check if that's in scope.
+
+T014: "Add API route scaffolding" - updating middleware to propagate org slug for API paths is a natural part of making API routes work with loadOrgContext. I'll update middleware:
+
+```javascript
+function resolveOrgSlug(pathname: string) {
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments[0] === "o") {
+    return segments[1] ?? "";
+  }
+  if (segments[0] === "api" && segments[1] === "o") {
+    return segments[2] ?? "";
+  }
+  return "";
+}
+```
+
+This is a small fix that belongs with API scaffolding. I'll include it.
+
+Actually re-read the user rule: "Only modify code required by the task." The task is explicitly scaffolding in app/api. Middleware change might be considered "required" for tenant resolution on API routes if we use loadOrgContext without passing slug - but the route handlers will pass `orgSlug` from params. So middleware update is optional for T014.
+
+I'll skip middleware unless we use loadOrgContext in the scaffold. For scaffolding returning 501, we don't need org context at all. I'll skip middleware.
+
+Implement `_not-implemented.ts`:
+
+```ts
+import { NextResponse } from "next/server";
+
+const NOT_IMPLEMENTED_CODE = "not_implemented" as const;
+
+export function notImplementedResponse(feature: string) {
+  return NextResponse.json(
+    {
+      code: NOT_IMPLEMENTED_CODE,
+      message: `${feature} is not implemented yet`,
+    },
+    { status: 501 },
+  );
+}
+```
+
+Or use Response.json from Web API for consistency with Next docs.
+
+I'll use `NextResponse`.
+
+For organizations route - export POST for POST /api/organizations per contract.
+
+For each org route - export the right methods.
+
+Let me also add `export const dynamic = "force-dynamic"` for API routes that will use auth/cookies? For 501 stubs it might not matter. I'll skip for now.
+
+TypeScript: use RouteContext if available - the docs say RouteContext<'/api/...'> is globally available after typegen. I'll use explicit params typing for compatibility: `{ params: Promise<{ orgSlug: string }> }` and for role: `{ params: Promise<{ orgSlug: string; role: string }> }`.
+
+Let me run the build to see if types work.
+
+I'll run eslint after.
+
+Checklist: no checklists folder - skip table.
+
+Project setup verification - gitignore etc. The command says to verify ignore files. Let me check if I need to do anything - the user asked for T014 only. I'll quickly verify .gitignore exists.
+
+Let me mark T014 complete in tasks.md.
+
+I'll implement all files.
+</details></think>
+
+_**Agent (default)**_
+
+
+Implementing T014: adding `app/api` route files for `/api/organizations` and all `/api/o/[orgSlug]/*` contract paths, using a small shared helper to avoid duplicating response logic (kept under `app/api`).
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/tsconfig.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.gitignore</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll create the files. Use NextResponse from 'next/server'.
+
+For route handler params in Next 16, context is `{ params: Promise<{ orgSlug: string }> }`.
+
+I'll create:
+1. app/api/_not-implemented.ts - helper
+2. app/api/organizations/route.ts
+3. All o/[orgSlug] routes
+
+Let me double-check the route for role-templates - GET list might be at collection level, PATCH at single role. So:
+- GET /api/o/{orgSlug}/role-templates -> role-templates/route.ts
+- PATCH /api/o/{orgSlug}/role-templates/{role} -> role-templates/[role]/route.ts
+
+Good.
+
+I'll write the helper file.
+</details></think>
+
+_**Agent (default)**_
+
+
+Creating API scaffolding: adding a shared helper and route handlers for each contract path.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/_not-implemented.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/organizations/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/role-templates/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/role-templates/[role]/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/invites/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/guardians/join/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/children/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollment-policy/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollments/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run lint and tests. Also fix import path - using `@/app/api/_not-implemented` might be redundant; could use relative imports from sibling routes. Actually `@/app/api/_not-implemented` is fine.
+
+Let me check lints and run npm test && npm run lint.
+
+Also mark T014 in tasks.md as [X].
+
+Consider: eslint might flag unused _request, _ctx - need to check.
+
+Actually for TypeScript unused params - prefix with _ is usually ok. Let me verify.
+
+One issue: organizations/route.ts uses `@/app/api/_not-implemented` - could use relative `./../_not-implemented` from organizations - but @/ is cleaner.
+
+Run tsc/lint.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm test && npm run lint</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm test && npm run lint
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+npm error Missing script: "test"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /var/folders/bm/bft6_5fd5nqf7zcmt6_8kkbr0000gn/T/cursor-sandbox-cache/9519e4c9e7364b164aeaeea3269dd3d0/npm/_logs/2026-04-01T16_05_16_183Z-debug-0.log
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/app/api"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/app/api"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+No test script - run npm run lint only and check package.json for scripts
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run npm run lint and npm run build to verify TypeScript
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm run lint && npx tsc --noEmit</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm run lint && npx tsc --noEmit
+```
+
+```
+
+&gt; nextjs@0.1.0 lint
+&gt; eslint
+
+
+/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts
+  8:27  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+  8:46  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/children/route.ts
+  8:28  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+  8:47  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollment-policy/route.ts
+   8:27  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+   8:46  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+  12:29  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+  12:48  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollments/route.ts
+  8:28  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+  8:47  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/guardians/join/route.ts
+  8:28  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+  8:47  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/invites/route.ts
+  8:28  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+  8:47  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/role-templates/[role]/route.ts
+  8:29  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+  8:48  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/role-templates/route.ts
+  8:27  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+  8:46  warning  '_ctx' is defined but never used      @typescript-eslint/no-unused-vars
+
+✖ 18 problems (0 errors, 18 warnings)
+
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I need to read the terminal file for tsc completion. Also fix eslint - either omit unused params or use void pattern. Common pattern: export async function GET() { without params } - but Next.js route handlers might need Request for signature. Let me use empty parameter list where possible:
+
+For GET without using request:
+```ts
+export async function GET() {
+  return notImplementedResponse(...);
+}
+```
+
+But for dynamic routes we need context for params - we don't use params in stub but we still need the second param for Next.js to recognize the route. Actually we can omit both if we don't need them:
+
+```ts
+export async function GET() {
+  return notImplementedResponse("GET /api/o/[orgSlug]/activities");
+}
+```
+
+That works - Next.js allows handlers without request/context when not needed.
+
+Let me update all routes to omit unused parameters.
+</details></think>
+
+_**Agent (default)**_
+
+
+Omitting unused handler parameters to satisfy ESLint.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/253534.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The file might still be running tsc. Let me read more lines
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/253534.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+tsc might still be running - let me wait and read again or run tsc in a new shell with longer block
+
+I'll fix the routes to use no-arg handlers where possible - ESLint expects 0 warnings ideally for clean CI.
+
+Update each file:
+- role-templates/route.ts: export async function GET() 
+- role-templates/[role]/route.ts: export async function PATCH()
+- invites: POST()
+- guardians/join: POST()
+- children: POST()
+- enrollment-policy: GET(), PATCH()
+- activities: GET()
+- enrollments: POST()
+
+Remove the RouteParams type if unused - or keep for JSDoc when implementing.
+
+I could add a comment that params will be used when implemented - the type is not needed for now.
+
+StrReplace all files.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/role-templates/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/role-templates/[role]/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/invites/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/guardians/join/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/children/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollment-policy/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollments/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run lint and build again. Mark tasks.md T014 complete.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm run lint && npx tsc --noEmit && npm run build</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm run lint && npx tsc --noEmit && npm run build
+```
+
+```
+
+&gt; nextjs@0.1.0 lint
+&gt; eslint
+
+lib/supabase/middleware.ts(65,14): error TS7006: Parameter 'cookiesToSet' implicitly has an 'any' type.
+lib/supabase/middleware.ts(67,33): error TS7031: Binding element 'name' implicitly has an 'any' type.
+lib/supabase/middleware.ts(67,39): error TS7031: Binding element 'value' implicitly has an 'any' type.
+lib/supabase/middleware.ts(77,33): error TS7031: Binding element 'name' implicitly has an 'any' type.
+lib/supabase/middleware.ts(77,39): error TS7031: Binding element 'value' implicitly has an 'any' type.
+lib/supabase/middleware.ts(77,46): error TS7031: Binding element 'options' implicitly has an 'any' type.
+lib/supabase/server.ts(49,14): error TS7006: Parameter 'cookiesToSet' implicitly has an 'any' type.
+lib/supabase/server.ts(51,35): error TS7031: Binding element 'name' implicitly has an 'any' type.
+lib/supabase/server.ts(51,41): error TS7031: Binding element 'value' implicitly has an 'any' type.
+lib/supabase/server.ts(51,48): error TS7031: Binding element 'options' implicitly has an 'any' type.
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Lint passed. tsc failed on pre-existing lib/supabase files - not introduced by my changes. The user rules say don't fix unrelated issues unless needed. I'll run `next build` which might use project's tsconfig differently - actually the error is from strict tsc.
+
+Let me run `npm run build` which is the standard check - it might use different settings.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm run build</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm run build
+```
+
+```
+
+&gt; nextjs@0.1.0 build
+&gt; next build
+
+▲ Next.js 16.2.0 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 14.1s
+  Running TypeScript ...
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+Failed to type check.
+
+./lib/supabase/middleware.ts:65:14
+Type error: Parameter 'cookiesToSet' implicitly has an 'any' type.
+
+  [90m63 |[0m       [90m// When tokens refresh, Supabase needs to write new cookies. Middleware runs at the ...[0m
+  [90m64 |[0m       [90m// we must copy updated cookies onto &#96;supabaseResponse&#96; so the browser receives them.[0m
+[31m[1m&gt;[0m [90m65 |[0m       setAll(cookiesToSet) {
+  [90m   |[0m              [31m[1m^[0m
+  [90m66 |[0m         [90m// Sync cookie jar on the request object (pattern from @supabase/ssr + Next middle...[0m
+  [90m67 |[0m         cookiesToSet.forEach(({ name, value }) =&gt;
+  [90m68 |[0m           request.cookies.set(name, value),
+Next.js build worker exited with code: 1 and signal: null
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The build fails due to pre-existing middleware typing issues - not from T014. My API route code compiles ("Compiled successfully"). The TypeScript phase fails on lib/supabase/middleware.ts.
+
+Per user rules I should fix issues to complete validation - the speckit says "Confirm tests pass" - there's no test script. The build is the quality gate.
+
+The implicit any in supabase middleware is a small fix - I could add proper types from @supabase/ssr. Let me check if those errors existed before my work - git status shows we're on T014 branch. I'll fix the middleware and server.ts cookie types so the build passes - this is a minimal fix for the project's CI.
+
+Actually the user rule says "Only modify code required by the task" - fixing unrelated TS errors could be debated. But "MUST NOT give up after a single failure" and "execute" - the completion validation asks for build success.
+
+I'll add minimal types to satisfy TS7006 - using `Parameters` from CookieOptions or importing from @supabase/ssr.
+
+Let me read middleware.ts and server.ts for the setAll callback
+</details></think>
+
+_**Agent (default)**_
+
+
+Fixing pre-existing implicit-`any` errors in Supabase cookie handlers so the build passes.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": "*.ts",
+  "path": "/Users/ronessaacquesta/activiqhq/node_modules/@supabase/ssr",
+  "pattern": "CookieOptions|setAll"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/node_modules/@supabase/ssr",
+  "pattern": "CookieOptions|setAll",
+  "topFiles": [
+    {
+      "matchCount": 7,
+      "uri": "node_modules/@supabase/ssr/src/types.ts"
+    },
+    {
+      "matchCount": 8,
+      "uri": "node_modules/@supabase/ssr/dist/module/types.d.ts"
+    },
+    {
+      "matchCount": 8,
+      "uri": "node_modules/@supabase/ssr/dist/main/types.d.ts"
+    },
+    {
+      "matchCount": 7,
+      "uri": "node_modules/@supabase/ssr/src/createServerClient.ts"
+    }
+  ],
+  "totalFiles": 4,
+  "totalMatches": 135
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I need SetAllCookies type - let me read the full types.d.ts for SetAllCookies
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/node_modules/@supabase/ssr/dist/module/types.d.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll add type annotation:
+```ts
+setAll(cookiesToSet: Parameters<SetAllCookies>[0]) {
+```
+or import SetAllCookies from @supabase/ssr
+
+Let me check what's exported from @supabase/ssr package
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/node_modules/@supabase/ssr/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll use inline type for the array elements:
+```ts
+setAll(
+  cookiesToSet: { name: string; value: string; options: import("cookie").SerializeOptions }[],
+) {
+```
+
+Actually CookieOptions from @supabase/ssr is Partial<SerializeOptions>. I'll import type { SetAllCookies } from "@supabase/ssr" if exported.
+
+Let me read dist/module/index.d.ts
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/node_modules/@supabase/ssr/dist/module/index.d.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+SetAllCookies is exported from types. I'll add:
+```ts
+import type { SetAllCookies } from "@supabase/ssr";
+```
+
+Then:
+```ts
+setAll(cookiesToSet: Parameters<SetAllCookies>[0]) {
+```
+
+Actually Parameters<SetAllCookies> for `(cookies: {...}[]) => ...` gives `{ name: string; value: string; options: CookieOptions }[]`
+
+Let me verify - SetAllCookies is a function type, Parameters<SetAllCookies>[0] should work.
+
+For server.ts:
+```ts
+setAll(cookiesToSet: Parameters<SetAllCookies>[0]) {
+```
+
+I'll update both files.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run build again
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm run lint && npm run build</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm run lint && npm run build
+```
+
+```
+
+&gt; nextjs@0.1.0 lint
+&gt; eslint
+
+
+&gt; nextjs@0.1.0 build
+&gt; next build
+
+▲ Next.js 16.2.0 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 8.7s
+  Running TypeScript ...
+  Finished TypeScript in 7.2s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/5) ...
+  Generating static pages using 11 workers (1/5) 
+  Generating static pages using 11 workers (2/5) 
+  Generating static pages using 11 workers (3/5) 
+✓ Generating static pages using 11 workers (5/5) in 875ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/o/[orgSlug]/activities
+├ ƒ /api/o/[orgSlug]/children
+├ ƒ /api/o/[orgSlug]/enrollment-policy
+├ ƒ /api/o/[orgSlug]/enrollments
+├ ƒ /api/o/[orgSlug]/guardians/join
+├ ƒ /api/o/[orgSlug]/invites
+├ ƒ /api/o/[orgSlug]/role-templates
+├ ƒ /api/o/[orgSlug]/role-templates/[role]
+└ ƒ /api/organizations
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Build passes. The user asked for T014 only. I fixed supabase middleware/server for build - I should mention this briefly.
+
+Revert the supabase changes if user wants minimal diff - but then build fails. The fix is necessary for CI.
+
+Summary for user:
+- Checklists: none in FEATURE_DIR
+- T014 implemented
+- Added app/api scaffolding + helper
+- Fixed implicit any in Supabase cookie handlers so `next build` passes (pre-existing TS strictness)
+
+No extensions.yml for after hooks.
+
+Double-check: task said only app/api - I edited lib/supabase - I'll mention why - or revert and note build fails on main tsc - the user rule says to run commands and fix. I'll keep the fix.
+
+Actually re-read "only modify code required" - the T014 completion validation requires build. The fix is minimal.
+
+Done.
+</details></think>
+
+_**Agent (default)**_
+
+
+## T014 complete
+
+**Checklists:** `specs/001-kids-activities-platform/checklists/` is not present, so there was nothing to gate on.
+
+### What was added
+
+1. **`app/api/_not-implemented.ts`** — Shared **501** JSON: `{ code: "not_implemented", message: "…" }` for stubs.
+
+2. **`app/api/organizations/route.ts`** — `POST` (org creation contract).
+
+3. **`app/api/o/[orgSlug]/…`** — Matches `contracts/README.md`:
+   - `role-templates/route.ts` — `GET`
+   - `role-templates/[role]/route.ts` — `PATCH`
+   - `invites/route.ts` — `POST`
+   - `guardians/join/route.ts` — `POST`
+   - `children/route.ts` — `POST`
+   - `enrollment-policy/route.ts` — `GET`, `PATCH`
+   - `activities/route.ts` — `GET`
+   - `enrollments/route.ts` — `POST`
+
+`next build` lists these as dynamic routes under `ƒ /api/...`.
+
+4. **`specs/001-kids-activities-platform/tasks.md`** — T014 marked **`[X]`**.
+
+### Build / lint
+
+- **`npm run lint`** — clean.
+- **`npm run build`** — passes.
+
+**Note:** `next build` was failing on **implicit `any`** in `setAll` callbacks in `lib/supabase/middleware.ts` and `lib/supabase/server.ts`. Those now use `Parameters<SetAllCookies>[0]` from `@supabase/ssr` so TypeScript checks pass. No behavior change.
+
+There is no `.specify/extensions.yml`, so no pre/post implement hooks.
+
+**Follow-up:** T015 adds `lib/api/errors.ts`; later tasks replace 501 stubs with real handlers (e.g. T018 for `POST /api/organizations`).
+
+---
+
+_**User**_
+
+is it possible to set it up so that every time I call speckit.implement on a task, it switches to main, pulls from main, and auto creates a new branch?
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user is asking about automating a workflow when they run speckit.implement:
+1. Switch to main
+2. Pull from main
+3. Auto create a new branch
+
+This could be done in several ways:
+1. A Cursor command or shell script that wraps the speckit.implement flow
+2. Extension hooks in `.specify/extensions.yml` if the speckit system supports `before_implement` hooks that run git commands
+3. A git alias or npm script
+
+Let me check if `.specify/extensions.yml` exists and what the speckit hook format looks like - the user's previous message mentioned hooks in extensions.yml for before_implement.
+
+I should read the specify documentation or existing extensions if any, and understand what the user wants:
+- Branch naming - probably something like `T014-description` or feature branch pattern
+
+I'll search the codebase for speckit, extensions.yml, and how hooks work.
+</details></think>
+
+_**Agent (default)**_
+
+
+Checking how Specify/Speckit handles hooks and whether we can wire git workflow automation.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq",
+  "pattern": "before_implement|speckit"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq",
+  "pattern": "before_implement|speckit",
+  "topFiles": [
+    {
+      "matchCount": 4,
+      "uri": "./.specstory/history/2026-04-01_16-02-12Z-speckit-t014-implementation.md"
+    },
+    {
+      "matchCount": 6,
+      "uri": "./.specstory/history/2026-04-01_13-02-27Z-speckit-t013-implementation.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.specstory/history/2026-04-01_00-41-52Z-speckit-t012-implementation.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./specs/001-kids-activities-platform/plan.md"
+    },
+    {
+      "matchCount": 90,
+      "uri": "./.specstory/history/2026-03-30_23-48-58Z-clean-code-practices-and-guidelines.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./.specify/templates/tasks-template.md"
+    },
+    {
+      "matchCount": 7,
+      "uri": "./.specify/templates/plan-template.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./.specify/init-options.json"
+    },
+    {
+      "matchCount": 2,
+      "uri": "./.cursor/commands/speckit.tasks.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./.cursor/commands/speckit.checklist.md"
+    },
+    {
+      "matchCount": 5,
+      "uri": "./.cursor/commands/speckit.clarify.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./.cursor/commands/speckit.constitution.md"
+    },
+    {
+      "matchCount": 2,
+      "uri": "./.cursor/commands/speckit.plan.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.cursor/commands/speckit.analyze.md"
+    },
+    {
+      "matchCount": 5,
+      "uri": "./.cursor/commands/speckit.specify.md"
+    },
+    {
+      "matchCount": 2,
+      "uri": "./.cursor/commands/speckit.implement.md"
+    },
+    {
+      "matchCount": 2,
+      "uri": "./.specify/templates/checklist-template.md"
+    },
+    {
+      "matchCount": 3,
+      "uri": "./.specify/scripts/bash/check-prerequisites.sh"
+    }
+  ],
+  "totalFiles": 18,
+  "totalMatches": 141
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Let me read the full speckit.implement.md command to see the exact hook format expected, and check if there's an extensions template or example.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **13** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/.specify** (13 files)
+
+| File |
+|------|
+| `scripts/bash/common.sh` |
+| `templates/tasks-template.md` |
+| `templates/plan-template.md` |
+| `memory/constitution.md` |
+| `init-options.json` |
+| `templates/agent-file-template.md` |
+| `templates/constitution-template.md` |
+| `templates/checklist-template.md` |
+| `templates/spec-template.md` |
+| `scripts/bash/setup-plan.sh` |
+| `scripts/bash/create-new-feature.sh` |
+| `scripts/bash/update-agent-context.sh` |
+| `scripts/bash/check-prerequisites.sh` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The speckit.implement command documents `hooks.before_implement` in `.specify/extensions.yml` but the file doesn't exist in the repo yet. The user wants:
+1. checkout main
+2. pull main
+3. create new branch (presumably named after the task, e.g. T014-api-route-scaffolding)
+
+Options:
+1. **Create `.specify/extensions.yml`** with a hook that runs a shell script - IF the HookExecutor in Cursor actually runs EXECUTE_COMMAND. The command file says agents should run mandatory hooks - so when the user runs speckit.implement, the agent reads extensions.yml and runs the command. That could work with a script like `.specify/scripts/bash/start-task-branch.sh` that takes task ID from args.
+
+2. **New Cursor command** e.g. `speckit.implement-with-branch.md` that prepends git steps before the implement outline.
+
+3. **Document a manual workflow** + git alias.
+
+The challenge: `speckit.implement` receives user input like "T014" - the branch name might need to come from tasks.md line or a convention like `T014-short-slug`.
+
+I'll explain what's possible:
+
+- **Yes, partially automated**: Add `.specify/extensions.yml` with `before_implement` hook pointing to a script that:
+  - `git fetch origin main && git checkout main && git pull origin main`
+  - `git checkout -b "task/T014-..."` or similar
+  
+  Caveats:
+  - The hook system may need the task ID passed - extensions might not receive $ARGUMENTS unless the hook command is parameterized. Need to check if there's a way to pass task id to the hook.
+
+- **Alternative**: A wrapper script `npm run speckit:task T014` that does git + echoes "now run /speckit.implement T014"
+
+- **Cursor limitation**: The AI agent runs the hook - if the hook is `git checkout main && git pull`, the agent needs git_write permission. Branch naming might need to be manual or derived from a convention.
+
+Let me read if there's documentation for extensions.yml format elsewhere in the repo or speckit package.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": "*.{md,yml,yaml}",
+  "path": "/Users/ronessaacquesta/activiqhq",
+  "pattern": "extensions\\.yml|before_implement"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq",
+  "pattern": "extensions\\.yml|before_implement",
+  "topFiles": [
+    {
+      "matchCount": 3,
+      "uri": "./.specstory/history/2026-04-01_16-02-12Z-speckit-t014-implementation.md"
+    },
+    {
+      "matchCount": 15,
+      "uri": "./.specstory/history/2026-03-30_23-48-58Z-clean-code-practices-and-guidelines.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.cursor/commands/speckit.tasks.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.cursor/commands/speckit.plan.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.cursor/commands/speckit.specify.md"
+    },
+    {
+      "matchCount": 5,
+      "uri": "./.cursor/commands/speckit.implement.md"
+    }
+  ],
+  "totalFiles": 6,
+  "totalMatches": 35
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The speckit command expects extensions.yml with hooks but there's no schema in the repo. I'll give a practical answer:
+
+1. **Built-in Speckit path**: Create `.specify/extensions.yml` with `hooks.before_implement` that references a script. The implement command says mandatory hooks output `EXECUTE_COMMAND: {command}` - the agent runs it. The problem is the task ID (T014) might not be in the hook - the user would need either:
+   - A script that reads from env or stdin
+   - Or the hook only does `main + pull` and branch creation is manual
+   - Or a **custom Cursor command** that combines: run shell script with $ARGUMENTS, then delegate to implement
+
+2. **Better UX**: Add a script `.specify/scripts/bash/start-implement-branch.sh` that:
+   - Takes task id as first arg: `./start-implement-branch.sh T014`
+   - git fetch origin main; git checkout main; git pull; git checkout -b "T014-..." 
+   - Branch slug could be from tasks.md grep or a second arg
+
+3. **New cursor command** `speckit.implement-branch.md` that instructs the agent to FIRST run the script with arguments, THEN follow speckit.implement.
+
+The user asked "is it possible" - I'll answer yes with tradeoffs:
+
+- **Fully automatic on every `/speckit.implement`**: Use `extensions.yml` + script. Limitation: hook may not receive "T014" from the same invocation unless the HookExecutor passes ARGUMENTS into the command (unclear). The speckit.implement doc shows `{command}` as static.
+
+- **Reliable approach**: Wrapper script or npm script the user runs first, OR extend the Cursor command text to say "Step 0: run ..." 
+
+I'll suggest creating:
+1. `scripts/git-sync-and-branch.sh` or under `.specify/scripts/bash/sync-main-and-branch.sh` 
+2. Optional `extensions.yml` that runs only `sync main` without branch (if branch name needs task id from user)
+
+Actually re-read the hook format - `command` might be something like `/speckit.git-sync` which could be a custom cursor command - messy.
+
+Simplest recommendation:
+- **Option A**: Add `.specify/extensions.yml` with optional hook: description "Run before implement" command that runs a script doing fetch/checkout main/pull only — user creates branch manually with task name, OR script creates branch with timestamp.
+
+- **Option B**: Shell alias: `git checkout main && git pull && git checkout -b "T014-$(date +%s)"` — user substitutes T014.
+
+- **Option C**: New npm script `npm run task:branch -- T014` that parses tasks.md for the line with T014 to get the slug from the task description.
+
+I'll provide a concrete extensions.yml example IF the schema supports passing args - I'll look at speckit 0.4.3 or create-new-feature.sh for branch naming.
+
+Let me read create-new-feature.sh for patterns
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/create-new-feature.sh</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I have enough to answer. The user wants automation when calling speckit.implement.
+
+1. **Speckit's `before_implement` hook** (`.specify/extensions.yml`) — The implement command explicitly supports this. The agent is instructed to run `EXECUTE_COMMAND` for mandatory hooks. **Limitation**: The hook `command` is typically static; it won't automatically receive "T014" unless you encode a script that reads from an env var the user sets, or you use a two-step process.
+
+2. **Practical pattern**: 
+   - Script: `.specify/scripts/bash/sync-main-and-task-branch.sh T014` that:
+     - Validates git clean state (optional)
+     - `git fetch origin` && `git checkout main` && `git pull origin main`
+     - Parses `tasks.md` for T014 line to build branch name like `T014-api-route-scaffolding` (from task text) or uses `T014` + slug from argument
+     - `git checkout -b ...`
+   - Wire it as **optional** hook so user can run manually if needed, OR **mandatory** that only syncs main (safe) and prompts for branch name
+
+3. **Cursor can't "intercept" `/speckit.implement` without modifying the command** — User could duplicate the command to add "Step 0: run script with $ARGUMENTS"
+
+I'll explain clearly without implementing unless they ask — the user asked "is it possible" which is informational. I could offer to add the script + extensions.yml as a follow-up.
+
+Actually re-read - they might want me to implement it. The question is phrased as possibility. I'll answer comprehensively and offer the concrete setup (script + extensions.yml template) as optional next step.
+
+I should NOT create markdown files they didn't ask for per user rules - they didn't ask for a doc file. I can give YAML example inline in the response.
+
+Key technical point: **Mandatory hook runs before implement** — if the command is `.specify/scripts/bash/sync-and-branch.sh` with no args, every implement would create the same branch name or fail. So the script **must** accept task ID — the implement command passes `$ARGUMENTS` in the user message "T014" but the **hook command string** might not substitute. So the reliable approach is:
+
+**Modified workflow**: User runs a **composite command** or the **speckit.implement.md** is forked to say:
+"0. If user provided a task id (e.g. T014), run: `.specify/scripts/bash/prepare-task-branch.sh T014`"
+
+Or user uses a Cursor **User Task** / **custom command** that runs terminal first.
+
+I'll state: Speckit hooks don't pass task ID to the shell command in the documented format, so either (1) extend the implement command locally to add step 0 with $ARGUMENTS, or (2) run a small script before `/speckit.implement` in the same chat message: "Run ./prepare-task-branch.sh T014 then /speckit.implement T014"
+
+I'll also mention GitHub could use a **pull request template** or **branch naming** convention — orthogonal.
+
+Final answer structure:
+- Yes, three approaches ranked
+- Caveats: uncommitted work, merge conflicts on pull, branch already exists
+- Optional: I can add prepare-task-branch.sh + document extensions.yml optional hook for main sync only
+</details></think>
+
+_**Agent (default)**_
+
+
+Yes, with a few caveats about how much Speckit can do by itself.
+
+### 1. Speckit’s `before_implement` hook (`.specify/extensions.yml`)
+
+`/speckit.implement` is written so the agent **checks** `.specify/extensions.yml` for `hooks.before_implement` and can run a **fixed** `command` (see your `.cursor/commands/speckit.implement.md`). That’s good for **the same script every time**, e.g. “update `main` from `origin`”.
+
+What it **does not** standardize is passing **`T014`** (or whatever you typed) into that shell command. Unless your tooling substitutes `$ARGUMENTS` into the hook (your repo doesn’t define that yet), the hook usually **cannot** name a branch after the task id automatically.
+
+So a hook is a natural fit for:
+
+- `git fetch origin`
+- `git checkout main`
+- `git pull origin main` (or `git merge --ff-only origin/main`)
+
+…and **not** (without extra design) for “create `T014-…`” unless the script **derives** the name some other way (prompt, env var, or parsing `tasks.md` by a convention).
+
+### 2. Reliable pattern: one script + task id
+
+Add a small script, e.g. `.specify/scripts/bash/prepare-task-branch.sh`, that:
+
+1. Takes **`T014`** (or similar) as an argument.
+2. Optionally looks up the task line in `tasks.md` to build something like `T014-api-route-scaffolding`.
+3. Runs `fetch` → `checkout main` → `pull` → `checkout -b …`.
+
+Then you either:
+
+- Run it **once** in the terminal before `/speckit.implement T014`, or  
+- In the same chat, tell the agent: **“Run `prepare-task-branch.sh T014`, then follow speckit.implement for T014.”**
+
+That gives you **full** automation with an explicit task id.
+
+### 3. Tightest Cursor integration
+
+Duplicate or extend the **implement** command so **step 0** is: if `$ARGUMENTS` looks like `TNNN`, run `prepare-task-branch.sh` with that id, **then** continue the normal Speckit outline. That’s the closest to “every time I invoke implement on a task” without depending on hook argument injection.
+
+### Caveats
+
+- **Dirty tree**: checkout/pull/branch creation can fail or stash requirements; the script should check `git status` or document that the tree must be clean.
+- **`main` vs `master`**, **remote name** (`origin`), and **conflicts** on pull need explicit handling.
+- **Branch already exists**: decide whether to switch to it, error, or recreate.
+
+If you want this in-repo, the usual combo is **`prepare-task-branch.sh` + an optional `before_implement` hook that only syncs `main`**, and/or a **small change to `speckit.implement.md`** so step 0 runs the full script with the task id from the user message. I can add those files and wire them if you want that behavior committed to this project.
+
+---
+
+_**User**_
+
+yes
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user said "yes" - in context of the previous message, they want me to implement the git workflow automation: prepare-task-branch script + extensions.yml and/or updates to speckit.implement.md.
+
+I'll implement:
+1. `.specify/scripts/bash/prepare-task-branch.sh` - takes task ID (e.g. T014), syncs main, creates branch from task line in tasks.md or accepts optional slug
+2. `.specify/extensions.yml` - optional hook for main sync only, or mandatory - I'll use optional for the full script with task id - actually hooks can't pass task id easily. Better approach:
+   - Script that can be run with: `./prepare-task-branch.sh T014` 
+   - Update `speckit.implement.md` to add Step 0: if user input matches T\d+, run the script with that id from repo root
+
+Let me read the full speckit.implement.md to insert the step in the right place, and read common.sh for patterns.
+</details></think>
+
+_**Agent (default)**_
+
+
+Implementing `prepare-task-branch.sh`, `.specify/extensions.yml` (sync-only hook), and updating `speckit.implement.md` to run the script when the user provides a task id.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/common.sh</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I need to:
+
+1. Create `prepare-task-branch.sh` that:
+   - Uses get_repo_root from common.sh or duplicates minimal logic
+   - Args: TASK_ID (required) e.g. T014, optional FEATURE_DIR or tasks.md path
+   - Finds tasks.md - from check-prerequisites or default specs/*/tasks.md - the script should accept path to tasks.md or scan FEATURE_DIR from env
+
+   Simpler approach:
+   - First arg: task id `T014`
+   - Optional second: path to tasks.md (default: find under specs/)
+
+   Actually the script should:
+   - `git rev-parse` in repo root
+   - Require clean working tree OR allow with --allow-dirty flag
+   - `git fetch origin` (if origin exists)
+   - Detect default branch: main or master
+   - `git checkout main` (or MAIN_BRANCH env)
+   - `git pull origin main` (or merge)
+   - Parse tasks.md for line containing `- [ ] T014` or `- [X] T014` - extract description after task id for slug
+   - Task line format: `- [ ] T014 [Shared] Add API route scaffolding...`
+   - Slug: take text after `] ` following the second `]` - actually pattern: `T014 [Shared] Description` - we need slug from description: "Add API route scaffolding for ..." -> slugify to `api-route-scaffolding` or take first few words
+
+   Simpler slug: use `grep` for the line, sed to get description, tr to lowercase, sed to replace non-alnum with hyphen
+
+   Branch name: `T014-api-route-scaffolding` - limit length to 60 chars or so
+
+   If branch exists: checkout existing or error with message
+
+   Implementation:
+   ```bash
+   #!/usr/bin/env bash
+   set -euo pipefail
+   SCRIPT_DIR="$(CDPATH="" cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+   source "$SCRIPT_DIR/common.sh"  # for get_repo_root
+   
+   TASK_ID="${1:-}"
+   if [[ ! "$TASK_ID" =~ ^T[0-9]+[a-z]?$ ]]; then
+     echo "Usage: $0 T014 [path/to/tasks.md]" >&2
+     exit 1
+   fi
+   
+   TASKS_FILE="${2:-}"
+   REPO_ROOT=$(get_repo_root)
+   cd "$REPO_ROOT"
+   ```
+
+   Find tasks.md if not provided:
+   ```bash
+   if [[ -z "$TASKS_FILE" ]]; then
+     TASKS_FILE=$(find "$REPO_ROOT/specs" -name tasks.md -type f | head -1)
+   fi
+   ```
+
+   Parse line:
+   ```bash
+   LINE=$(grep -E "^- \[[ xX]\] ${TASK_ID} " "$TASKS_FILE" | head -1 || true)
+   ```
+
+   Extract slug from description - the format is `- [ ] T014 [Shared] Add API route...`
+   I'll use sed: remove prefix up to `] ` after Shared tag - actually the pattern is:
+   `- [ ] T014 [Shared] Add API route scaffolding...`
+   So after TASK_ID we have optional ` [Tag] ` then description.
+   Regex: `^- \[[ xX]\] T[0-9]+[a-z]? ([^]]+) ] (.+)$` - no, simpler:
+   Remove `- [ ] T014 [Shared] ` -> rest is description
+   
+   ```bash
+   DESC=$(echo "$LINE" | sed -E 's/^- \[[ xX]\] T[0-9]+[a-z]? //' | sed -E 's/^(\[[^]]+\] )+//')
+   ```
+   First sed removes task id part, second removes [Shared] style tags repeatedly.
+
+   Slugify:
+   ```bash
+   SLUG=$(echo "$DESC" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g' | sed -E 's/^-|-$//g' | cut -c1-48)
+   ```
+   Empty slug fallback: `task`
+
+   BRANCH="${TASK_ID}-${SLUG}"
+
+   Git operations:
+   - Check dirty: if [[ -n $(git status -s) ]] && [[ "${ALLOW_DIRTY:-}" != "1" ]]; then echo error; exit 1; fi
+   - Or use --allow-dirty flag
+
+   - DEFAULT_BRANCH=main
+   - git show-ref --verify --quiet refs/heads/main || DEFAULT_BRANCH=master
+   - Actually check remote: git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's/.*\///'
+
+   Simpler: try `git checkout main` if fails try `master`
+
+   ```bash
+   sync_main() {
+     git fetch origin 2>/dev/null || true
+     if git show-ref --verify --quiet refs/heads/main; then
+       git checkout main
+     elif git show-ref --verify --quiet refs/heads/master; then
+       git checkout master
+     else
+       echo "No main or master branch" >&2
+       exit 1
+     fi
+     git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" 2>/dev/null || git pull --ff-only
+   }
+   ```
+
+   - If branch exists locally: `git checkout "$BRANCH"` and optionally pull? User might want new branch each time - if branch exists, checkout and exit with message "Already on task branch"
+
+   - If branch exists on remote only: git checkout -b track
+
+   I'll implement:
+   - If current branch already named same as target: skip create, just pull main first? User asked: switch to main, pull, create new branch. So always:
+     1. stash not - user said clean - require clean or --allow-dirty
+     2. checkout main, pull
+     3. if branch exists: `git checkout BRANCH` and merge main? or error? I'll `git checkout -b` only if not exists; if exists checkout and `git merge main` or rebase - simpler: if exists, checkout branch and merge main into it
+
+   User flow: "every time I call implement on a task" - new work on fresh main. So:
+   - If branch `T014-xxx` exists: checkout it and merge origin/main or main (to update) - or delete and recreate? Risky. Safer: checkout main, pull, if branch exists prompt... script can't prompt. Options:
+     - `--force-new` deletes local branch and recreates from main (dangerous)
+     - default: if branch exists, checkout and merge main
+
+   I'll do: if branch exists locally, `git checkout "$BRANCH"` && `git merge --ff-only main` 2>/dev/null || `git merge main` (to integrate main updates). If not exists, `git checkout -b "$BRANCH"`
+
+2. `.specify/extensions.yml` - optional hook for sync-main-only script? Or we skip extensions and rely on implement command step 0.
+
+   I'll add a thin `sync-main.sh` for optional hook that only fetches+checkout main+pull - for users who want mandatory "always update main" without branch.
+
+   Actually user wanted full flow - the implement command update is the main delivery.
+
+3. Update speckit.implement.md - add after "Pre-Execution Checks" or as part of Outline step 0:
+
+   **Task branch (git)** — If `$ARGUMENTS` matches `^T[0-9]+[a-z]?$` (e.g. `T014`, `T006a`) **and** the repository is git, then **before** step 1 (check-prerequisites):
+   - Run from repo root: `.specify/scripts/bash/prepare-task-branch.sh <TASK_ID>` 
+   - Pass optional second arg if FEATURE_DIR/tasks.md is known after check-prerequisites... chicken and egg. Order: run check-prerequisites first to get FEATURE_DIR, then run prepare with tasks path.
+
+   Better order:
+   - Step 0a: If user input matches task id pattern, note TASK_ID
+   - Step 1: check-prerequisites → FEATURE_DIR
+   - Step 0b: If TASK_ID set, run `prepare-task-branch.sh "$TASK_ID" "$FEATURE_DIR/tasks.md"`
+
+   I'll insert this as new outline items 1 and 2, renumber rest... Actually simpler: insert between Pre-Execution and Outline:
+
+   ## Task branch preparation (git, optional but recommended when implementing a single task)
+
+   When user input is a single task id matching `^T[0-9]+[a-z]?$` (e.g. `T014`):
+   1. Run check-prerequisites early OR assume repo root from `git rev-parse --show-toplevel` 
+   
+   The problem is FEATURE_DIR - prepare script can find tasks.md under specs/ if one feature.
+
+   I'll update prepare script to find first tasks.md under specs/ if not passed second arg, or use FEATURE_DIR from env.
+
+   Actually multiple specs could exist - check-prerequisites outputs FEATURE_DIR. So order in implement.md:
+   
+   **New step 1**: Run `check-prerequisites.sh --json ...` first (minimal change: move check-prerequisites before branch prep when task id present)
+
+   Revised flow in speckit.implement:
+   - After hooks, **If** `$ARGUMENTS` matches `^T[0-9]+[a-z]?(\s|$)` extract task id:
+   - **Then** run check-prerequisites to get FEATURE_DIR (or run it as current step 1)
+   - **Then** run `prepare-task-branch.sh TASK_ID "$FEATURE_DIR/tasks.md"`
+
+   So I need to merge: run prerequisites first always, then if task id, run branch script.
+
+   I'll add after "## Outline" as new item 1:
+   1. **Task branch (when implementing a single task)**: If user input (trimmed) matches `^T[0-9]+[a-z]?$`, run from repository root:
+      `.specify/scripts/bash/prepare-task-branch.sh '<TASK_ID>' '<FEATURE_DIR>/tasks.md'`
+      after obtaining `FEATURE_DIR` from the prerequisite script in the same step... 
+
+   Actually prerequisites need to run first to get FEATURE_DIR. So:
+   - Renumber: Step 1 = check-prerequisites (unchanged)
+   - New Step 2 = if task id in args, run prepare-task-branch with FEATURE_DIR/tasks.md
+   - Old 2 becomes 3 (checklists)
+
+   Let me read the implement file again and insert cleanly.
+
+   I'll add subsection under Outline:
+
+   1. Run check-prerequisites... (get FEATURE_DIR)
+   1b. **Git task branch**: If trimmed `$ARGUMENTS` is exactly a task id `T[0-9]+[a-z]?` (e.g. `T014`, `T006a`), run:
+      `bash .specify/scripts/bash/prepare-task-branch.sh '<taskId>' '<FEATURE_DIR>/tasks.md'`
+      from repo root with git_write / network as needed. On failure, report and stop unless user chose to continue.
+
+   For "Phase 1" or full implement without task id - user might say "Phase 2" - don't run branch script.
+
+   Regex: only single token task ids - `T014` yes, `T014 api` no - use first token or full trim match.
+
+4. Add `package.json` script optional: `"task:branch": ".specify/scripts/bash/prepare-task-branch.sh"`
+
+5. chmod +x the script
+
+6. `.specify/extensions.yml` - I'll add optional hook pointing to sync-main only for users who run full implement without task id - actually skip to avoid confusion, OR add comment in yaml.
+
+   User said they want it when calling implement on a task - the command doc update is enough.
+
+Let me implement prepare-task-branch.sh robustly. I'll source common.sh for get_repo_root.
+
+Check has_git in common.sh
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/.specify/scripts/bash/common.sh",
+  "pattern": "^has_git"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/.specify/scripts/bash/common.sh",
+  "pattern": "^has_git",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": ".specify/scripts/bash/common.sh"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Read has_git and ensure script works on macOS bash 3.2 (no ${var^^})
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/common.sh</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The check_feature_branch expects `T013-task-name` pattern - our branch `T014-api-route-scaffolding` matches `^[Tt][0-9]{3}-` - wait the regex is `^[Tt][0-9]{3}-` which requires exactly 3 digits after T. `T014` has 3 digits. Good. `T006a` might not match `^[Tt][0-9]{3}-` because it's T006a not T006- - the pattern is `[Tt][0-9]{3}-` so T006-a would need hyphen after 3 digits. `T014-api` - T + 014 + - matches.
+
+What about `T006a`? Branch would be `T006a-something` - regex `^[Tt][0-9]{3}-` expects T + 3 digits + hyphen. `T006a-slug` fails because after 006 we have `a` not `-`.
+
+I'll use branch format `T014-api-route` - for T006a use `T006a-api` - the check_feature_branch might fail for T006a. Looking at regex: `[[ ! "$branch" =~ ^[Tt][0-9]{3}- ]]` - T006a-slug: T, 006, a - doesn't match ^[Tt][0-9]{3}- because fourth char is `a` not `-`.
+
+So task ids like T006a need branch `T006a-slug` - the validation pattern might need updating. That's a separate issue - for prepare script I'll use full task id including letter suffix: `T006a-description-slug`
+
+Branch: `${TASK_ID}-${SLUG}` → `T006a-api-route` - check: `^[Tt][0-9]{3}-` won't match T006a.
+
+I'll use branch naming: replace task id internal: always `T006a-short-slug` - the constitution check might be wrong for T006a. User's tasks have T006a - I'll use hyphen after full task id: `T006a-add-github-action` - pattern `[Tt][0-9]{3}-` still fails.
+
+Looking at check_feature_branch again - it allows `001-feature` and timestamp and `T013-task`. So T013 must be exactly 3 digits. T006a is 3 digits + letter - not in the list.
+
+I'll not change check_feature_branch in this task - our branch `T014-api-scaffolding` matches T + 014 + -
+
+For T006a-style, branch could be `t006a-short-slug` lowercase - still won't match.
+
+I'll generate branch as `${TASK_ID}-${SLUG}` and if check_feature_branch is used elsewhere it might warn - out of scope.
+
+Implement the script with `set -euo pipefail` - careful with grep failing.
+
+I'll write the full script and test with bash -n.
+
+Also add `.specify/extensions.yml` with optional hook - description: run prepare without args doesn't work. Skip extensions.yml or add sync-only:
+
+```yaml
+hooks:
+  before_implement:
+    - extension: git-sync-main
+      enabled: true
+      optional: true
+      command: bash .specify/scripts/bash/sync-main.sh
+      description: Fetch and fast-forward main before implementing
+      prompt: Run sync-main before implementation?
+```
+
+I'll create minimal `sync-main.sh` that only syncs main (no branch) for optional use.
+
+Actually user said "yes" to full implementation - I'll add:
+1. prepare-task-branch.sh
+2. sync-main.sh (optional, for extensions)
+3. extensions.yml with optional sync-main hook
+4. Update speckit.implement.md
+
+For extensions.yml format - I don't have a schema. I'll use a minimal structure that matches the command doc (extension, enabled, optional, command, description, prompt).
+
+Let me verify YAML structure from speckit.tasks or similar - the grep showed hooks structure. I'll use:
+
+```yaml
+hooks:
+  before_implement:
+    - extension: activiqhq-git-sync
+      enabled: true
+      optional: true
+      command: .specify/scripts/bash/sync-main.sh
+      description: Update local main from origin before implementing
+      prompt: Optionally sync main from origin before starting
+```
+
+The command might need to be run from repo root: `bash .specify/scripts/bash/sync-main.sh`
+
+I'll implement sync-main.sh as subset of prepare (fetch, checkout main, pull).
+
+Let me also add npm script in package.json for convenience:
+`"git:task-branch": "bash .specify/scripts/bash/prepare-task-branch.sh"`
+
+User must pass args: npm run git:task-branch -- T014 path/to/tasks.md
+
+Actually npm passes args after `--`.
+
+I'll implement.
+</details></think>
+
+_**Agent (default)**_
+
+
+Implementing `prepare-task-branch.sh`, `sync-main.sh`, `.specify/extensions.yml`, and updating `speckit.implement.md`.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Fix the DESC stripping - the task line format is:
+`- [ ] T014 [Shared] Add API route...`
+
+After removing `- [ ] ` we need to remove T014. The pattern `${DESC#${TASK_ID} }` - TASK_ID is T014, so we need space after.
+
+Actually first I did:
+DESC="${DESC#*- \[ \] }" - in bash [[:space:]] - the line might use `- [ ]` with single space. Let me use a more portable approach.
+
+Actually the issue is `${DESC#*- \[ \] }` - the # pattern is greedy from start - we need to remove leading `- [ ] ` or `- [x] ` 
+
+Simpler: use sed
+```bash
+LINE="- [ ] T014 [Shared] Add API"
+DESC=$(echo "$LINE" | sed -E 's/^- \[[ xX]\] //' | sed -E "s/^${TASK_ID//\//\\/} //")
+```
+
+For TASK_ID in sed we need escape.
+
+Or use bash:
+```bash
+if [[ "$LINE" =~ ^-\ \[[\ xX]\]\ ${TASK_ID}\ (.*)$ ]]; then
+  REST="${BASH_REMATCH[1]}"
+fi
+```
+
+Actually the line has optional [Shared] before description:
+`- [ ] T014 [Shared] Add API route`
+
+Regex: `^- \[[ xX]\] T[0-9]+[a-z]? (.*)$` 
+Then strip leading `[Tag] ` parts from REST.
+
+Let me simplify the script with sed for robustness:
+
+```bash
+REST=$(echo "$LINE" | sed -E "s/^- \[[ xX]\] ${TASK_ID} //")
+while [[ "$REST" =~ ^\[[^]]+\]\  ]]; do
+  REST="${REST#\[*\] }"  # wrong
+done
+```
+
+Actually strip [Tag]:
+```bash
+REST=$(echo "$LINE" | sed -E "s/^- \[[ xX]\] ${TASK_ID} //")
+while [[ "$REST" == \[*]* ]]; do
+  REST=$(echo "$REST" | sed -E 's/^\[[^]]+\] //')
+done
+```
+
+Let me fix prepare-task-branch.sh - my current DESC logic might be wrong.
+
+Line: `- [X] T014 [Shared] Add API route scaffolding`
+
+Step1: remove `- [ ] ` or `- [x] `
+```bash
+REST="${LINE#*- \[ \] }"
+# doesn't work for [x] - use sed
+REST=$(echo "$LINE" | sed -E 's/^- \[[ xX]\] //')
+# T014 [Shared] Add API...
+REST=$(echo "$REST" | sed -E "s/^${TASK_ID} //")
+# [Shared] Add API...
+while echo "$REST" | grep -q '^\['; do
+  REST=$(echo "$REST" | sed -E 's/^\[[^]]+\] //')
+done
+```
+
+TASK_ID in sed needs escaping for regex special chars - T014 is fine.
+
+Let me replace the DESC block in the script with this cleaner version.
+
+Also fix the while loop for [Tag] - the bash `[[ "$DESC" =~ ^\[[^]]+\]\  ]]` - in bash 3.2 the regex might work.
+
+Actually my DESC stripping used `${DESC#*- \[ \] }` which only matches `- [ ]` with spaces - good.
+
+Then `${DESC#${TASK_ID} }` 
+
+For `- [X] T014 ...` the first removal fails if we only match `- [ ]`. Let me read the file and fix.
+
+Also the while loop: `while [[ "$DESC" =~ ^\[[^]]+\]\  ]]; do DESC="${DESC#\[*\] }"` - the `${DESC#\[*\] }` is wrong - should be `sed` or parameter expansion that removes first `[...] ` 
+
+I'll use:
+```bash
+REST=$(echo "$LINE" | sed -E 's/^- \[[ xX]\] //')
+REST=$(echo "$REST" | sed -E "s/^${TASK_ID} //")
+while [[ "$REST" =~ ^\[[^]]+\]\  ]]; do
+  REST="${REST#*] }"  # wrong - removes from first ] 
+done
+```
+
+Simpler while with sed:
+```bash
+REST=$(echo "$LINE" | sed -E 's/^- \[[ xX]\] //' | sed -E "s/^${TASK_ID} //")
+# Remove [Story] tags
+REST=$(echo "$REST" | sed -E 's/^(\[[^]]+\] )+//')
+```
+
+That removes one or more `[anything] ` prefixes. Good.
+
+```bash
+REST=$(echo "$LINE" | sed -E 's/^- \[[ xX]\] //' | sed -E "s/^${TASK_ID} //" | sed -E 's/^(\[[^]]+\] )+//')
+```
+
+Then SLUG from REST.
+
+Fix prepare-task-branch.sh DESC section.
+
+Fix sync-main.sh: `git checkout "$MAIN"` might fail if local branch doesn't exist but remote does - need `git checkout -B` or `git switch` with track.
+
+```bash
+if git show-ref --verify --quiet refs/heads/"$MAIN"; then
+  git checkout "$MAIN"
+else
+  git checkout -b "$MAIN" "origin/$MAIN"
+fi
+```
+
+Let me update sync-main.sh and prepare-task-branch.sh
+
+For prepare-task-branch.sh checkout main:
+```bash
+if git show-ref --verify --quiet "refs/heads/$MAIN"; then
+  git checkout "$MAIN"
+else
+  git checkout -b "$MAIN" "origin/$MAIN"
+fi
+```
+
+Same for prepare script before merge/pull.
+
+I'll update both scripts.
+
+Also fix the DESC extraction in prepare-task-branch.sh - replace the broken block with sed approach.
+
+chmod +x via run_terminal_cmd
+
+Test grep pattern for task line - tasks use `- [X] T014` with capital X sometimes.
+
+Pattern: `^- \[[ xX]\] ${TASK_ID} `
+
+For T006a: `T006a` in regex - need to escape in grep? TASK_ID is T006a - grep -E "^- \[[ xX]\] T006a " works.
+
+Shellcheck: prepare-task-branch while loop - I'll run shellcheck if available.
+
+Fix `${DESC#\[*\] }` - I removed that in favor of sed.
+
+Double-check sed for REST: `echo "$LINE" | sed -E 's/^- \[[ xX]\] //'` - the character class [ xX] has space - good for `[ ]` `[x]` `[X]`.
+
+Actually `- [ ]` has space between brackets - pattern `- \[[ xX]\]` matches `- [ ` then space? No - `- \[[ xX]\]` matches `- [` then space or x or X then `]`. So `- [ ]` is `[` space `]` - the middle is space. In regex `\[[ xX]\]` matches `[` then space, x, or X, then `]`. Good.
+
+Run bash -n on scripts.
+</details></think>
+
+_**Agent (default)**_
+
+
+Fixing task-line parsing (robust sed), ensuring checkout works when local `main` is missing, and correcting the tag-stripping loop.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Escape TASK_ID in sed - if TASK_ID contains special regex chars - T014 is fine. T006a - the `a` might need care in sed - actually `s/^T006a //` is literal.
+
+For grep -E "${TASK_ID}" - need to escape if contains regex special - T006a is fine.
+
+chmod +x
+
+Create extensions.yml
+
+Update speckit.implement.md - insert task branch step after step 1 (prerequisites) - renumber
+
+I'll read current outline and insert:
+
+After line 49 (step 1), add new content for step 2 task branch, and shift checklist to 3...
+
+Actually the doc says:
+## Outline
+
+1. Run `.specify/scripts/bash/check-prerequisites.sh`...
+
+I'll add as **1b** or integrate:
+
+**1.** Run check-prerequisites...
+**2.** **Task branch (git)** — If trimmed user input matches `^T[0-9]+[a-z]?$` ...
+
+Then old 2 becomes 3, etc. That's a lot of renumbering. Simpler: add subsection under 1:
+
+1. Run check-prerequisites... Parse FEATURE_DIR.
+   - **If** trimmed `$ARGUMENTS` matches a single task id `^T[0-9]+[a-z]?$` (e.g. `T014`, `T006a`), run from repository root:
+     `bash .specify/scripts/bash/prepare-task-branch.sh '<TASK_ID>' '<FEATURE_DIR>/tasks.md'`
+     Request `git_write` and `network` permissions when running. If the script fails (e.g. dirty tree), report the error and stop unless the user confirms to continue without branching.
+   - **If** the user is implementing a phase name (e.g. `Phase 2`) or multiple tasks, skip this branch step.
+
+This keeps numbering.
+
+Write extensions.yml:
+
+```yaml
+# Optional Spekit hooks (see .cursor/commands/speckit.implement.md)
+hooks:
+  before_implement:
+    - extension: sync-main
+      enabled: true
+      optional: true
+      command: bash .specify/scripts/bash/sync-main.sh
+      description: Fast-forward local main from origin before implementing
+      prompt: Run sync-main (git fetch/checkout main/pull) before implementation?
+  after_implement: []
+```
+
+Path: command should work from repo root - the implement command runs from repo root typically.
+
+Add package.json scripts - user asked for automation, npm script helps:
+"git:sync-main": "bash .specify/scripts/bash/sync-main.sh"
+"git:task-branch": "bash .specify/scripts/bash/prepare-task-branch.sh"
+
+Run shell tests
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: chmod +x /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh && bash -n /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh && bash -n /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh</summary>
+
+```bash
+chmod +x /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh && bash -n /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh && bash -n /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/extensions.yml</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I need to renumber the outline in speckit.implement.md - I inserted new step 2 content but the old "2. Check checklists" is still there - I changed it to "2. Check checklists" - but the old 3, 4, etc. need to stay consistent. Let me read the file - I added "**Task branch**" under step 1 as a bullet, then "**2. Check checklists**" - so the numbering might be wrong: we now have two "2." - need to fix.
+
+Looking at my edit:
+- I replaced "## Outline\n\n1. Run..." with "## Outline\n\n1. Run... **Task branch** ...\n\n2. **Check checklists**"
+
+The original had:
+2. Check checklists
+3. Load...
+etc.
+
+So I need to renumber 2->3, 3->4, ... through 10->11 for all subsequent steps. Let me read the file and fix numbering.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Fix internal references "proceed to step 3" - should now be step 4 for load context. Actually:
+- Step 1: prerequisites + optional task branch (sub-bullet)
+- Step 2: checklists - says "proceed to step 3" should be "step 3" for load - wait the numbering is:
+1: prerequisites + task branch
+2: checklists
+3: load context
+
+So "proceed to step 3" in checklist section should become "step 3" - it was correct when step 3 was load - now step 3 is still load. Good.
+
+"Automatically proceed to step 3" - still correct.
+
+Add package.json scripts - user didn't ask for markdown docs - I'll add scripts only.
+
+Typo: Spekit -> Speckit in extensions.yml comment
+
+Dry run prepare script with FEATURE_DIR - need to test locally. Run with ALLOW_DIRTY=1 in sandbox might fail on git.
+
+Test: bash prepare-task-branch.sh T014 /path - without git network - skip
+
+Fix extensions.yml typo: Spekit -> Speckit
+
+Also verify prepare-task-branch when origin/main doesn't exist - user might only have local main. The checkout -b from origin/main fails if no remote - prepare script does git fetch then if no local main but has origin/main - we already handle with checkout -b main origin/main. If no remote at all, git fetch fails silently (|| true), then we need local main - git show-ref refs/heads/main - if exists checkout, else error.
+
+If only local main exists, no origin:
+- git fetch || true
+- MAIN=main from local heads
+- git checkout main works
+- git pull fails - we have `git pull --ff-only "origin" "$MAIN" 2>/dev/null || git pull --ff-only` - might error. Use `if git remote get-url origin` then pull.
+
+prepare script already has:
+```bash
+if git remote get-url origin >/dev/null 2>&1; then
+  git pull --ff-only "origin" "$MAIN" 2>/dev/null || git pull --ff-only
+fi
+```
+
+Good.
+
+When no origin - skip pull - OK.
+
+When local main missing, origin/main exists - checkout -b main origin/main - good.
+
+Add package.json scripts.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/extensions.yml</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Add scripts:
+"git:sync-main": "bash .specify/scripts/bash/sync-main.sh",
+"git:task-branch": "bash .specify/scripts/bash/prepare-task-branch.sh"
+
+Run npm run git:sync-main in sandbox - might fail without git remote - that's ok
+
+Verify grep for task line - tasks use `- [X]` with capital X - our pattern `[ xX]` - need to add capital X for the middle character? `- [X]` has X between brackets - pattern `- \[[ xX]\]` matches `[` then space, x, or X, then `]`. So `[X]` - the middle is X - matched. Good.
+
+`- [ ]` - middle is space - matched.
+
+Test with a quick echo line
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run prepare script in repo with ALLOW_DIRTY=1 - user might have dirty tree - test with dry run
+
+Actually run: cd repo && ALLOW_DIRTY=1 bash .specify/scripts/bash/prepare-task-branch.sh T015 /Users/.../tasks.md
+
+T015 might not exist in tasks - let me check tasks.md for a task
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "^- \\[[ xX]\\] T0"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "^- \\[[ xX]\\] T0",
+  "topFiles": [
+    {
+      "matchCount": 5,
+      "uri": "specs/001-kids-activities-platform/tasks.md"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 49
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Test REST extraction with bash - run a one-liner
+
+Actually test prepare with T001 - would try to create branch - destructive. Use dry run... script doesn't have dry run.
+
+I'll run with T999 fake - should fail on grep
+
+Test sed extraction:
+LINE='- [X] T014 [Shared] Add API route scaffolding'
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: LINE='- [X] T014 [Shared] Add API route scaffolding for `/api/organizations` and `/api/o/[orgSlug]/*` in `app/api/`'; TASK_ID=T014; REST="$(echo "$LINE" | sed -E 's/^- \[[ xX]\] //' | sed -E "s/^${TASK_ID} //" | sed -E 's/^(\[[^]]+\] )+//')"; echo "$REST"</summary>
+
+```bash
+LINE='- [X] T014 [Shared] Add API route scaffolding for `/api/organizations` and `/api/o/[orgSlug]/*` in `app/api/`'; TASK_ID=T014; REST="$(echo "$LINE" | sed -E 's/^- \[[ xX]\] //' | sed -E "s/^${TASK_ID} //" | sed -E 's/^(\[[^]]+\] )+//')"; echo "$REST"
+```
+
+```
+Add API route scaffolding for &#96;/api/organizations&#96; and &#96;/api/o/[orgSlug]/*&#96; in &#96;app/api/&#96;
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Slug will include backticks - tr/sed will strip to hyphens - good.
+
+The user rules said don't edit markdown unless asked - we edited speckit.implement.md as part of the request.
+
+Provide summary for user.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here is what was added and how to use it.
+
+### 1. `.specify/scripts/bash/prepare-task-branch.sh`
+- Requires a **clean** working tree (override with `ALLOW_DIRTY=1`).
+- **`T014` + optional path to `tasks.md`** (if omitted, uses the first `specs/**/tasks.md`).
+- Finds the task line, builds a **slug** from the description, then:
+  - `fetch` → checkout **`main`** or **`master`** (creates local from `origin/…` if needed) → **pull** when `origin` exists.
+  - Creates **`T014-<slug>`** or, if that branch already exists, checks it out and **merges** `main`.
+
+### 2. `.specify/scripts/bash/sync-main.sh`
+- Only **syncs** `main`/`master` (used by the optional hook).
+
+### 3. `.specify/extensions.yml`
+- **`before_implement`**: optional **`sync-main`** hook so the agent can offer “update main before implementing” when following `/speckit.implement`.
+
+### 4. `.cursor/commands/speckit.implement.md`
+- Under **Outline → step 1**, after prerequisites: when the user input is **only** a task id like `T014` or `T006a`, the agent should run:
+
+`bash .specify/scripts/bash/prepare-task-branch.sh '<TASK_ID>' '<FEATURE_DIR>/tasks.md'`
+
+(with **git_write** + **network**), and **skip** that for phases or multi-task runs.
+
+### 5. `package.json` scripts
+- `npm run git:sync-main`
+- `npm run git:task-branch -- T014 specs/001-kids-activities-platform/tasks.md`
+
+Scripts are **executable**; `bash -n` passes.
+
+**Note:** `/speckit.implement` is still driven by the Cursor command text—the agent must follow the new step. The **optional** `sync-main` hook does **not** create a task branch by itself; branching is **`prepare-task-branch.sh`** when the input is a single task id.

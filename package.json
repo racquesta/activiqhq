@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "git:sync-main": "bash .specify/scripts/bash/sync-main.sh",
+    "git:task-branch": "bash .specify/scripts/bash/prepare-task-branch.sh",
     "db:start": "npx supabase start",
     "db:stop": "npx supabase stop",
     "db:status": "npx supabase status",

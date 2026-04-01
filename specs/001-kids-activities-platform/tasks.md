@@ -44,7 +44,7 @@
 - [X] T012 [Shared] Implement reusable org context loader in `lib/auth/org-context.ts`
 - [X] T013 [Shared] Add shared validation schemas for org/member/child/enrollment payloads in `lib/validations/`
 - [X] T014 [Shared] Add API route scaffolding for `/api/organizations` and `/api/o/[orgSlug]/*` in `app/api/`
-- [ ] T015 [Shared] Add base error response helpers in `lib/api/errors.ts`
+- [X] T015 [Shared] Add base error response helpers in `lib/api/errors.ts`
 
 **Checkpoint**: Foundation ready; user stories can proceed independently.
 
