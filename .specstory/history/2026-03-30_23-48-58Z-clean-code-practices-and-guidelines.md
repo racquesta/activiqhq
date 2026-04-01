@@ -24847,8 +24847,22 @@ add more comments in the code for @lib/supabase/middleware.ts
 
 _**Agent (default)**_
 
+<think><details><summary>Thought Process</summary>
+
+The user wants more inline comments in lib/supabase/middleware.ts. Let me read the current file and add detailed comments explaining each section for developers new to Next/Supabase.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
 
 </details>
 </tool-use>
@@ -24857,3 +24871,435 @@ _**Agent (default)**_
 <summary>Tool use: **read_file_v2**</summary>
 
 </details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll add inline comments throughout the function body explaining:
+- env fallback
+- why we clone NextResponse
+- getAll vs setAll
+- why request.cookies.set then supabaseResponse.cookies.set
+- why getUser() triggers refresh
+- pass through { request } for Next 15+ request header preservation
+
+Keep comments educational but not redundant with the big block - I can shorten the top block slightly or leave it and add code comments.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Read lints
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Done. Summarize for user.
+</details></think>
+
+_**Agent (default)**_
+
+
+Updates are in `lib/supabase/middleware.ts`:
+
+- **Env vars** — Clarified they’re the same public keys as the browser client and why missing config skips Supabase.
+- **`supabaseResponse` + `NextResponse.next({ request })`** — Why the response object exists, that it can be replaced when cookies change, and why `{ request }` is passed through.
+- **`getAll`** — Session cookies are read from the incoming request.
+- **`setAll`** — Why middleware must write cookies on the response; what the `request.cookies.set` loop is for; why the response is recreated; what `options` on `cookies.set` is for.
+- **`getUser()`** — Validates/refreshes the session and may trigger `setAll`; you don’t have to use the returned user in middleware.
+
+Lint is clean.
+
+---
+
+_**User**_
+
+/speckit.implement T010
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants me to implement T010: authenticated user guard in lib/auth/require-user.ts. Let me check if that file exists and what the project expects.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T010"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T010",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "specs/001-kids-activities-platform/tasks.md"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+No lib/auth yet. I need to create lib/auth/require-user.ts that:
+- Uses createClient from lib/supabase/server
+- Provides requireUser() or similar that returns user or redirects/throws
+
+Common patterns in Next.js App Router:
+1. `requireUser()` async function that gets user via supabase.auth.getUser() and redirects to login if not authenticated, or returns { user, supabase }
+2. Or throw/return null and let caller handle
+
+I'll read lib/supabase/server.ts to import correctly.
+
+Also consider:
+- `getUser()` vs `getSession()` - Supabase recommends getUser() for server as it validates JWT
+- redirect from next/navigation for Server Components
+- For Route Handlers, might need a variant that returns Response 401
+
+I'll implement:
+- `requireUser()` - returns authenticated user or calls redirect() to a sign-in path
+- Maybe `getOptionalUser()` for pages that work for both - task says "guard" so focus on require
+
+I need a login URL - might be `/login` or env - I'll use something sensible like `/login` or check if app has routes.
+
+Glob app for login
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **3** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/app** (3 files)
+
+| File |
+|------|
+| `layout.tsx` |
+| `globals.css` |
+| `page.tsx` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+No login page yet. I'll use a constant or env NEXT_PUBLIC_LOGIN_PATH default `/login` and document it. redirect(`/login?redirectTo=...`) optional.
+
+Implementation:
+
+```ts
+import "server-only";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+import type { User } from "@supabase/supabase-js";
+
+export async function requireUser(options?: { redirectTo?: string }): Promise<{ user: User; supabase: ... }> {
+  const supabase = await createClient();
+  const { data: { user }, error } = await supabase.auth.getUser();
+  if (error || !user) {
+    const path = options?.redirectTo ?? "/login";
+    redirect(path);
+  }
+  return { user, supabase };
+}
+```
+
+Export SupabaseClient type from supabase-js for return type - or use Awaited<ReturnType<typeof createClient>>.
+
+Also add `getUser()` helper that returns user | null without redirect for optional auth pages - the task says "guard" singular so requireUser is the main deliverable. I could add requireUserForApi that throws or returns NextResponse - for minimal scope just requireUser.
+
+Let me also add a brief comment block for junior devs like we did for supabase.
+
+Mark T010 complete in tasks.md.
+
+Use redirect with searchParams for return URL - optional enhancement:
+`redirect(`/login?next=${encodeURIComponent(pathname)}`)` - requires headers() for pathname - can use headers().get('x-pathname') if middleware sets it - overkill for T010. Keep simple redirect to /login.
+
+I'll add optional `redirectTo` param default process.env or /login.
+
+Actually use:
+```
+const loginPath = process.env.NEXT_PUBLIC_LOGIN_PATH ?? "/login";
+```
+
+Or just "/login" in code.
+
+Read lints after.
+</details></think>
+
+_**Agent (default)**_
+
+
+Implementing `lib/auth/require-user.ts` using the server Supabase client and Next.js `redirect`, then marking T010 complete.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/auth/require-user.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Adding NEXT_PUBLIC_LOGIN_PATH to .env.local.example would be nice for discoverability - user didn't ask but task is small. I'll add one line to .env.local.example - actually user rule says don't edit unless needed. Optional env is documented in comment. Skip .env change or add brief line - I'll add to .env.local.example as it's practical for T010.
+
+Actually the instruction was only T010 - minimal change. I'll skip .env unless we have .env.local.example with other NEXT_PUBLIC - read it
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.env.local.example</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/lib/auth/require-user.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/auth/require-user.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll add optional NEXT_PUBLIC_LOGIN_PATH to .env.local.example - small and aligns with require-user - user might appreciate it. Actually user said "only modify code required by the task" - T010 is the auth guard; env example is ancillary. I'll add one commented line - it's a one-liner documentation.
+
+StrReplace tasks.md T010 to [X]
+
+Run tsc - optional. Linter passed.
+
+Improve requireUserOrThrow - attaching status to Error is a bit odd. Alternative: export a small class or use Response in route handlers only. For API routes, typical pattern is:
+
+```ts
+return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+```
+
+So requireUserOrThrow could be used like:
+```ts
+try {
+  const { user, supabase } = await requireUserOrThrow();
+} catch (e) {
+  if (e instanceof Error && 'status' in e && e.status === 401) {
+    return NextResponse.json(..., { status: 401 });
+  }
+}
+```
+
+That's awkward. Better: export `UnauthorizedError` class extending Error with statusCode = 401. Or use never and document catch.
+
+I'll use a simple custom error:
+
+```ts
+export class UnauthorizedError extends Error {
+  readonly status = 401;
+  constructor(message = "Unauthorized") {
+    super(message);
+    this.name = "UnauthorizedError";
+  }
+}
+```
+
+Then throw new UnauthorizedError() and route handlers check instanceof UnauthorizedError.
+
+Cleaner.
+</details></think>
