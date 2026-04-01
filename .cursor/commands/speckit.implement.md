@@ -48,6 +48,14 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 1. Run `.specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks` from repo root and parse FEATURE_DIR and AVAILABLE_DOCS list. All paths must be absolute. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
 
+   **Task branch (git, recommended for a single task id)** — After you know `FEATURE_DIR`, if trimmed user input is *only* a task id matching `^T[0-9]+[a-z]?$` (examples: `T014`, `T006a`), run from the repository root:
+
+   ```bash
+   bash .specify/scripts/bash/prepare-task-branch.sh '<TASK_ID>' '<FEATURE_DIR>/tasks.md'
+   ```
+
+   Use **git_write** and **network** permissions when executing this command. The script updates `main` from `origin`, then creates `TASK_ID-<slug-from-task-line>` or checks it out and merges `main` if it already exists. If it fails (for example dirty working tree), report the error and **stop** unless the user explicitly asks to continue without branching. Skip this step when the user is implementing a phase (e.g. `Phase 2`), multiple tasks, or full `tasks.md` without a single task id.
+
 2. **Check checklists status** (if FEATURE_DIR/checklists/ exists):
    - Scan all checklist files in the checklists/ directory
    - For each checklist, count:

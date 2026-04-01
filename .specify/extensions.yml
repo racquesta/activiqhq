@@ -1,0 +1,13 @@
+# Speckit extension hooks (see `.cursor/commands/speckit.implement.md` and related commands).
+# Agents read this file and may run optional hooks or mandatory hooks per command instructions.
+
+hooks:
+  before_implement:
+    - extension: sync-main
+      enabled: true
+      optional: true
+      command: bash .specify/scripts/bash/sync-main.sh
+      description: Fast-forward local main from origin before implementing
+      prompt: Run sync-main (git fetch, checkout main, pull) before implementation?
+
+  after_implement: []
