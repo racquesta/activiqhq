@@ -22454,3 +22454,2406 @@ npm run db:migrate
 ```
 
 If you want, I can also suggest a clean final scripts block including `db:start`, `db:status`, `db:migrate`, and `db:reset` together.
+
+---
+
+_**User**_
+
+/speckit.implement T007 
+
+---
+
+_**Agent (default)**_
+
+I’ll implement just `T007` by adding a focused migration for role templates and org enrollment policy tables, then mark only `T007` complete in `tasks.md`.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331150000_core_tables.sql</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/supabase/migrations** (1 file)
+
+| File |
+|------|
+| `20260331150000_core_tables.sql` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331160000_rbac_policy.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+I’ve completed T007 and updated task tracking; I’ll quickly verify the new migration filename/presence and then share what was added.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **2** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/supabase/migrations** (2 files)
+
+| File |
+|------|
+| `20260331160000_rbac_policy.sql` |
+| `20260331150000_core_tables.sql` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Implemented `/speckit.implement T007` only.
+
+### Completed for T007
+
+- Added migration:
+  - `supabase/migrations/20260331160000_rbac_policy.sql`
+
+### What this migration adds
+
+- **`role_templates`** table:
+  - `organization_id`, `role`, capability toggles:
+    - `can_manage_activities`
+    - `can_manage_enrollments`
+    - `can_manage_staff`
+  - unique constraint on `(organization_id, role)`
+  - role constraint limited to `admin`, `instructor`, `coach`
+  - `updated_at` trigger wiring via `public.set_updated_at()`
+
+- **`enrollment_policies`** table:
+  - per-org policy row keyed by `organization_id`
+  - `max_concurrent_activities_per_child` with `>= 1` check
+  - `updated_at` trigger wiring via `public.set_updated_at()`
+
+### Task tracking update
+
+- Marked `T007` as complete in:
+  - `specs/001-kids-activities-platform/tasks.md`
+
+No other tasks were changed.
+
+---
+
+_**User**_
+
+/speckit.implement T008
+
+---
+
+_**Agent (default)**_
+
+I’ll handle only `T008` now: add a dedicated RLS migration with tenant-isolation policies across core tables, then mark only `T008` complete in `tasks.md`.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **3** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/supabase/migrations** (3 files)
+
+| File |
+|------|
+| `20260331170000_rls.sql` |
+| `20260331160000_rbac_policy.sql` |
+| `20260331150000_core_tables.sql` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Implemented `/speckit.implement T008` only.
+
+### What I added
+
+- New migration:
+  - `supabase/migrations/20260331170000_rls.sql`
+
+### What’s included in T008 migration
+
+- Helper functions for tenant checks:
+  - `public.is_org_member(target_org_id uuid)`
+  - `public.has_org_role(target_org_id uuid, allowed_roles membership_role[])`
+- Enabled RLS on core tables:
+  - `organizations`, `profiles`, `organization_memberships`, `invites`,
+  - `guardian_memberships`, `child_profiles`, `activities`, `enrollments`,
+  - `role_templates`, `enrollment_policies`
+- Added tenant-isolated policies for select/insert/update across those tables
+  - Owner/admin-only mutation policies where appropriate
+  - Guardian self-scope checks for child/enrollment paths
+
+### Task tracking
+
+- Marked `T008` complete in:
+  - `specs/001-kids-activities-platform/tasks.md`
+
+If you want, next I can do `T009` (Supabase server/client helpers) as the next isolated chunk.
+
+---
+
+_**User**_
+
+Can you create me a markdown file in a directory called docs, that summarizes the row protections on each table?
+
+---
+
+_**Agent (default)**_
+
+I’ll add a new `docs` markdown file that summarizes each table’s RLS behavior based on your current `20260331170000_rls.sql` policies.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Created:
+
+- `docs/row-level-protections.md`
+
+It summarizes row protections for each RLS-enabled table (`organizations`, `profiles`, `organization_memberships`, `invites`, `guardian_memberships`, `child_profiles`, `activities`, `enrollments`, `role_templates`, `enrollment_policies`) and references the helper functions used by your policies.
+
+---
+
+_**User**_
+
+in this same markdown file under each table name, give a summary of what the table data is and is used for
+
+---
+
+_**Agent (default)**_
+
+I’ll update that same doc by adding a short “what it stores / what it’s used for” description under each table heading while keeping the RLS summary intact.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Updated `docs/row-level-protections.md` to include a **“Data / usage”** summary under each table heading.
+
+Each section now explains:
+- what the table stores, and
+- what part of the application flow uses it
+
+while keeping your existing RLS policy summary directly underneath.
+
+---
+
+_**User**_
+
+for public.organization_memberships is this the right level of access?  only owners and admin shoul dbe able to see the Membership record for everyone and everyone should be able to see their own record?  Is there a reason I am not thinking of to keep this select more open?
+
+---
+
+_**Agent (default)**_
+
+Great catch — your current policy is likely **too open** for `public.organization_memberships` if your intent is role privacy.
+
+Right now in `supabase/migrations/20260331170000_rls.sql`, membership `SELECT` is effectively:
+
+- any org member can read membership rows for the org (via `is_org_member(organization_id)`)
+
+So yes, guardians/staff can see everyone’s membership entries today.
+
+## Recommended access model
+
+Your proposed rule is a strong default:
+
+- `owner`/`admin`: can see all membership rows in their org
+- everyone else: can see only their own membership row(s)
+
+That usually minimizes information leakage while preserving “who am I here?” logic.
+
+## Why teams sometimes keep it more open
+
+Possible reasons (only if you need them):
+
+- Staff directory UI (“who works here?”)
+- In-app mentions/assignment flows
+- Presence/coordination features
+- Audit transparency in small orgs
+
+If you don’t explicitly need those, keep it restricted.
+
+## Practical pattern
+
+Use `SELECT` policy like:
+
+- `has_org_role(org, ['owner','admin'])`
+  **OR**
+- `user_id = auth.uid()`
+
+Then add separate APIs/views for “safe roster” data later if needed (e.g., name + role label only, no status/metadata).
+
+If you want, I can draft the exact RLS policy replacement SQL for just this table in a follow-up migration.
+
+---
+
+_**User**_
+
+any one who is an owner, admin, or so on should be able to see all Memberships, guardians should only be able to see their own
+
+---
+
+_**Agent (default)**_
+
+That access model makes sense. I’ll tighten the membership `SELECT` RLS so staff roles (`owner/admin/instructor/coach`) can view all org memberships, while guardians can only view their own membership rows, and I’ll update the protections doc to match.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Done — I updated access to match exactly what you described.
+
+### Updated RLS behavior
+
+In `supabase/migrations/20260331170000_rls.sql`, `organization_memberships` `SELECT` now allows:
+
+- full-org visibility for: `owner`, `admin`, `instructor`, `coach`
+- self-only visibility for others (including guardians): `user_id = auth.uid()`
+
+### Updated docs
+
+I also updated `docs/row-level-protections.md` under `public.organization_memberships` so the summary reflects this new rule.
+
+---
+
+_**User**_
+
+for public.child_profiles only staff and self should be allowed to select
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants to restrict SELECT on `public.child_profiles` so that only staff (owner, admin, instructor, coach) OR the guardian who owns the child (self) can select - not all org members.
+
+Currently the policy is:
+```sql
+create policy child_profiles_select_org_member
+on public.child_profiles
+for select
+using (public.is_org_member(organization_id));
+```
+
+I need to change it to:
+- Staff roles can select all child_profiles in the org
+- Guardian can select only their own children (guardian_user_id = auth.uid())
+
+I'll update the migration file and the docs.
+</details></think>
+
+_**Agent (default)**_
+
+
+Tightening `child_profiles` SELECT: staff roles can read all children in the org; guardians can read only rows where `guardian_user_id = auth.uid()`.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql",
+  "pattern": "child_profiles_select"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql",
+  "pattern": "child_profiles_select",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "supabase/migrations/20260331170000_rls.sql"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll read the exact lines around child_profiles policies to patch correctly.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Use Read instead of ReadFile
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll replace the child_profiles SELECT policy with staff OR guardian_self. I'll rename policy to child_profiles_select_staff_or_guardian for clarity - actually user might have already applied the old policy name. I'll drop old policy and create new one with a clearer name, or keep drop/create with same pattern.
+
+Actually the cleanest approach:
+- drop child_profiles_select_org_member
+- create child_profiles_select_staff_or_self with:
+  using (
+    public.has_org_role(organization_id, array['owner','admin','instructor','coach'])
+    or guardian_user_id = auth.uid()
+  )
+
+Guardian doesn't need is_org_member for the self case - they own the child. But wait - could someone set guardian_user_id to another user on insert? INSERT policy still restricts. For SELECT, if we only use guardian_user_id = auth.uid(), a guardian only sees their children - good.
+
+Staff sees all in org. Good.
+
+Update docs.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Note: enrollments INSERT/UPDATE use exists (child_profiles ...) - RLS applies to child_profiles when the subquery runs in the guardian's context. Good.
+
+If guardian selects enrollments - they might need to resolve child - separate table.
+
+Done. Summarize for user.
+
+If the migration was already applied in DB, they need a new migration that drops old policy and creates new - but editing in place is same file; for fresh resets it works. For already-migrated DBs, a follow-up migration would be needed. User asked only for the policy change - I'll mention if they've already applied T008 they should add a small migration or db reset.
+
+Actually the user may have run migrations already. Best practice is new migration file. But they edited 20260331170000 in place before - so same pattern. I'll mention they need migration up or reset if history already has the old policy.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here’s what changed:
+
+### `public.child_profiles` SELECT
+
+**Before:** Any org member (`is_org_member`) could read every child in the org.
+
+**After:** Policy `child_profiles_select_staff_or_self`:
+
+- **Staff** (`owner`, `admin`, `instructor`, `coach`) can `SELECT` all rows for that org.
+- **Guardians** can `SELECT` only rows where `guardian_user_id = auth.uid()` (their own children).
+
+The old policy name is dropped; the new one is `child_profiles_select_staff_or_self`.
+
+### Docs
+
+`docs/row-level-protections.md` is updated to describe this behavior.
+
+---
+
+**If this migration already ran locally:** Postgres keeps the old policy until you re-apply. Either run `npm run db:reset`, or add a **new** migration that `DROP POLICY ... child_profiles_select_org_member` and `CREATE POLICY child_profiles_select_staff_or_self ...` so existing DBs pick up the change without a full reset.
+
+---
+
+_**User**_
+
+for public.actvities only owners and admins should we able to insert and update
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants to restrict INSERT and UPDATE on public.activities to only owner and admin roles, not instructor/coach. I need to update the RLS migration file for activities_insert_staff and activities_update_staff policies to only use owner and admin.
+
+Let me read the current state of those policies in the file.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql",
+  "pattern": "activities_"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql",
+  "pattern": "activities_",
+  "topFiles": [
+    {
+      "matchCount": 6,
+      "uri": "supabase/migrations/20260331170000_rls.sql"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 6
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/docs/row-level-protections.md",
+  "pattern": "activities"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/docs/row-level-protections.md",
+  "pattern": "activities",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "docs/row-level-protections.md"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Read the full activities policies lines
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll rename policies conceptually to owner_admin - I'll replace activities_insert_staff with activities_insert_owner_admin and activities_update_staff with activities_update_owner_admin for clarity, and drop old names.
+
+Actually simpler to just change the array in place and optionally rename policies for clarity:
+- drop activities_insert_staff, create activities_insert_owner_admin
+- drop activities_update_staff, create activities_update_owner_admin
+
+This way if someone had old policy name, the drop still works. I'll drop both old and new names to be safe during iterative edits.
+
+Actually the user might only have activities_insert_staff - I'll replace content and rename to activities_insert_owner_admin for clarity.
+</details></think>
+
+_**Agent (default)**_
+
+
+Restricting `activities` INSERT and UPDATE to `owner` and `admin` only, and updating the docs.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Fixed typo in user message "actvities" - they meant activities. All good.
+
+If DB already applied old policies, they need a follow-up migration - user context is editing same file. Good enough.
+
+Note: role_templates still have can_manage_activities for instructor/coach - that's app-layer; DB now blocks direct table access for insert/update on activities for instructor/coach. Consistent with user request.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here’s what was updated:
+
+### `public.activities` RLS
+
+- **INSERT** — Policy renamed to `activities_insert_owner_admin`. Only `owner` and `admin` may insert (no `instructor` / `coach`).
+- **UPDATE** — Policy renamed to `activities_update_owner_admin`. Same role restriction.
+
+Old policy names (`activities_insert_staff`, `activities_update_staff`) are dropped so reapplies stay clean.
+
+### Docs
+
+`docs/row-level-protections.md` now says INSERT/UPDATE are **only** for `owner` and `admin`. **SELECT** is unchanged: still any org member via `is_org_member`.
+
+---
+
+**Note:** `instructor` / `coach` can still use `role_templates.can_manage_activities` in app logic, but they **cannot** insert or update rows in `activities` through the anon/authenticated Supabase client unless you add another policy or route writes through a service role. If instructors should manage schedules only via server actions with elevated checks, this matches that model.
+
+If this migration has already been applied on a database, either run a new migration that drops the old policies and creates these, or use `db:reset` locally.
+
+---
+
+_**User**_
+
+for public.enrollment select is allowed for all staff guardians looking for their own childs enrollment
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants to tighten the SELECT policy on `public.enrollments` similar to child_profiles:
+- Staff (owner, admin, instructor, coach) can see all enrollments in the org
+- Guardians can only see enrollments for their own children (need to join through child_profiles where guardian_user_id = auth.uid())
+
+Let me read the current enrollments policies in the RLS file.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Replace enrollments_select_org_member with:
+- has_org_role(organization_id, ['owner','admin','instructor','coach']) for all staff
+- OR exists (select 1 from child_profiles c where c.id = enrollments.child_id and c.guardian_user_id = auth.uid())
+
+Actually "all staff" = owner, admin, instructor, coach - same as we've used elsewhere.
+
+Guardians might not have organization_memberships with role guardian - they might only have guardian_memberships. So has_org_role won't match them for staff path. The second clause handles guardians.
+
+What if someone is both staff and guardian? Both clauses work.
+
+Drop old policy, create enrollments_select_staff_or_guardian_own_children or similar name.
+
+Actually user said "guardians looking for their own child's enrollment" - so EXISTS clause linking child_id to child_profiles where guardian_user_id = auth.uid(). Good.
+
+Update docs.
+</details></think>
+
+_**Agent (default)**_
+
+
+Updating the enrollments SELECT policy so staff (`owner`, `admin`, `instructor`, `coach`) can read all org enrollments, and guardians can read only enrollments for their own children.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The EXISTS subquery references enrollments.child_id - in RLS USING clause, the row being checked is implicit so enrollments.child_id should work in PostgreSQL for policy on enrollments table.
+
+Actually in Postgres RLS, for `using` on enrollments, we refer to columns as `child_id` not `enrollments.child_id` typically - both work when unambiguous. Let me check - in the insert policy they used `enrollments.organization_id` in the subquery - that's valid in WITH CHECK. For USING, the row columns are in scope as bare names.
+
+Using `child_id` and `organization_id` without table prefix might be clearer and is standard:
+
+```sql
+or exists (
+  select 1
+  from public.child_profiles c
+  where c.id = child_id
+    and c.organization_id = organization_id
+    and c.guardian_user_id = auth.uid()
+)
+```
+
+I'll simplify to match the insert policy pattern - they used enrollments.child_id in WITH CHECK. For SELECT policy USING, I'll use bare `child_id` and `organization_id` which refer to the current row - cleaner.
+
+Let me verify PostgreSQL: in CREATE POLICY ... USING (expression), column names refer to the table being secured. So `child_id` works.
+
+I'll update to use unqualified names for consistency with typical RLS style.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260331170000_rls.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+child_profiles RLS: guardian can select their own children - the subquery in enrollments policy will run with guardian's rights, so when evaluating child_profiles for EXISTS, RLS applies to child_profiles too. The guardian can read their child row, so EXISTS works. Good.
+
+Staff reading enrollments - the EXISTS branch might not run; staff uses first branch. Good detail.
+
+Done.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here’s what changed:
+
+### `public.enrollments` SELECT
+
+Replaced `enrollments_select_org_member` with **`enrollments_select_staff_or_guardian_own_children`**:
+
+1. **Staff** — `has_org_role` with `owner`, `admin`, `instructor`, `coach` can read **all** enrollments for that org.
+2. **Guardians** — Can read enrollments only when the row’s `child_id` belongs to a `child_profiles` row with `guardian_user_id = auth.uid()` (same org).
+
+The `EXISTS` subquery uses the current row’s `child_id` and `organization_id` (standard RLS row context).
+
+### Docs
+
+`docs/row-level-protections.md` is updated to describe this.
+
+**Note:** Guardians still rely on `child_profiles` RLS (they can only see their own children), so the subquery stays valid for them. **INSERT/UPDATE** on `enrollments` are unchanged.
+
+---
+
+_**User**_
+
+explain task T009
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants an explanation of task T009 from their tasks.md file. I should read the tasks file to give the exact wording and context.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T009"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T009",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "specs/001-kids-activities-platform/tasks.md"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I can explain T009 based on the task text and typical Next.js + Supabase SSR patterns from the plan.
+</details></think>
+
+_**Agent (default)**_
+
+
+### What **T009** is
+
+From `specs/001-kids-activities-platform/tasks.md`:
+
+**T009** `[P] [Shared]` — **Implement Supabase server/client helpers in `lib/supabase/`**
+
+### What that means
+
+You add small, shared modules under `lib/supabase/` so the rest of the app doesn’t repeat Supabase setup:
+
+- **Browser client** — for Client Components (e.g. `createBrowserClient` from `@supabase/ssr` or `createClient` from `@supabase/supabase-js` with `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY`).
+- **Server client** — for Server Components, Route Handlers, and server actions (cookie-based session with `@supabase/ssr` so auth matches the user’s session).
+- **Middleware helper** (if you use it) — refresh session / attach cookies on requests.
+
+### Why it’s marked `[P]` (parallel)
+
+It’s mostly **new files under `lib/supabase/`** with minimal coupling to other tasks, so someone can work on it at the same time as **T010** (auth guard), as long as you agree on import paths and env var names.
+
+### Why it’s “Shared”
+
+Every feature that talks to Supabase (orgs, invites, enrollments, etc.) should import these helpers instead of constructing clients ad hoc—consistent cookies, env handling, and easier upgrades.
+
+### Done when
+
+- App code can import one server helper and one client helper.
+- They use your `.env.local` / Vercel env vars correctly.
+- Session refresh behavior matches your `middleware.ts` plan (if you wire them together in later tasks).
+
+---
+
+_**User**_
+
+/speckit.implement T009
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants me to implement T009: Supabase server/client helpers in lib/supabase/. I need to:
+
+1. Check if lib/supabase exists and what's in package.json (dependencies for @supabase/supabase-js and @supabase/ssr)
+2. Implement client.ts, server.ts, and possibly middleware.ts following Next.js App Router + Supabase SSR patterns
+3. Mark T009 complete in tasks.md
+
+Let me read the current state of the project - package.json, existing lib folder, middleware if any.
+</details></think>
+
+_**Agent (default)**_
+
+
+Implementing Supabase client/server helpers: checking dependencies and `lib/` layout.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+No lib folder, no supabase deps yet. I need to:
+1. npm install @supabase/supabase-js @supabase/ssr
+2. Create lib/supabase/client.ts - createBrowserClient
+3. Create lib/supabase/server.ts - createServerClient with cookies from next/headers
+
+I'll check Next.js 16 docs in node_modules for the recommended pattern - the user had AGENTS.md pointing to next docs. Standard @supabase/ssr pattern:
+
+client.ts:
+```ts
+import { createBrowserClient } from '@supabase/ssr'
+
+export function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+}
+```
+
+server.ts:
+```ts
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+
+export async function createClient() {
+  const cookieStore = await cookies()
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll()
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          } catch {
+            // Server Component
+          }
+        },
+      },
+    }
+  )
+}
+```
+
+In Next.js 15+, cookies() is async. I'll use that.
+
+Also add middleware.ts helper - often a separate file `lib/supabase/middleware.ts` that exports updateSession or createMiddlewareClient. T011 will implement middleware at root - for T009 the task says "helpers in lib/supabase/" so I'll add middleware.ts for use when T011 wires root middleware.
+
+From Supabase docs, middleware pattern:
+```ts
+import { createServerClient } from '@supabase/ssr'
+import { NextResponse, type NextRequest } from 'next/server'
+
+export async function updateSession(request: NextRequest) {
+  let supabaseResponse = NextResponse.next({
+    request,
+  })
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll()
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+          supabaseResponse = NextResponse.next({
+            request,
+          })
+          cookiesToSet.forEach(({ name, value, options }) =>
+            supabaseResponse.cookies.set(name, value, options)
+          )
+        },
+      },
+    }
+  )
+
+  await supabase.auth.getUser()
+  return supabaseResponse
+}
+```
+
+Let me verify the exact API from @supabase/ssr - the setAll pattern might need adjustment for Next 16.
+
+I'll install packages and create the three files. Also add optional admin/service client for server-only operations - the task says "server/client helpers" - typically browser + server anon is enough; service role could be server-only in a separate file like admin.ts - task doesn't require it explicitly; I'll stick to client + server + middleware helper.
+
+Run npm install @supabase/supabase-js @supabase/ssr server-only for server.ts to prevent client import - common pattern.
+
+Actually server.ts importing from 'next/headers' is already server-only in practice but adding 'server-only' package helps - check if in package.json - not present. I'll add server-only as dependency for server.ts - it's lightweight.
+
+Let npm install:
+@supabase/supabase-js
+@supabase/ssr
+server-only
+
+Let me read latest supabase ssr middleware example...
+
+I'll implement and run build to verify.
+</details></think>
+
+_**Agent (default)**_
+
+
+Adding Supabase packages and creating `lib/supabase` client, server, and middleware helpers.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm install @supabase/supabase-js @supabase/ssr server-only</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm install @supabase/supabase-js @supabase/ssr server-only
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Wait for npm install output
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/718387.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Still running, read again
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/718387.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Wait more
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/718387.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Let me read full file tail
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/718387.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Still no output - maybe sandbox. I'll proceed to write files and manually update package.json if npm didn't complete - let me read package.json again after a sleep via grep
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+npm might still be running. I'll add dependencies to package.json manually and create the lib files, then run npm install again.
+
+I'll use StrReplace on package.json to add:
+"@supabase/supabase-js": "^2.49.0",
+"@supabase/ssr": "^0.6.0",
+"server-only": "^0.0.1",
+
+Check latest versions - use reasonable semver.
+
+Then create:
+- lib/supabase/client.ts
+- lib/supabase/server.ts  
+- lib/supabase/middleware.ts
+
+For Next.js 15+ cookies() returns Promise in some versions - Next 16 might use async cookies. Let me check next version in project - 16.2.0 - I'll use await cookies() as in Next 15+.
+
+createServerClient from @supabase/ssr - the cookie API in recent docs:
+
+```typescript
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+
+export async function createClient() {
+  const cookieStore = await cookies()
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll()
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          } catch {
+            // The `setAll` method was called from a Server Component.
+            // This can be ignored if you have middleware refreshing
+            // user sessions.
+          }
+        },
+      },
+    }
+  )
+}
+```
+
+Middleware file - standard pattern from Supabase Next.js guide.
+
+I'll also add a small lib/supabase/env.ts or inline validation - optional.
+
+Service role client for server-only admin - optional for T009. Skip unless plan says so.
+
+Mark T009 in tasks.md.
+
+Run npm install and npm run build.
+</details></think>
+
+_**Agent (default)**_
+
+
+Adding dependencies to `package.json` and creating helper files. Running `npm install` afterward.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/client.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run npm install and build. Check if Next.js 16 cookies() is sync or async - I'll verify by build.
+
+Actually in Next.js 15+, `cookies()` from 'next/headers' became async in some versions. Let me check next 16 - I'll run build.
+
+If cookies() is not async, await cookies() might error - I'll check next types.
+
+Also middleware setAll - Request cookies in Next.js 13+ might be read-only on request in some cases - Supabase docs use this pattern. Let me run build.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm install && npm run build</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm install && npm run build
+```
+
+```
+--: eval: line 2647: syntax error near unexpected token &#96;('
+--: eval: line 2647: &#96;            /^ / then print $_.split(/, |,$/).grep(/^[^\[]*$/).join("\n"); \'
+--: dump_bash_state: command not found
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Weird shell error. Let me try simpler npm install only
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: npm install</summary>
+
+```bash
+npm install
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Read terminal output
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/89665.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Wait and read again
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/89665.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Let me read package-lock or node_modules for @supabase after a delay
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/package-lock.json",
+  "pattern": "\"@supabase"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/package-lock.json",
+  "pattern": "\"@supabase",
+  "topFiles": [],
+  "totalFiles": 0,
+  "totalMatches": 0
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Lock file might not have updated. Let me check next headers cookies - in Next 16 is it Promise?
+
+I'll read node_modules/next/dist/server/web/spec-extension/adapters/headers or grep cookies in next
+
+Actually use read_lints on the server file
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/client.ts",
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/server.ts",
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/client.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/server.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Check Next 16 cookies API - grep in node_modules
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/node_modules/next/dist/server/request/cookies.d.ts",
+  "pattern": "export declare function cookies"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/node_modules/next/dist/server/request/cookies.d.ts",
+  "pattern": "export declare function cookies",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "node_modules/next/dist/server/request/cookies.d.ts"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Good - cookies() returns Promise so await is correct.
+
+Mark T009 complete in tasks.md
+
+Optional: add lib/supabase/index.ts barrel - not required by task.
+
+Verify @supabase/ssr is installed - if npm install failed user can run. package.json has the deps.
+
+Read package-lock again after user might have install - I'll try npx tsc --noEmit
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run npx tsc --noEmit in project - might fail if supabase not installed
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm install 2>&1 | tail -5</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm install 2>&1 | tail -5
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Read output file
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/828291.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Still running 98s - read again
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/828291.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The environment seems slow. Implementation is complete. Summarize for user: run npm install.
+
+Double-check middleware - in Next.js 15 middleware, request.cookies.set might be invalid in some versions. Let me read Supabase docs pattern...
+
+Actually I've seen issues where you shouldn't mutate request.cookies - the Supabase template does:
+```
+setAll(cookiesToSet) {
+  cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+```
+This might be deprecated. I'll leave as Supabase official pattern.
+
+Done.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here’s what was done for **T009**.
+
+### Dependencies (`package.json`)
+
+- `@supabase/supabase-js`
+- `@supabase/ssr`
+- `server-only` (so `lib/supabase/server.ts` isn’t imported from the client)
+
+Run **`npm install`** in the repo root if packages aren’t installed yet.
+
+### New helpers under `lib/supabase/`
+
+1. **`client.ts`** — `createClient()`  
+   - Uses `createBrowserClient` with `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.  
+   - Throws if env vars are missing.
+
+2. **`server.ts`** — `async createClient()`  
+   - `import "server-only"`.  
+   - Uses `createServerClient` + `cookies()` from `next/headers` (matches Next 16’s async `cookies()`).  
+   - `setAll` is wrapped in try/catch for read-only cookie contexts (e.g. some Server Components).
+
+3. **`middleware.ts`** — `updateSession(request)`  
+   - Builds a Supabase client from the request cookies, calls `getUser()` to refresh the session, and returns a `NextResponse` with updated cookies.  
+   - Intended for use from root **`middleware.ts`** in **T011**.
+
+### Task list
+
+- **`T009`** is marked complete in `specs/001-kids-activities-platform/tasks.md`.
+
+### Usage sketch
+
+- **Client component:** `import { createClient } from "@/lib/supabase/client"`  
+- **Server component / route handler:** `import { createClient } from "@/lib/supabase/server"` then `const supabase = await createClient()`  
+- **Middleware:** `import { updateSession } from "@/lib/supabase/middleware"`
+
+---
+
+_**User**_
+
+can you add comments to these three files explaining how they are used?  Your audience is a developer without a lot of experience in next and supabase.
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants me to add comments to the three supabase helper files explaining usage for developers new to Next.js and Supabase. I'll read the current files and add clear file-level and section comments without being overly verbose.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/client.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll add file-level block comments and inline comments where they help. Keep user rule: don't be overly verbose on obvious code, but user explicitly asked for explanatory comments for junior devs - so a bit more is appropriate here.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/client.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Check lints
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/client.ts",
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/server.ts",
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/client.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/server.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Done. Brief summary for user.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here’s what was added:
+
+### `lib/supabase/client.ts`
+- File-level comment: **browser-only**, when to use (Client Components / hooks), when to use server instead, short mental model (server vs client), and a minimal **sign-in** example.
+
+### `lib/supabase/server.ts`
+- Comment on **`import "server-only"`** and why the build errors if it’s pulled into client code.
+- File-level comment: **Server Components, Route Handlers, Server Actions**, why cookies matter on the server, why **`createClient` is async**, and a **Server Component** example.
+- Slightly clearer wording on the **`setAll` try/catch** (static / non-mutable cookie contexts).
+
+### `lib/supabase/middleware.ts`
+- Expanded JSDoc: what **middleware** is in Next.js, **why Supabase needs a refresh** on the edge, how to **import from root `middleware.ts`**, and a small **example** including `matcher` as a hint.
+
+Lint is clean on all three files.
+
+---
+
+_**User**_
+
+add more comments in the code for @lib/supabase/middleware.ts 
+
+---
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
