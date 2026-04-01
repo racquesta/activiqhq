@@ -124,9 +124,11 @@ check_feature_branch() {
         return 0
     fi
 
-    if [[ ! "$branch" =~ ^[0-9]{3}- ]] && [[ ! "$branch" =~ ^[0-9]{8}-[0-9]{6}- ]]; then
+    if [[ ! "$branch" =~ ^[0-9]{3}- ]] \
+        && [[ ! "$branch" =~ ^[0-9]{8}-[0-9]{6}- ]] \
+        && [[ ! "$branch" =~ ^[Tt][0-9]{3}- ]]; then
         echo "ERROR: Not on a feature branch. Current branch: $branch" >&2
-        echo "Feature branches should be named like: 001-feature-name or 20260319-143022-feature-name" >&2
+        echo "Feature branches should be named like: 001-feature-name, 20260319-143022-feature-name, or T013-task-name" >&2
         return 1
     fi
 
@@ -148,6 +150,35 @@ find_feature_dir_by_prefix() {
         prefix="${BASH_REMATCH[1]}"
     elif [[ "$branch_name" =~ ^([0-9]{3})- ]]; then
         prefix="${BASH_REMATCH[1]}"
+    elif [[ "$branch_name" =~ ^([Tt][0-9]{3})- ]]; then
+        # Task branch naming (e.g., T013-shared-validation-schemas).
+        # Resolve feature folder by locating the task ID in specs/*/tasks.md.
+        local task_id="${BASH_REMATCH[1]}"
+        task_id="$(printf '%s' "$task_id" | tr '[:lower:]' '[:upper:]')"  # Normalize to uppercase for matching.
+        local task_matches=()
+
+        if [[ -d "$specs_dir" ]]; then
+            local tasks_file
+            for tasks_file in "$specs_dir"/*/tasks.md; do
+                [[ -f "$tasks_file" ]] || continue
+                if grep -Eq "(^|[^A-Za-z0-9_])${task_id}([^A-Za-z0-9_]|$)" "$tasks_file"; then
+                    task_matches+=("$(basename "$(dirname "$tasks_file")")")
+                fi
+            done
+        fi
+
+        if [[ ${#task_matches[@]} -eq 0 ]]; then
+            echo "ERROR: No spec directory contains task '$task_id'" >&2
+            echo "Expected to find '$task_id' in specs/*/tasks.md." >&2
+            return 1
+        elif [[ ${#task_matches[@]} -gt 1 ]]; then
+            echo "ERROR: Multiple spec directories contain task '$task_id': ${task_matches[*]}" >&2
+            echo "Please ensure task IDs are unique across specs." >&2
+            return 1
+        fi
+
+        echo "$specs_dir/${task_matches[0]}"
+        return 0
     else
         # If branch doesn't have a recognized prefix, fall back to exact match
         echo "$specs_dir/$branch_name"

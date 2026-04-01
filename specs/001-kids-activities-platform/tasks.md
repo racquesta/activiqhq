@@ -42,7 +42,7 @@
 - [X] T010 [P] [Shared] Implement authenticated user guard in `lib/auth/require-user.ts`
 - [X] T011 [Shared] Implement org-slug tenant resolver middleware in `middleware.ts`
 - [X] T012 [Shared] Implement reusable org context loader in `lib/auth/org-context.ts`
-- [ ] T013 [Shared] Add shared validation schemas for org/member/child/enrollment payloads in `lib/validations/`
+- [X] T013 [Shared] Add shared validation schemas for org/member/child/enrollment payloads in `lib/validations/`
 - [ ] T014 [Shared] Add API route scaffolding for `/api/organizations` and `/api/o/[orgSlug]/*` in `app/api/`
 - [ ] T015 [Shared] Add base error response helpers in `lib/api/errors.ts`
 

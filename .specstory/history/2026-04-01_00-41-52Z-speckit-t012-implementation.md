@@ -1168,3 +1168,235 @@ Directory: **/Users/ronessaacquesta/activiqhq/supabase/migrations** (3 files)
 <summary>Tool use: **glob_file_search**</summary>
 
 </details></tool-use>
+
+_**Agent (default)**_
+
+I’m applying this as a forward migration (instead of rewriting old migrations): migrate any existing guardian rows into `guardian_memberships`, enforce “staff-only” on `organization_memberships`, and harden `org-context` role classification.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/supabase/migrations/20260401111500_guardian_membership_split.sql</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/auth/org-context.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/docs/row-level-protections.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Failed to find context:
+- **OrganizationMembership**
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/data-model.md",
+  "pattern": "OrganizationMembership|role \\(enum|guardian_memberships"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/data-model.md",
+  "pattern": "OrganizationMembership|role \\(enum|guardian_memberships",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "specs/001-kids-activities-platform/data-model.md"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/data-model.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/data-model.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/lib/auth/org-context.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/auth/org-context.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: git status --short</summary>
+
+```bash
+git status --short
+```
+
+```
+ M .specstory/statistics.json
+ M docs/row-level-protections.md
+ M specs/001-kids-activities-platform/data-model.md
+ M specs/001-kids-activities-platform/tasks.md
+?? .specstory/history/2026-04-01_00-41-52Z-speckit-t012-implementation.md
+?? lib/auth/org-context.ts
+?? supabase/migrations/20260401111500_guardian_membership_split.sql
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+Implemented. Guardians are now modeled as separate org links, and staff membership is enforced as staff-only.
+
+### Changes made
+
+- Added new migration: `supabase/migrations/20260401111500_guardian_membership_split.sql`
+  - Backfills guardian org links from `organization_memberships` into `guardian_memberships`.
+  - Deletes guardian rows from `organization_memberships`.
+  - Adds `organization_memberships_staff_role_only` check constraint:
+    - allowed roles: `owner`, `admin`, `instructor`, `coach`.
+
+- Updated `lib/auth/org-context.ts`
+  - `StaffRole` no longer includes `guardian`.
+  - `isStaff` is now role-based (`owner|admin|instructor|coach`) instead of “row exists”.
+  - This fixes the misclassification you pointed out around the query at `organization_memberships`.
+
+- Updated docs for consistency:
+  - `docs/row-level-protections.md`
+    - `organization_memberships` described as staff-only.
+    - `guardian_memberships` described as source of truth for guardian org access.
+  - `specs/001-kids-activities-platform/data-model.md`
+    - Clarified guardian is not modeled in `organization_memberships` usage.
+
+### What to run
+
+- Apply migration locally:
+  - `npm run db:reset` (or run migration-up flow if you prefer incremental)
+- Then test a guardian-only user in an org route to confirm:
+  - `isStaff === false`
+  - `isGuardian === true`
+
+Note: I left unrelated `.specstory` session artifacts untouched.
