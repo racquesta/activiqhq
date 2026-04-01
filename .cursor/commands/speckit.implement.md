@@ -20,7 +20,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 - For each remaining hook, do **not** attempt to interpret or evaluate hook `condition` expressions:
   - If the hook has no `condition` field, or it is null/empty, treat the hook as executable
   - If the hook defines a non-empty `condition`, skip the hook and leave condition evaluation to the HookExecutor implementation
-- For each executable hook, output the following based on its `optional` flag:
+- For each executable hook, output the following based on its `optional` flag (if `optional` is omitted, treat the hook as **mandatory**):
   - **Optional hook** (`optional: true`):
     ```
     ## Extension Hooks
@@ -32,6 +32,7 @@ You **MUST** consider the user input before proceeding (if not empty).
     Prompt: {prompt}
     To execute: `/{command}`
     ```
+    **You MUST run optional hooks when the user agrees:** After outputting the section above, ask the user using the **prompt** text (yes/no). If they confirm, run `{command}` from the **repository root**, wait for it to finish, then continue. Use **network** and **git_write** permissions when the command needs `git fetch`, `git pull`, or branch updates. If they decline or skip, continue without running the hook. Do not treat optional hooks as “documentation only”—they are real commands that run after confirmation.
   - **Mandatory hook** (`optional: false`):
     ```
     ## Extension Hooks
@@ -42,6 +43,7 @@ You **MUST** consider the user input before proceeding (if not empty).
     
     Wait for the result of the hook command before proceeding to the Outline.
     ```
+    **You MUST run mandatory hooks:** Immediately after outputting the section, run `{command}` from the **repository root**, wait for completion, then proceed to the Outline. Use **network** and **git_write** permissions when needed. Do not skip unless the command fails and the user explicitly tells you to continue without the hook.
 - If no hooks are registered or `.specify/extensions.yml` does not exist, skip silently
 
 ## Outline
@@ -183,7 +185,7 @@ Note: This command assumes a complete task breakdown exists in tasks.md. If task
     - For each remaining hook, do **not** attempt to interpret or evaluate hook `condition` expressions:
       - If the hook has no `condition` field, or it is null/empty, treat the hook as executable
       - If the hook defines a non-empty `condition`, skip the hook and leave condition evaluation to the HookExecutor implementation
-    - For each executable hook, output the following based on its `optional` flag:
+    - For each executable hook, output the following based on its `optional` flag (if `optional` is omitted, treat the hook as **mandatory**):
       - **Optional hook** (`optional: true`):
         ```
         ## Extension Hooks
@@ -195,6 +197,7 @@ Note: This command assumes a complete task breakdown exists in tasks.md. If task
         Prompt: {prompt}
         To execute: `/{command}`
         ```
+        **Run after user confirmation:** Ask using the **prompt**; if the user agrees, run `{command}` from the **repository root**, wait for completion, then finish. Use **network** and **git_write** when needed.
       - **Mandatory hook** (`optional: false`):
         ```
         ## Extension Hooks
@@ -203,4 +206,5 @@ Note: This command assumes a complete task breakdown exists in tasks.md. If task
         Executing: `/{command}`
         EXECUTE_COMMAND: {command}
         ```
+        **Run immediately:** Execute `{command}` from the **repository root**, wait for completion. Use **network** and **git_write** when needed.
     - If no hooks are registered or `.specify/extensions.yml` does not exist, skip silently
