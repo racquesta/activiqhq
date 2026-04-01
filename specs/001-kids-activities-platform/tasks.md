@@ -39,7 +39,7 @@
 - [X] T007 [Shared] Add role template + org policy tables in `supabase/migrations/*_rbac_policy.sql`
 - [X] T008 [Shared] Add RLS policies and tenant isolation rules in `supabase/migrations/*_rls.sql`
 - [X] T009 [P] [Shared] Implement Supabase server/client helpers in `lib/supabase/`
-- [ ] T010 [P] [Shared] Implement authenticated user guard in `lib/auth/require-user.ts`
+- [X] T010 [P] [Shared] Implement authenticated user guard in `lib/auth/require-user.ts`
 - [ ] T011 [Shared] Implement org-slug tenant resolver middleware in `middleware.ts`
 - [ ] T012 [Shared] Implement reusable org context loader in `lib/auth/org-context.ts`
 - [ ] T013 [Shared] Add shared validation schemas for org/member/child/enrollment payloads in `lib/validations/`
