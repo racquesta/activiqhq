@@ -1,0 +1,35 @@
+---
+description: Project Development Guidelines
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# activiqhq Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-03-30
+
+## Active Technologies
+
+- TypeScript 5.x, Node 20+ (align with Vercel defaults) + Next.js 16.2, React 19.2, Tailwind CSS 4, `@supabase/supabase-js`, (001-kids-activities-platform)
+
+## Project Structure
+
+```text
+src/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+TypeScript 5.x, Node 20+ (align with Vercel defaults): Follow standard conventions
+
+## Recent Changes
+
+- 001-kids-activities-platform: Added TypeScript 5.x, Node 20+ (align with Vercel defaults) + Next.js 16.2, React 19.2, Tailwind CSS 4, `@supabase/supabase-js`,
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
