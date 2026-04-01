@@ -28,20 +28,31 @@ import { NextResponse, type NextRequest } from "next/server";
  *
  *   export const config = { matcher: [...] }; // optional: limit which routes run middleware
  */
-export async function updateSession(request: NextRequest) {
+export async function updateSession(
+  request: NextRequest,
+  requestHeaders?: Headers,
+) {
   // Same public vars as the browser client — safe to expose; they only allow anon-key access.
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   // Without config, we cannot build a Supabase client. Pass the request through unchanged.
   if (!url || !anonKey) {
-    return NextResponse.next({ request });
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders ?? request.headers,
+      },
+    });
   }
 
   // We may need to attach Set-Cookie headers to the *outgoing* response. That object starts
   // as a normal "continue" response and gets replaced inside setAll() when cookies update.
   // `{ request }` tells Next to forward the incoming request (important for internal headers).
-  let supabaseResponse = NextResponse.next({ request });
+  let supabaseResponse = NextResponse.next({
+    request: {
+      headers: requestHeaders ?? request.headers,
+    },
+  });
 
   const supabase = createServerClient(url, anonKey, {
     cookies: {
@@ -57,7 +68,11 @@ export async function updateSession(request: NextRequest) {
           request.cookies.set(name, value),
         );
         // Re-create the response so later `cookies.set` calls apply to a fresh response.
-        supabaseResponse = NextResponse.next({ request });
+        supabaseResponse = NextResponse.next({
+          request: {
+            headers: requestHeaders ?? request.headers,
+          },
+        });
         // `options` carries path, max-age, httpOnly, etc. — required for secure session cookies.
         cookiesToSet.forEach(({ name, value, options }) =>
           supabaseResponse.cookies.set(name, value, options),
