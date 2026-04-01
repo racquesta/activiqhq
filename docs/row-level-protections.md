@@ -31,11 +31,12 @@ This document summarizes table-level row protections defined in:
 
 ### `public.organization_memberships`
 
-- **Data / usage**: Stores staff and guardian membership rows per organization, including role,
-  status, and permission version. Used to authorize org-level access.
+- **Data / usage**: Stores staff membership rows per organization (`owner`, `admin`,
+  `instructor`, `coach`) including role, status, and permission version. Used to authorize
+  staff org-level access.
 - **SELECT**:
   - Allowed for staff roles (`owner`, `admin`, `instructor`, `coach`) to view all memberships in the org.
-  - Guardians can view only their own membership rows (`user_id = auth.uid()`).
+- Non-staff users do not have rows in this table.
 - **INSERT**: Allowed for org `owner` or `admin`.
 - **UPDATE**: Allowed for org `owner` or `admin`.
 
@@ -50,7 +51,7 @@ This document summarizes table-level row protections defined in:
 ### `public.guardian_memberships`
 
 - **Data / usage**: Stores guardian-to-organization links. Used to support one guardian account
-  belonging to multiple organizations.
+  belonging to multiple organizations and acts as the source of truth for guardian org access.
 - **SELECT**: Allowed for org members.
 - **INSERT**:
   - Allowed when `user_id = auth.uid()` (self-join), or

@@ -27,13 +27,14 @@
   - `id` (uuid, pk)
   - `organization_id` (uuid, fk -> organizations)
   - `user_id` (uuid, fk -> auth/users)
-  - `role` (enum: owner, admin, instructor, coach, guardian)
+  - `role` (enum type contains owner/admin/instructor/coach/guardian; table enforces staff-only usage)
   - `status` (enum: active, invited, revoked)
   - `permissions_version` (int)
   - `created_at`, `updated_at` (timestamptz)
 - **Rules**
   - Unique (`organization_id`, `user_id`).
   - Role + permissions template define capability checks.
+  - Guardians are stored in `guardian_memberships` rather than this table.
 
 ## RoleTemplate
 
