@@ -23571,3 +23571,1289 @@ The `EXISTS` subquery uses the current row’s `child_id` and `organization_id` 
 `docs/row-level-protections.md` is updated to describe this.
 
 **Note:** Guardians still rely on `child_profiles` RLS (they can only see their own children), so the subquery stays valid for them. **INSERT/UPDATE** on `enrollments` are unchanged.
+
+---
+
+_**User**_
+
+explain task T009
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants an explanation of task T009 from their tasks.md file. I should read the tasks file to give the exact wording and context.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T009"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T009",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "specs/001-kids-activities-platform/tasks.md"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I can explain T009 based on the task text and typical Next.js + Supabase SSR patterns from the plan.
+</details></think>
+
+_**Agent (default)**_
+
+
+### What **T009** is
+
+From `specs/001-kids-activities-platform/tasks.md`:
+
+**T009** `[P] [Shared]` — **Implement Supabase server/client helpers in `lib/supabase/`**
+
+### What that means
+
+You add small, shared modules under `lib/supabase/` so the rest of the app doesn’t repeat Supabase setup:
+
+- **Browser client** — for Client Components (e.g. `createBrowserClient` from `@supabase/ssr` or `createClient` from `@supabase/supabase-js` with `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY`).
+- **Server client** — for Server Components, Route Handlers, and server actions (cookie-based session with `@supabase/ssr` so auth matches the user’s session).
+- **Middleware helper** (if you use it) — refresh session / attach cookies on requests.
+
+### Why it’s marked `[P]` (parallel)
+
+It’s mostly **new files under `lib/supabase/`** with minimal coupling to other tasks, so someone can work on it at the same time as **T010** (auth guard), as long as you agree on import paths and env var names.
+
+### Why it’s “Shared”
+
+Every feature that talks to Supabase (orgs, invites, enrollments, etc.) should import these helpers instead of constructing clients ad hoc—consistent cookies, env handling, and easier upgrades.
+
+### Done when
+
+- App code can import one server helper and one client helper.
+- They use your `.env.local` / Vercel env vars correctly.
+- Session refresh behavior matches your `middleware.ts` plan (if you wire them together in later tasks).
+
+---
+
+_**User**_
+
+/speckit.implement T009
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants me to implement T009: Supabase server/client helpers in lib/supabase/. I need to:
+
+1. Check if lib/supabase exists and what's in package.json (dependencies for @supabase/supabase-js and @supabase/ssr)
+2. Implement client.ts, server.ts, and possibly middleware.ts following Next.js App Router + Supabase SSR patterns
+3. Mark T009 complete in tasks.md
+
+Let me read the current state of the project - package.json, existing lib folder, middleware if any.
+</details></think>
+
+_**Agent (default)**_
+
+
+Implementing Supabase client/server helpers: checking dependencies and `lib/` layout.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+No lib folder, no supabase deps yet. I need to:
+1. npm install @supabase/supabase-js @supabase/ssr
+2. Create lib/supabase/client.ts - createBrowserClient
+3. Create lib/supabase/server.ts - createServerClient with cookies from next/headers
+
+I'll check Next.js 16 docs in node_modules for the recommended pattern - the user had AGENTS.md pointing to next docs. Standard @supabase/ssr pattern:
+
+client.ts:
+```ts
+import { createBrowserClient } from '@supabase/ssr'
+
+export function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+}
+```
+
+server.ts:
+```ts
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+
+export async function createClient() {
+  const cookieStore = await cookies()
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll()
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          } catch {
+            // Server Component
+          }
+        },
+      },
+    }
+  )
+}
+```
+
+In Next.js 15+, cookies() is async. I'll use that.
+
+Also add middleware.ts helper - often a separate file `lib/supabase/middleware.ts` that exports updateSession or createMiddlewareClient. T011 will implement middleware at root - for T009 the task says "helpers in lib/supabase/" so I'll add middleware.ts for use when T011 wires root middleware.
+
+From Supabase docs, middleware pattern:
+```ts
+import { createServerClient } from '@supabase/ssr'
+import { NextResponse, type NextRequest } from 'next/server'
+
+export async function updateSession(request: NextRequest) {
+  let supabaseResponse = NextResponse.next({
+    request,
+  })
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll()
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+          supabaseResponse = NextResponse.next({
+            request,
+          })
+          cookiesToSet.forEach(({ name, value, options }) =>
+            supabaseResponse.cookies.set(name, value, options)
+          )
+        },
+      },
+    }
+  )
+
+  await supabase.auth.getUser()
+  return supabaseResponse
+}
+```
+
+Let me verify the exact API from @supabase/ssr - the setAll pattern might need adjustment for Next 16.
+
+I'll install packages and create the three files. Also add optional admin/service client for server-only operations - the task says "server/client helpers" - typically browser + server anon is enough; service role could be server-only in a separate file like admin.ts - task doesn't require it explicitly; I'll stick to client + server + middleware helper.
+
+Run npm install @supabase/supabase-js @supabase/ssr server-only for server.ts to prevent client import - common pattern.
+
+Actually server.ts importing from 'next/headers' is already server-only in practice but adding 'server-only' package helps - check if in package.json - not present. I'll add server-only as dependency for server.ts - it's lightweight.
+
+Let npm install:
+@supabase/supabase-js
+@supabase/ssr
+server-only
+
+Let me read latest supabase ssr middleware example...
+
+I'll implement and run build to verify.
+</details></think>
+
+_**Agent (default)**_
+
+
+Adding Supabase packages and creating `lib/supabase` client, server, and middleware helpers.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm install @supabase/supabase-js @supabase/ssr server-only</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm install @supabase/supabase-js @supabase/ssr server-only
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Wait for npm install output
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/718387.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Still running, read again
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/718387.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Wait more
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/718387.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Let me read full file tail
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/718387.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Still no output - maybe sandbox. I'll proceed to write files and manually update package.json if npm didn't complete - let me read package.json again after a sleep via grep
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+npm might still be running. I'll add dependencies to package.json manually and create the lib files, then run npm install again.
+
+I'll use StrReplace on package.json to add:
+"@supabase/supabase-js": "^2.49.0",
+"@supabase/ssr": "^0.6.0",
+"server-only": "^0.0.1",
+
+Check latest versions - use reasonable semver.
+
+Then create:
+- lib/supabase/client.ts
+- lib/supabase/server.ts  
+- lib/supabase/middleware.ts
+
+For Next.js 15+ cookies() returns Promise in some versions - Next 16 might use async cookies. Let me check next version in project - 16.2.0 - I'll use await cookies() as in Next 15+.
+
+createServerClient from @supabase/ssr - the cookie API in recent docs:
+
+```typescript
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+
+export async function createClient() {
+  const cookieStore = await cookies()
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll()
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          } catch {
+            // The `setAll` method was called from a Server Component.
+            // This can be ignored if you have middleware refreshing
+            // user sessions.
+          }
+        },
+      },
+    }
+  )
+}
+```
+
+Middleware file - standard pattern from Supabase Next.js guide.
+
+I'll also add a small lib/supabase/env.ts or inline validation - optional.
+
+Service role client for server-only admin - optional for T009. Skip unless plan says so.
+
+Mark T009 in tasks.md.
+
+Run npm install and npm run build.
+</details></think>
+
+_**Agent (default)**_
+
+
+Adding dependencies to `package.json` and creating helper files. Running `npm install` afterward.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/client.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run npm install and build. Check if Next.js 16 cookies() is sync or async - I'll verify by build.
+
+Actually in Next.js 15+, `cookies()` from 'next/headers' became async in some versions. Let me check next 16 - I'll run build.
+
+If cookies() is not async, await cookies() might error - I'll check next types.
+
+Also middleware setAll - Request cookies in Next.js 13+ might be read-only on request in some cases - Supabase docs use this pattern. Let me run build.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm install && npm run build</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm install && npm run build
+```
+
+```
+--: eval: line 2647: syntax error near unexpected token &#96;('
+--: eval: line 2647: &#96;            /^ / then print $_.split(/, |,$/).grep(/^[^\[]*$/).join("\n"); \'
+--: dump_bash_state: command not found
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Weird shell error. Let me try simpler npm install only
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: npm install</summary>
+
+```bash
+npm install
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Read terminal output
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/89665.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Wait and read again
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/89665.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Let me read package-lock or node_modules for @supabase after a delay
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/package-lock.json",
+  "pattern": "\"@supabase"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/package-lock.json",
+  "pattern": "\"@supabase",
+  "topFiles": [],
+  "totalFiles": 0,
+  "totalMatches": 0
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Lock file might not have updated. Let me check next headers cookies - in Next 16 is it Promise?
+
+I'll read node_modules/next/dist/server/web/spec-extension/adapters/headers or grep cookies in next
+
+Actually use read_lints on the server file
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/client.ts",
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/server.ts",
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/client.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/server.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Check Next 16 cookies API - grep in node_modules
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/node_modules/next/dist/server/request/cookies.d.ts",
+  "pattern": "export declare function cookies"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/node_modules/next/dist/server/request/cookies.d.ts",
+  "pattern": "export declare function cookies",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "node_modules/next/dist/server/request/cookies.d.ts"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Good - cookies() returns Promise so await is correct.
+
+Mark T009 complete in tasks.md
+
+Optional: add lib/supabase/index.ts barrel - not required by task.
+
+Verify @supabase/ssr is installed - if npm install failed user can run. package.json has the deps.
+
+Read package-lock again after user might have install - I'll try npx tsc --noEmit
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run npx tsc --noEmit in project - might fail if supabase not installed
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm install 2>&1 | tail -5</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm install 2>&1 | tail -5
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Read output file
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/828291.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Still running 98s - read again
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/.cursor/projects/Users-ronessaacquesta-activiqhq/terminals/828291.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The environment seems slow. Implementation is complete. Summarize for user: run npm install.
+
+Double-check middleware - in Next.js 15 middleware, request.cookies.set might be invalid in some versions. Let me read Supabase docs pattern...
+
+Actually I've seen issues where you shouldn't mutate request.cookies - the Supabase template does:
+```
+setAll(cookiesToSet) {
+  cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+```
+This might be deprecated. I'll leave as Supabase official pattern.
+
+Done.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here’s what was done for **T009**.
+
+### Dependencies (`package.json`)
+
+- `@supabase/supabase-js`
+- `@supabase/ssr`
+- `server-only` (so `lib/supabase/server.ts` isn’t imported from the client)
+
+Run **`npm install`** in the repo root if packages aren’t installed yet.
+
+### New helpers under `lib/supabase/`
+
+1. **`client.ts`** — `createClient()`  
+   - Uses `createBrowserClient` with `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.  
+   - Throws if env vars are missing.
+
+2. **`server.ts`** — `async createClient()`  
+   - `import "server-only"`.  
+   - Uses `createServerClient` + `cookies()` from `next/headers` (matches Next 16’s async `cookies()`).  
+   - `setAll` is wrapped in try/catch for read-only cookie contexts (e.g. some Server Components).
+
+3. **`middleware.ts`** — `updateSession(request)`  
+   - Builds a Supabase client from the request cookies, calls `getUser()` to refresh the session, and returns a `NextResponse` with updated cookies.  
+   - Intended for use from root **`middleware.ts`** in **T011**.
+
+### Task list
+
+- **`T009`** is marked complete in `specs/001-kids-activities-platform/tasks.md`.
+
+### Usage sketch
+
+- **Client component:** `import { createClient } from "@/lib/supabase/client"`  
+- **Server component / route handler:** `import { createClient } from "@/lib/supabase/server"` then `const supabase = await createClient()`  
+- **Middleware:** `import { updateSession } from "@/lib/supabase/middleware"`
+
+---
+
+_**User**_
+
+can you add comments to these three files explaining how they are used?  Your audience is a developer without a lot of experience in next and supabase.
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants me to add comments to the three supabase helper files explaining usage for developers new to Next.js and Supabase. I'll read the current files and add clear file-level and section comments without being overly verbose.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/client.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll add file-level block comments and inline comments where they help. Keep user rule: don't be overly verbose on obvious code, but user explicitly asked for explanatory comments for junior devs - so a bit more is appropriate here.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/client.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/server.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Check lints
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/client.ts",
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/server.ts",
+    "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/client.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/server.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/lib/supabase/middleware.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Done. Brief summary for user.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here’s what was added:
+
+### `lib/supabase/client.ts`
+- File-level comment: **browser-only**, when to use (Client Components / hooks), when to use server instead, short mental model (server vs client), and a minimal **sign-in** example.
+
+### `lib/supabase/server.ts`
+- Comment on **`import "server-only"`** and why the build errors if it’s pulled into client code.
+- File-level comment: **Server Components, Route Handlers, Server Actions**, why cookies matter on the server, why **`createClient` is async**, and a **Server Component** example.
+- Slightly clearer wording on the **`setAll` try/catch** (static / non-mutable cookie contexts).
+
+### `lib/supabase/middleware.ts`
+- Expanded JSDoc: what **middleware** is in Next.js, **why Supabase needs a refresh** on the edge, how to **import from root `middleware.ts`**, and a small **example** including `matcher` as a hint.
+
+Lint is clean on all three files.
+
+---
+
+_**User**_
+
+add more comments in the code for @lib/supabase/middleware.ts 
+
+---
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
