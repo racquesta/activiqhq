@@ -1,4 +1,4 @@
-import { createServerClient } from "@supabase/ssr";
+import { createServerClient, type SetAllCookies } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
@@ -62,7 +62,7 @@ export async function updateSession(
       },
       // When tokens refresh, Supabase needs to write new cookies. Middleware runs at the edge:
       // we must copy updated cookies onto `supabaseResponse` so the browser receives them.
-      setAll(cookiesToSet) {
+      setAll(cookiesToSet: Parameters<SetAllCookies>[0]) {
         // Sync cookie jar on the request object (pattern from @supabase/ssr + Next middleware).
         cookiesToSet.forEach(({ name, value }) =>
           request.cookies.set(name, value),
