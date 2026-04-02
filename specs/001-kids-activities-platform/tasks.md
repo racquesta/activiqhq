@@ -59,7 +59,7 @@
 ### Tests for User Story 1
 
 - [X] T016 [P] [US1] Add API contract tests for org creation/invites in `tests/contract/us1-org-staff.test.ts`
-- [ ] T017 [P] [US1] Add integration test for role template toggle behavior in `tests/integration/us1-role-templates.test.ts`
+- [X] T017 [P] [US1] Add integration test for role template toggle behavior in `tests/integration/us1-role-templates.test.ts`
 
 ### Implementation for User Story 1
 
