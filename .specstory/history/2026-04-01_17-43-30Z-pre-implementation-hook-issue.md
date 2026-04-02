@@ -37,7 +37,67 @@ _**Agent (default)**_
 <details>
 <summary>Tool use: **ripgrep_raw_search**</summary>
 
-Status: **loading**
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq",
+  "pattern": "before_implement|extensions\\.yml|sync-main"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq",
+  "pattern": "before_implement|extensions\\.yml|sync-main",
+  "topFiles": [
+    {
+      "matchCount": 4,
+      "uri": "./.specify/scripts/bash/sync-main.sh"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.specify/extensions.yml"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./package.json"
+    },
+    {
+      "matchCount": 75,
+      "uri": "./.specstory/history/2026-04-01_16-02-12Z-speckit-t014-implementation.md"
+    },
+    {
+      "matchCount": 5,
+      "uri": "./.cursor/commands/speckit.implement.md"
+    },
+    {
+      "matchCount": 15,
+      "uri": "./.specstory/history/2026-03-30_23-48-58Z-clean-code-practices-and-guidelines.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.cursor/commands/speckit.tasks.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.cursor/commands/speckit.plan.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "./.cursor/commands/speckit.specify.md"
+    }
+  ],
+  "totalFiles": 9,
+  "totalMatches": 116
+}
+```
+Status: **completed**
 
 
 </details>
@@ -51,7 +111,7 @@ Status: **loading**
 _**Agent (default)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/extensions.yml</summary>
 
 </details>
 </tool-use>
@@ -64,7 +124,7 @@ _**Agent (default)**_
 _**Agent (default)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
 
 </details>
 </tool-use>
@@ -73,3 +133,407 @@ _**Agent (default)**_
 <summary>Tool use: **read_file_v2**</summary>
 
 </details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I now understand the issue clearly. The `speckit.implement.md` command documents two different behaviors:
+
+1. **Optional hooks** (`optional: true`): The agent is supposed to OUTPUT markdown with a prompt and `EXECUTE_COMMAND` is NOT shown for optional - it says "To execute: `/{command}`" but doesn't actually tell the agent to run it automatically. The user has to run it manually or the agent has to "offer" it.
+
+2. **Mandatory hooks** (`optional: false`): These get `EXECUTE_COMMAND: {command}` and the agent must wait for the result.
+
+The user's `extensions.yml` has `optional: true` for sync-main. So by design, the hook does NOT auto-execute - it only prints instructions for the user to optionally run the command.
+
+That's why "pre implement hook doesn't seem to be working" - the agent either:
+- Skips showing the Extension Hooks section entirely (some agents don't follow the markdown literally)
+- Shows the prompt but doesn't run the command because optional hooks aren't supposed to auto-run per the spec
+
+The fix would be one of:
+1. Change `optional: false` so the command becomes mandatory with `EXECUTE_COMMAND` - but then the speckit doc says the agent should execute it automatically.
+
+2. Update `speckit.implement.md` to clarify that for optional hooks, the agent should **ask** the user and if yes (or default policy), run the command - OR change optional behavior to "prompt user in chat then run"
+
+Let me read more of speckit.implement.md to see the full hook semantics and what EXECUTE_COMMAND means for Cursor.
+
+Actually re-reading the optional hook block:
+```
+  - **Optional hook** (`optional: true`):
+    ```
+    ## Extension Hooks
+
+    **Optional Pre-Hook**: {extension}
+    Command: `/{command}`
+    ...
+    To execute: `/{command}`
+    ```
+```
+
+There's no EXECUTE_COMMAND for optional hooks - so the design is: **display only**, user runs manually. That's broken UX for "I want sync-main before implement" - the user expects it to run.
+
+1. Set `optional: false` in extensions.yml so it becomes mandatory and uses EXECUTE_COMMAND pattern.
+
+2. Update speckit.implement.md optional hook section to say something like: "Ask the user if they want to run this hook; if they agree or if running non-interactively, execute: `bash ...` with appropriate permissions."
+
+Let me read the mandatory hook section again - it says EXECUTE_COMMAND and wait. So `optional: false` should make the agent actually run the command.
+
+I'll verify the path issue - the command says `hooks.before_implement` but extensions.yml has `hooks:` then `before_implement:` - so the key is `hooks.before_implement` in dotted notation which maps to YAML `hooks: before_implement:` - correct.
+
+Also note: the speckit doc says "project root" for extensions.yml but the file is at `.specify/extensions.yml` - wait, the grep shows `./.specify/extensions.yml` - so the file is in `.specify/` NOT project root!
+
+That's a bug! The command says:
+- "Check if `.specify/extensions.yml` exists in the project root."
+
+Actually re-read - it says "in the project root" but the path is `.specify/extensions.yml` which is relative to repo root - so `.specify/extensions.yml` at repo root IS correct - the file is at `/Users/ronessaacquesta/activiqhq/.specify/extensions.yml`. "Project root" means repo root, and `.specify/extensions.yml` is under repo root. Good.
+
+Let me double-check - user said "pre implement hook" - the issue could be:
+A) optional: true means never auto-runs
+B) Agent didn't read the file
+C) Wrong path - some docs say "project root" and agents look for `./extensions.yml` instead of `.specify/extensions.yml`
+
+Looking at line 16 again: "Check if `.specify/extensions.yml` exists in the project root." - path is explicit.
+
+The fix: Change `optional: false` for sync-main so the implement command instructs the agent to output EXECUTE_COMMAND and run it. 
+
+Potential downside: every `/speckit.implement` would sync main automatically which might be what they want.
+
+Alternatively update the markdown to make optional hooks "prompt and run if user says yes" - more complex.
+
+I'll read the rest of speckit.implement for EXECUTE_COMMAND semantics.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I've confirmed the issue:
+
+1. **before_implement** with `optional: true`: The spec only tells the agent to **output** a markdown block with "To execute" - it does NOT include `EXECUTE_COMMAND`. So nothing automatically runs. Many Cursor agents may not even surface this prominently to the user.
+
+2. **before_implement** with `optional: false`: The spec says to output `EXECUTE_COMMAND: {command}` and "Wait for the result" (for pre-hooks) - actually for before_implement mandatory it says "Wait for the result of the hook command before proceeding to the Outline" (lines 40-43).
+
+So the fix for "hook not working" is:
+1. Set `optional: false` on the sync-main hook so agents that follow the command will emit EXECUTE_COMMAND and run it.
+
+2. Optionally improve the speckit.implement.md **optional** hook instructions to say: "If the user has not declined, run the command with git_write and network permissions" - but that's ambiguous.
+
+The cleanest fix is `optional: false` for before_implement if the user wants it to always run.
+
+But wait - maybe the user wants optional behavior (ask first) but the agent never asks? The spec doesn't say "ask the user" for optional - it just prints the prompt text in the output. So the user sees "Prompt: Run sync-main..." but the agent might not execute.
+
+I'll:
+1. Change `optional: false` in extensions.yml so mandatory pre-hook runs (with EXECUTE_COMMAND).
+
+2. Update speckit.implement.md slightly so **optional** hooks explicitly say: "Offer this to the user; if they confirm or in automated runs, execute the command from repo root with network/git_write as needed." Actually that might be overkill.
+
+Let me also check - does Cursor actually interpret EXECUTE_COMMAND? That might be a Cursor-specific convention. The markdown says "EXECUTE_COMMAND: {command}" - I'm not 100% sure Cursor agents auto-run that. It might be documentation for human agents.
+
+Regardless, changing to mandatory aligns with "make it work" - the agent instructions say to execute and wait.
+
+I'll also add a note in extensions.yml comment that optional hooks are display-only per speckit command unless the agent chooses to run them.
+
+Implementing:
+1. `optional: false` in extensions.yml for sync-main
+2. Optionally strengthen speckit.implement.md pre-hook section for optional hooks: "You may run the optional command if the user agrees" - actually the user said it's NOT working - mandatory is the fix.
+
+One concern: mandatory sync-main on EVERY implement might be heavy - user might be on a feature branch already. The sync-main script checks out main and pulls - that would **switch branches** away from the user's work! That could be destructive.
+
+Read sync-main.sh again...
+</details></think>
+
+_**Agent (default)**_
+
+
+Checking what `sync-main.sh` does — making it mandatory could be disruptive:
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Yes - sync-main **checks out main** every time. So if you're on a feature branch implementing, running sync-main would yank you to main - very disruptive.
+
+The `prepare-task-branch.sh` already merges main into the task branch - so the workflow was:
+- Optional hook: sync main only (destructive if you're not on main)
+- Task id path: prepare-task-branch which updates main AND switches to task branch
+
+So the optional hook is problematic in two ways:
+1. It doesn't auto-run (optional: true)
+2. If it did auto-run mandatorily, it would switch everyone to main mid-work
+
+The user's complaint is "pre implement hook not working properly" - they likely expect:
+- Either the prompt to appear and the command to run when they say yes
+- Or the sync to happen without switching branches (e.g. `git fetch origin main:main` without checkout)
+
+I'll fix the **documentation/behavior** issue:
+
+1. **Root cause**: `optional: true` hooks in `speckit.implement.md` only require the agent to **print** the Extension Hooks block—they do **not** include `EXECUTE_COMMAND`, so nothing is guaranteed to run.
+
+2. **Fix options**:
+   - **A**: Change `optional: false` + update speckit text to warn that mandatory sync-main runs checkout main (risky)
+   - **B**: Add a new script `fetch-main.sh` that only `git fetch origin` and updates `refs/remotes/origin/main` without checkout - use that for optional hook, OR
+   - **C**: Update speckit.implement.md so optional hooks say: "Ask the user: {prompt}. If yes or user has not objected, run: `bash ...` with git_write and network."
+
+The user said "doesn't seem to be working properly" - not "I want mandatory sync". So the fix is likely:
+1. Clarify in extensions.yml / README isn't asked - user said no drive-by md
+2. Update `speckit.implement.md` **Pre-Execution Checks** section for optional hooks to explicitly instruct: "Present the prompt to the user; if they confirm, or if running non-interactively, execute the command from the repository root with appropriate permissions (network, git_write)."
+
+That way optional hooks actually "work" when the user says yes.
+
+Also for mandatory: "Execute the command immediately before proceeding to Outline, with network and git_write permissions."
+
+Let me also add EXECUTE_COMMAND for optional hooks with a twist - actually re-read the spec. The optional block doesn't have EXECUTE_COMMAND on purpose so the user runs manually.
+
+The best UX fix:
+- Update **speckit.implement.md** lines 23-34 to add explicit agent instructions for optional hooks:
+
+```
+  - **Optional hook** (`optional: true`):
+    - Present the Extension Hooks section including the prompt.
+    - **Unless the user has already declined**, ask whether to run the hook (or run it if the user previously confirmed). If the user agrees to run it, execute `{command}` from the repository root with **network** and **git_write** permissions, wait for completion, then continue. If the user declines or you cannot run commands, continue without running the hook.
+```
+
+And keep the markdown template for display.
+
+Actually re-reading again - the issue might be simpler: agents look for `.specify/extensions.yml` **in project root** - some might interpret "project root" as wrong path. The file is at `.specify/extensions.yml` - that's correct.
+
+Another issue: YAML path - the doc says `hooks.before_implement` but the YAML structure is:
+```yaml
+hooks:
+  before_implement:
+```
+So that's correct.
+
+I'll implement:
+1. **speckit.implement.md** - Strengthen optional hook instructions so agents must offer to run and execute with permissions when user agrees (or for non-interactive, run with a note in the spec).
+
+Actually "non-interactive" is fuzzy - the safest is: for optional, always show the section AND ask "Run sync-main now? (yes/no)" and if yes run.
+
+2. **extensions.yml** - Could add a comment that optional hooks require user confirmation per speckit command.
+
+Alternatively change to `optional: false` but replace sync-main with a **non-checkout** script like:
+```bash
+git fetch origin main:main 2>/dev/null || git fetch origin
+```
+That updates local main ref without checking out - safer for pre-implement.
+
+Let me check - `git fetch origin main:main` updates local main branch if it exists - actually `git fetch origin refs/heads/main:refs/heads/main` 
+
+I'll create `sync-main-refs.sh` that only fetches - doesn't checkout. That could be the default pre-implement hook that's safe to run mandatorily.
+
+But that's scope expansion. User asked to fix the hook "not working" - the minimal fix is documentation in speckit.implement.md + optionally change optional to false only if we use a safe script.
+
+Simplest fix:
+1. Update speckit.implement.md optional hook section to explicitly require: run the command after asking user, with permissions.
+
+2. Keep sync-main.sh as is - when user says yes to optional, they get checkout to main (they should know from description).
+
+I'll also add for mandatory hooks explicit text: "You MUST run the command using your terminal execution tool with network and git_write permissions."
+
+Let me read the full Pre-Execution Checks again to make a surgical edit.
+</details></think>
+
+_**Agent (default)**_
+
+
+Identifying the issue: with `optional: true`, `speckit.implement.md` only requires printing an "Extension Hooks" block — it doesn't include `EXECUTE_COMMAND` or instruct the agent to run the command, so the hook won't execute. Updating the command file so optional pre-hooks prompt and run when the user agrees, and clarifying mandatory hooks must execute with the correct permissions.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll update the Pre-Execution Checks section to:
+
+1. After the bullet list for optional/mandatory, add explicit execution rules:
+   - **Optional**: After showing the block, ask the user using `{prompt}` (or the prompt text). If the user agrees to run the hook, execute `{command}` from the repository root with **network** and **git_write** permissions, wait for completion, then continue. If the user declines or does not respond before you must proceed, skip the hook and continue.
+   
+   Actually "if user does not respond" is bad for blocking - better: "If you cannot ask (e.g. batch mode), skip optional hooks unless project policy says otherwise" - simplify to: ask first; if yes run; if no skip.
+
+2. **Mandatory**: Run `{command}` from repo root with network + git_write immediately after showing the block, wait for result, then continue. Note: `EXECUTE_COMMAND` is documentation for humans - the agent needs explicit "use your run_terminal_cmd tool".
+
+I'll replace the "For each executable hook" section with clearer structure.
+
+Also update step 10 after_implement similarly for consistency.
+
+Let me read speckit.tasks.md and others - user only asked about implement. I'll fix speckit.implement.md for both before and after hooks sections.
+
+For mandatory hooks - the sync-main script checks out main which is disruptive. I'll add a note in extensions.yml comment OR in the command: "Before running mandatory hooks that modify git state, warn the user if they are not on main" - too heavy.
+
+Actually the user's sync-main is optional:true - so the fix is really the optional path.
+
+I'll add after the two code blocks (lines 23-44):
+
+```
+- **Execution (you MUST follow this)**:
+  - **Optional hook** (`optional: true`): After outputting the Extension Hooks section, ask the user the hook’s **prompt** (or a concise yes/no based on it). If the user confirms they want the hook run, execute `{command}` from the repository root and wait for it to finish. Use **network** and **git_write** permissions when the command needs git or remote access. If the user declines or asks to skip, continue without running the hook.
+  - **Mandatory hook** (`optional: false` is absent, treat as mandatory): After outputting the Extension Hooks section, execute `{command}` from the repository root immediately, wait for completion, then continue. Use **network** and **git_write** permissions when needed. Do not skip mandatory hooks unless the command fails and the user directs you to continue.
+```
+
+Wait - YAML says `optional: true` - if optional is absent, we should define default. extensions.yml has explicit optional: true.
+
+For mandatory, `optional: false` explicitly.
+
+What if `optional` is missing? Treat as mandatory for safety? The doc says "optional: true" and "optional: false" - I'll add "If `optional` is omitted, treat the hook as mandatory."
+
+I'll make the edit.
+</details></think>
+
+_**Agent (default)**_
+
+
+Updating `speckit.implement.md` so optional hooks aren't display-only: we'll require asking the user and running the command when they agree. Updating the `after_implement` section for consistency.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.cursor/commands/speckit.implement.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll add a short comment in extensions.yml explaining optional vs mandatory so maintainers understand - the user said avoid editing md they didn't ask for - extensions.yml is yaml not md - a one-line comment is fine.
+
+Actually user rules say "Avoid editing or writing markdown files the user did not ask for" - I edited speckit.implement.md which IS a markdown command file - the user asked about the hook not working, so fixing the command is appropriate.
+
+Let me add a comment to extensions.yml clarifying that `optional: true` requires the agent to prompt and run on yes (per speckit.implement.md).
+
+I'll update extensions.yml comment block at top.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/extensions.yml</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Summarize for the user clearly.
+
+Note: Cursor doesn't have a built-in "HookExecutor" - the speckit command is just markdown instructions for the AI. So "working" always depended on the agent following the doc. The old doc only said "output" the block for optional hooks, which many agents interpreted as "show text, don't run."
+
+I'll give a concise explanation and what we changed.
+</details></think>
+
+_**Agent (default)**_
+
+
+Here is what was going wrong and what we changed.
+
+## Why it felt broken
+
+1. **`optional: true` was effectively “print only”**  
+   In `speckit.implement.md`, optional hooks were only described as something to **output** in the Extension Hooks block. There was no instruction to **run** the shell command or to **ask** you first. Many agents treat that as “show the user a snippet” and never execute `bash .specify/scripts/bash/sync-main.sh`.
+
+2. **No real HookExecutor**  
+   `.specify/extensions.yml` is not wired to Cursor or npm; only the **speckit command text** tells the agent what to do. If those instructions do not say “run this with git/network,” nothing runs.
+
+3. **`EXECUTE_COMMAND` only for mandatory hooks**  
+   The template only attached `EXECUTE_COMMAND` to **mandatory** (`optional: false`) hooks, so optional hooks had no “must run” signal.
+
+## What we fixed
+
+- **`speckit.implement.md`** (before and after implement):  
+  - Optional hooks: **ask** using the hook’s `prompt`; **if you say yes**, the agent must run `{command}` from the repo root with **network** and **git_write** where needed.  
+  - Mandatory hooks: **run** `{command}` immediately, same permissions.  
+  - If `optional` is missing, hooks are treated as **mandatory**.
+
+- **`.specify/extensions.yml`**: Short comment clarifying what `optional: true` vs `false` means for agents.
+
+Your current hook stays **`optional: true`**, so sync-main should run **after you confirm** when you use `/speckit.implement`. If you want it **without asking**, set `optional: false` on that entry (be aware `sync-main.sh` **checks out `main`**, which can move you off a feature branch).
