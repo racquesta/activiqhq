@@ -21,4 +21,827 @@ The user wants to implement T015 according to the speckit/specify workflow. Let 
 3. Load tasks.md for T015 specifics
 4. Implement T015
 
-Let me start by reading the speckit.implement </details></think>
+Let me start by reading the speckit.implement command for full steps, tasks.md for T015, and any related context.
+</details></think>
+
+_**Agent (default)**_
+
+
+Implementing T015: checking prerequisites, loading the task definition, and implementing it.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && .specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && .specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks
+```
+
+```
+{"FEATURE_DIR":"/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform","AVAILABLE_DOCS":["research.md","data-model.md","contracts/","quickstart.md","tasks.md"]}
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T015"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T015",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "specs/001-kids-activities-platform/tasks.md"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+T015 is: Add base error response helpers in `lib/api/errors.ts`
+
+Let me read the full task context, plan, contracts for error shapes, and check if lib/api exists. I'll also run prepare-task-branch.sh for T015 as per the speckit command (user said specify.implement but they likely mean speckit - I'll run the branch script).
+
+Actually the user wrote `/specify.implement` - might be a typo for speckit.implement. I'll follow the same workflow.
+
+Let me read tasks.md around T015, plan.md for API errors, contracts, and existing code patterns.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/contracts** (1 file)
+
+| File |
+|------|
+| `README.md` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **7** results in **1** directory</summary>
+
+Directory: **/Users/ronessaacquesta/activiqhq/lib** (7 files)
+
+| File |
+|------|
+| `supabase/server.ts` |
+| `supabase/middleware.ts` |
+| `validations/shared.ts` |
+| `validations/index.ts` |
+| `auth/org-context.ts` |
+| `auth/require-user.ts` |
+| `supabase/client.ts` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I need to read contracts/README.md for error response shapes, and plan.md if it mentions API errors. Also read app/api/_not-implemented.ts to align with existing patterns.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/contracts/README.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/app/api/_not-implemented.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/validations/shared.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I need to create `lib/api/errors.ts` with base error response helpers that:
+1. Align with the contract error codes from README
+2. Work with Next.js NextResponse
+3. Possibly include Zod error formatting for 422_validation_error
+
+The contract lists:
+- `403_forbidden_tenant_access`
+- `404_organization_not_found`
+- `409_slug_conflict`
+- `409_duplicate_child_confirmation_required`
+- `409_enrollment_limit_reached`
+- `422_validation_error`
+
+I should define a union type for known API error codes, a consistent JSON shape (code + message + optional details for validation), and helper functions like:
+- `forbiddenTenantAccessResponse()`
+- `organizationNotFoundResponse()`
+- `slugConflictResponse()`
+- etc.
+
+Or a generic pattern:
+```ts
+export type ApiErrorCode = 
+  | "403_forbidden_tenant_access"
+  | "404_organization_not_found"
+  ...
+```
+
+Actually the codes look like they're the full string including status prefix - I'll use them as-is per contract.
+
+For 422, Zod errors need `details` - typically `{ issues: ... }` or field errors.
+
+Let me check if there's plan.md or data-model with more detail on error shape.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": "*.md",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform",
+  "pattern": "error|422|validation"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform",
+  "pattern": "error|422|validation",
+  "topFiles": [
+    {
+      "matchCount": 3,
+      "uri": "specs/001-kids-activities-platform/tasks.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "specs/001-kids-activities-platform/plan.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "specs/001-kids-activities-platform/contracts/README.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "specs/001-kids-activities-platform/spec.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "specs/001-kids-activities-platform/data-model.md"
+    }
+  ],
+  "totalFiles": 5,
+  "totalMatches": 7
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll implement `lib/api/errors.ts` with:
+
+1. **ApiErrorCode** - union of all contract codes + maybe `not_implemented` for consistency (or keep not_implemented only in _not-implemented - the task says "base" helpers so focus on contract codes)
+
+2. **ApiErrorBody** - `{ code: ApiErrorCode; message: string; details?: unknown }` - details for Zod
+
+3. **Helpers** returning `NextResponse`:
+   - `jsonError(status, code, message, details?)` - low-level
+   - Named helpers for each contract code with appropriate HTTP status:
+     - 403 + `403_forbidden_tenant_access`
+     - 404 + `404_organization_not_found`
+     - 409 + slug conflict, duplicate child, enrollment limit (different messages)
+     - 422 + validation with ZodError formatting
+
+For Zod 4, I need to check how to format errors - `z.ZodError` has `.flatten()` or `.issues`
+
+Let me check zod 4 API for error formatting - the project uses zod ^4.3.6
+
+I'll use `z.flattenError` or the standard approach in Zod 4. Let me read zod types or a quick grep.
+
+Actually I'll import ZodError from zod and use `.issues` for details which is stable across versions.
+
+```ts
+import { NextResponse } from "next/server";
+import type { ZodError } from "zod";
+
+export const API_ERROR_CODES = {
+  FORBIDDEN_TENANT_ACCESS: "403_forbidden_tenant_access",
+  ...
+} as const;
+
+export type ApiErrorCode = typeof API_ERROR_CODES[keyof typeof API_ERROR_CODES];
+```
+
+Or simpler - literal union type matching README exactly.
+
+```ts
+export type ApiErrorCode =
+  | "403_forbidden_tenant_access"
+  | "404_organization_not_found"
+  | "409_slug_conflict"
+  | "409_duplicate_child_confirmation_required"
+  | "409_enrollment_limit_reached"
+  | "422_validation_error";
+```
+
+Helpers:
+- `forbiddenTenantAccess(message?: string): NextResponse`
+- `organizationNotFound(message?: string): NextResponse`
+- `slugConflict(message?: string): NextResponse`
+- `duplicateChildConfirmationRequired(message?: string): NextResponse`
+- `enrollmentLimitReached(message?: string): NextResponse`
+- `validationError(error: ZodError | string, details?: unknown): NextResponse`
+
+For validation, if we pass ZodError, serialize issues. If string, use as message.
+
+Actually Zod 4 might export different things - let me check node_modules/zod briefly or use a generic approach.
+
+I'll use:
+```ts
+import { ZodError } from "zod";
+
+export function validationErrorFromZod(error: ZodError) {
+  return NextResponse.json(
+    {
+      code: "422_validation_error" as const,
+      message: "Request validation failed",
+      details: { issues: error.issues },
+    },
+    { status: 422 },
+  );
+}
+```
+
+Default messages per code - user can override.
+
+Also add a generic `apiErrorResponse(code: ApiErrorCode, status: number, message: string, details?: unknown)` for extensibility.
+
+Run prepare-task-branch for T015 - the user asked for implement. I'll run it with git_write and network.
+
+Then mark tasks.md T015 as complete.
+
+Let me also verify: should lib/api directory exist - I'll create errors.ts.
+
+Optional: export HTTP_STATUS map per code - actually each code maps to one status:
+- 403 -> 403
+- 404 -> 404  
+- 409_* -> 409
+- 422 -> 422
+
+I'll implement clean, minimal code matching project style (no excessive comments per user rules).
+
+Check tsconfig paths for @/lib
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/tsconfig.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+I'll run prepare-task-branch.sh for T015 with git_write and network.
+
+Then create lib/api/errors.ts
+
+Update _not-implemented.ts to optionally use errors - actually the task says only lib/api/errors.ts. I could refactor _not-implemented to import from errors for consistency - but that might change behavior. The not_implemented code isn't in the contract README's minimum list - I'll leave _not-implemented as-is unless we add a helper for 501. The task is only to add lib/api/errors.ts - I could add `notImplementedResponse` there or keep separation. The existing helper is in app/api - I'll add contract-focused helpers only in lib/api/errors.ts.
+
+Optionally add `notImplemented` in errors.ts for DRY - but that duplicates app/api file. User rule: only modify code required by task. So just lib/api/errors.ts.
+
+Update validations/shared.ts comment to reference `@/lib/api/errors` - the comment says "respond with 422_validation_error" - could update the path hint. That's a tiny doc improvement - user said avoid editing markdown files user didn't ask for; this is a ts file comment. I'll update the one line in shared.ts to point to the helper - it's helpful for discoverability and matches T015 scope (errors are for validation).
+
+Actually "Only modify code required by the task" - updating shared.ts comment is optional. I'll skip unless it clearly helps.
+
+Mark tasks.md T015 complete.
+
+Run lint and tsc.
+
+Run prepare-task-branch - user asked specify.implement T015 - I'll run the script.
+</details></think>
+
+_**Agent (default)**_
+
+
+Creating `lib/api/errors.ts` aligned with the contract error codes, running the task-branch script, and marking T015 complete.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && bash .specify/scripts/bash/prepare-task-branch.sh 'T015' '/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md'</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && bash .specify/scripts/bash/prepare-task-branch.sh 'T015' '/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md'
+```
+
+```
+prepare-task-branch: working tree is not clean. Commit or stash, or set ALLOW_DIRTY=1.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/api/errors.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Task branch failed due to dirty working tree - I'll note that for the user but continue. The file was written.
+
+Let me run lint and tsc. Check ZodError.issues exists in zod 4.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm run lint && npx tsc --noEmit</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm run lint && npx tsc --noEmit
+```
+
+```
+
+&gt; nextjs@0.1.0 lint
+&gt; eslint
+
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+The string to replace was not found in the file.
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The tasks.md might have T015 already marked or different formatting. Let me read the file around line 47.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T015"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md",
+  "pattern": "T015",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "specs/001-kids-activities-platform/tasks.md"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+T015 is already marked [X] - perhaps the user or a previous edit did it. Good.
+
+Lint and tsc passed (exit 0).
+
+Let me read lints for the new file to be sure.
+
+Verify NextResponse generic - might need adjustment. TypeScript passed.
+
+Double-check: `NextResponse<ApiErrorBody>` - Next.js might expect different generic. If tsc passed, we're good.
+
+I'll give a concise summary to the user about:
+1. What was added in lib/api/errors.ts
+2. prepare-task-branch failed due to dirty tree - they can run with ALLOW_DIRTY=1 or commit first
+
+Actually I wrote the file - if tasks was already [X], maybe the file existed? Let me read lib/api/errors.ts - I just wrote it.
+
+The fuzzy match on strreplace suggested T015 might already be X - so someone already marked it. My write created/overwrote errors.ts.
+
+Let me verify the file content is correct and run build for completeness.
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/api/errors.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm run build</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm run build
+```
+
+```
+
+&gt; nextjs@0.1.0 build
+&gt; next build
+
+▲ Next.js 16.2.0 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 7.7s
+  Running TypeScript ...
+  Finished TypeScript in 5.9s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/5) ...
+  Generating static pages using 11 workers (1/5) 
+  Generating static pages using 11 workers (2/5) 
+  Generating static pages using 11 workers (3/5) 
+✓ Generating static pages using 11 workers (5/5) in 388ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/o/[orgSlug]/activities
+├ ƒ /api/o/[orgSlug]/children
+├ ƒ /api/o/[orgSlug]/enrollment-policy
+├ ƒ /api/o/[orgSlug]/enrollments
+├ ƒ /api/o/[orgSlug]/guardians/join
+├ ƒ /api/o/[orgSlug]/invites
+├ ƒ /api/o/[orgSlug]/role-templates
+├ ƒ /api/o/[orgSlug]/role-templates/[role]
+└ ƒ /api/organizations
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+tasks.md already has T015 as [X] - my search_replace failed because it was already updated (maybe concurrently or the file was different). I'll verify tasks.md line 47.
+
+The implementation is complete. Summarize for the user.
+
+Optional: trim the JSDoc on errors.ts to match user preference for minimal comments - the user rules say "Do not add overly verbose/explanatory comments". The file has one short JSDoc block - I could remove it since the type name ApiErrorCode is self-documenting with the spec path. I'll remove the block comment to keep lean.
+</details></think>
+
+_**Agent (default)**_
+
+
+T015 is satisfied: `lib/api/errors.ts` exists and matches the contract. `tasks.md` already marks T015 complete. Removing the redundant file-level comment to match the project's lean style.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/api/errors.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run lint again quickly
+</details></think>
+
+_**Agent (default)**_
+
+
+
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm run lint</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm run lint
+```
+
+```
+
+&gt; nextjs@0.1.0 lint
+&gt; eslint
+
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+All good. Provide summary.
+</details></think>
+
+_**Agent (default)**_
+
+
+### T015 done
+
+Added **`lib/api/errors.ts`** with helpers that match the [error contract](https://github.com/activiqhq/activiqhq/blob/main/specs/001-kids-activities-platform/contracts/README.md) (`403_forbidden_tenant_access`, `404_organization_not_found`, the three `409_*` codes, and `422_validation_error`):
+
+- **`apiErrorResponse`** — generic `NextResponse` JSON body `{ code, message, details? }`
+- **Named helpers** — `forbiddenTenantAccess`, `organizationNotFound`, `slugConflict`, `duplicateChildConfirmationRequired`, `enrollmentLimitReached` (each with a sensible default message)
+- **Validation** — `validationError` and **`validationErrorFromZod`** (includes `issues` from Zod)
+
+`npm run lint`, `npx tsc --noEmit`, and `npm run build` all succeed.
+
+**Task branch script:** `prepare-task-branch.sh T015` exited because the working tree is dirty. To create/switch the task branch anyway, run  
+`ALLOW_DIRTY=1 bash .specify/scripts/bash/prepare-task-branch.sh T015 '.../tasks.md'`  
+from the repo root, or commit/stash first.
+
+`tasks.md` already has **T015** checked off (`[X]`).
