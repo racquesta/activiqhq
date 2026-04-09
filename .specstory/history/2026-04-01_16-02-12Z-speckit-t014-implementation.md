@@ -2186,7 +2186,6 @@ Let me read the full speckit.implement.md to insert the step in the right place,
 
 _**Agent (default)**_
 
-
 Implementing `prepare-task-branch.sh`, `.specify/extensions.yml` (sync-only hook), and updating `speckit.implement.md` to run the script when the user provides a task id.
 
 
@@ -2418,13 +2417,6 @@ Check has_git in common.sh
 
 _**Agent (default)**_
 
-
-
-
-
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
 <details>
 <summary>Tool use: **ripgrep_raw_search**</summary>
@@ -2474,13 +2466,6 @@ _**Agent (default)**_
 
 Read has_git and ensure script works on macOS bash 3.2 (no ${var^^})
 </details></think>
-
-_**Agent (default)**_
-
-
-
-
-
 
 _**Agent (default)**_
 
@@ -2574,7 +2559,6 @@ I'll implement.
 </details></think>
 
 _**Agent (default)**_
-
 
 Implementing `prepare-task-branch.sh`, `sync-main.sh`, `.specify/extensions.yml`, and updating `speckit.implement.md`.
 
@@ -2767,7 +2751,6 @@ Run bash -n on scripts.
 
 _**Agent (default)**_
 
-
 Fixing task-line parsing (robust sed), ensuring checkout works when local `main` is missing, and correcting the tag-stripping loop.
 
 
@@ -2881,13 +2864,6 @@ Run shell tests
 
 _**Agent (default)**_
 
-
-
-
-
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: chmod +x /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh && bash -n /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/sync-main.sh && bash -n /Users/ronessaacquesta/activiqhq/.specify/scripts/bash/prepare-task-branch.sh</summary>
 
@@ -2948,13 +2924,6 @@ etc.
 
 So I need to renumber 2->3, 3->4, ... through 10->11 for all subsequent steps. Let me read the file and fix numbering.
 </details></think>
-
-_**Agent (default)**_
-
-
-
-
-
 
 _**Agent (default)**_
 
@@ -3020,13 +2989,6 @@ Add package.json scripts.
 
 _**Agent (default)**_
 
-
-
-
-
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
 <details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/.specify/extensions.yml</summary>
@@ -3072,13 +3034,6 @@ Test with a quick echo line
 
 _**Agent (default)**_
 
-
-
-
-
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="write" data-tool-name="edit_file_v2">
 
 <details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/package.json</summary>
@@ -3102,13 +3057,6 @@ Actually run: cd repo && ALLOW_DIRTY=1 bash .specify/scripts/bash/prepare-task-b
 
 T015 might not exist in tasks - let me check tasks.md for a task
 </details></think>
-
-_**Agent (default)**_
-
-
-
-
-
 
 _**Agent (default)**_
 
@@ -3171,13 +3119,6 @@ LINE='- [X] T014 [Shared] Add API route scaffolding'
 
 _**Agent (default)**_
 
-
-
-
-
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: LINE='- [X] T014 [Shared] Add API route scaffolding for `/api/organizations` and `/api/o/[orgSlug]/*` in `app/api/`'; TASK_ID=T014; REST="$(echo "$LINE" | sed -E 's/^- \[[ xX]\] //' | sed -E "s/^${TASK_ID} //" | sed -E 's/^(\[[^]]+\] )+//')"; echo "$REST"</summary>
 
@@ -3209,7 +3150,6 @@ Provide summary for user.
 </details></think>
 
 _**Agent (default)**_
-
 
 Here is what was added and how to use it.
 

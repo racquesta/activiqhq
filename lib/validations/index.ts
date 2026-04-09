@@ -6,6 +6,7 @@ export {
   organizationInviteSchema,
   organizationMemberStatusSchema,
   organizationMemberUpdateSchema,
+  roleTemplatePatchSchema,
 } from "./shared";
 
 export type {
@@ -15,4 +16,5 @@ export type {
   OrganizationCreateInput,
   OrganizationInviteInput,
   OrganizationMemberUpdateInput,
+  RoleTemplatePatchInput,
 } from "./shared";

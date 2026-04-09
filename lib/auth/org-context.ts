@@ -3,11 +3,17 @@ import "server-only";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
+import type { SupabaseClient } from "@supabase/supabase-js";
+
+import { OrgContextError } from "@/lib/auth/org-context-error";
 import { requireUserOrThrow } from "@/lib/auth/require-user";
+
+export { OrgContextError } from "@/lib/auth/org-context-error";
 
 type StaffRole = "owner" | "admin" | "instructor" | "coach";
 type EffectiveOrgRole = StaffRole | "guardian_member";
 
+/** Resolved tenant + membership facts only (no DB client). Use for permission checks and pure logic. */
 export type OrgContext = {
   organizationId: string;
   organizationSlug: string;
@@ -18,28 +24,14 @@ export type OrgContext = {
   isGuardian: boolean;
 };
 
+/** Same as `OrgContext` plus the user-scoped Supabase client used to resolve it. For Server Components / routes that run queries. */
+export type OrgContextWithClient = OrgContext & {
+  supabase: SupabaseClient;
+};
+
 type LoadOrgContextOptions = {
   orgSlug?: string;
 };
-
-export class OrgContextError extends Error {
-  readonly status: number;
-  readonly code:
-    | "missing_org_slug"
-    | "organization_not_found"
-    | "forbidden_tenant_access";
-
-  constructor(
-    code: OrgContextError["code"],
-    status: number,
-    message = "Organization context error",
-  ) {
-    super(message);
-    this.name = "OrgContextError";
-    this.status = status;
-    this.code = code;
-  }
-}
 
 function parseOrgSlugFromPathname(pathname: string | null): string {
   if (!pathname) {
@@ -68,16 +60,9 @@ async function resolveOrgSlug(explicitSlug?: string): Promise<string> {
   return parseOrgSlugFromPathname(requestHeaders.get("x-pathname"));
 }
 
-/**
- * Loads and validates tenant context for the current authenticated user.
- *
- * Use this in Server Components, Server Actions, and Route Handlers to ensure
- * the URL's `/o/{orgSlug}` context is real and belongs to the current user.
- */
-export async function loadOrgContext(
+async function loadOrgContextCore(
   options?: LoadOrgContextOptions,
-): Promise<OrgContext> {
-  // resolves from request headers or pathname
+): Promise<{ org: OrgContext; supabase: SupabaseClient }> {
   const orgSlug = await resolveOrgSlug(options?.orgSlug);
 
   if (!orgSlug) {
@@ -88,7 +73,6 @@ export async function loadOrgContext(
     );
   }
 
-  // throws UnauthorizedError if user is not authenticated
   const { user, supabase } = await requireUserOrThrow();
 
   const { data: organization, error: orgError } = await supabase
@@ -136,7 +120,7 @@ export async function loadOrgContext(
     );
   }
 
-  return {
+  const org: OrgContext = {
     organizationId: organization.id,
     organizationSlug: organization.slug,
     organizationName: organization.name,
@@ -145,6 +129,32 @@ export async function loadOrgContext(
     isStaff,
     isGuardian,
   };
+
+  return { org, supabase };
+}
+
+/**
+ * Loads and validates tenant context for the current authenticated user (data only).
+ *
+ * Use for permission checks (`assertOwnerOrAdmin`, etc.) and logic that does not
+ * need to issue further queries. For DB access, use `loadOrgContextWithClient`.
+ */
+export async function loadOrgContext(
+  options?: LoadOrgContextOptions,
+): Promise<OrgContext> {
+  const { org } = await loadOrgContextCore(options);
+  return org;
+}
+
+/**
+ * Same resolution as `loadOrgContext`, plus the user-scoped Supabase client.
+ * Prefer this in Route Handlers and Server Components that query Supabase after auth.
+ */
+export async function loadOrgContextWithClient(
+  options?: LoadOrgContextOptions,
+): Promise<OrgContextWithClient> {
+  const { org, supabase } = await loadOrgContextCore(options);
+  return { ...org, supabase };
 }
 
 /**

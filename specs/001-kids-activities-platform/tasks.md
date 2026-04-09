@@ -63,14 +63,14 @@
 
 ### Implementation for User Story 1
 
-- [ ] T018 [US1] Implement `POST /api/organizations` in `app/api/organizations/route.ts`
-- [ ] T019 [US1] Implement role template read/update API in `app/api/o/[orgSlug]/role-templates/`
-- [ ] T020 [US1] Implement staff invite API in `app/api/o/[orgSlug]/invites/route.ts`
-- [ ] T021 [US1] Implement invite acceptance flow in `app/o/[orgSlug]/invite/[token]/page.tsx`
-- [ ] T022 [US1] Build org setup screen in `app/organizations/new/page.tsx`
-- [ ] T023 [US1] Build staff management UI in `app/o/[orgSlug]/settings/staff/page.tsx`
-- [ ] T024 [US1] Build role template editor UI in `components/org/role-template-editor.tsx`
-- [ ] T025 [US1] Add authorization checks for management routes in `lib/auth/permissions.ts`
+- [X] T018 [US1] Implement `POST /api/organizations` in `app/api/organizations/route.ts`
+- [X] T019 [US1] Implement role template read/update API in `app/api/o/[orgSlug]/role-templates/`
+- [X] T020 [US1] Implement staff invite API in `app/api/o/[orgSlug]/invites/route.ts`
+- [X] T021 [US1] Implement invite acceptance flow in `app/o/[orgSlug]/invite/[token]/page.tsx`
+- [X] T022 [US1] Build org setup screen in `app/organizations/new/page.tsx`
+- [X] T023 [US1] Build staff management UI in `app/o/[orgSlug]/settings/staff/page.tsx`
+- [X] T024 [US1] Build role template editor UI in `components/org/role-template-editor.tsx`
+- [X] T025 [US1] Add authorization checks for management routes in `lib/auth/permissions.ts`
 
 **Checkpoint**: US1 fully functional and independently testable.
 
