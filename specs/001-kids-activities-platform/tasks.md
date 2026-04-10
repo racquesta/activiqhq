@@ -108,8 +108,8 @@
 
 ### Tests for User Story 3
 
-- [ ] T034 [P] [US3] Add API contract tests for enrollment policy + enrollments in `tests/contract/us3-enrollment-policy.test.ts`
-- [ ] T035 [P] [US3] Add integration test for limit enforcement in `tests/integration/us3-enrollment-limit.test.ts`
+- [X] T034 [P] [US3] Add API contract tests for enrollment policy + enrollments in `tests/contract/us3-enrollment-policy.test.ts`
+- [X] T035 [P] [US3] Add integration test for limit enforcement in `tests/integration/us3-enrollment-limit.test.ts`
 
 ### Implementation for User Story 3
 
