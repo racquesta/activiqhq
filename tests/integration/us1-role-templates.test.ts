@@ -140,7 +140,7 @@ describe.skipIf(!hasSupabaseIntegrationEnv)(
         .eq("role", "admin")
         .single();
 
-      const { data: instRow } = await supabase
+      const { data: instRow } = await db
         .from("role_templates")
         .select("can_manage_staff")
         .eq("organization_id", orgId!)

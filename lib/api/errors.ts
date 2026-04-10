@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import type { ZodError } from "zod";
 
+import { OrgContextError } from "@/lib/auth/org-context-error";
+import { UnauthorizedError } from "@/lib/auth/require-user";
+
 export type ApiErrorCode =
   | "403_forbidden_tenant_access"
   | "404_organization_not_found"
@@ -73,4 +76,34 @@ export function validationErrorFromZod(error: ZodError) {
   return validationError("Request validation failed.", {
     issues: error.issues,
   });
+}
+
+export function unauthorizedJson(message = "Authentication required.") {
+  return NextResponse.json(
+    { code: "401_unauthorized", message },
+    { status: 401 },
+  );
+}
+
+/** Map thrown auth/org errors to JSON responses; rethrows unknown errors. */
+export function jsonFromCaughtRouteError(error: unknown): NextResponse {
+  if (error instanceof UnauthorizedError) {
+    return unauthorizedJson(error.message);
+  }
+  if (error instanceof OrgContextError) {
+    if (error.code === "organization_not_found") {
+      return organizationNotFound(error.message);
+    }
+    if (error.code === "forbidden_tenant_access") {
+      return forbiddenTenantAccess(error.message);
+    }
+    if (error.code === "missing_org_slug") {
+      return validationError(error.message);
+    }
+    return NextResponse.json(
+      { message: error.message },
+      { status: error.status },
+    );
+  }
+  throw error;
 }

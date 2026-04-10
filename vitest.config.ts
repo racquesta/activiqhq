@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => ({
     environment: "node",
     include: ["tests/**/*.test.ts"],
     env: loadEnv(mode, process.cwd(), ""),
+    setupFiles: ["./vitest.setup.ts"],
   },
   resolve: {
     alias: {

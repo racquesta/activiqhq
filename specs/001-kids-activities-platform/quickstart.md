@@ -34,7 +34,7 @@ Create `.env.local` in repo root:
 NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<from `npm run db:status`>
 SUPABASE_SERVICE_ROLE_KEY=<from `npm run db:status`>
-NEXT_PUBLIC_APP_BASE_URL=http://localhost:3000
+NEXT_PUBLIC_APP_BASE_URL=http://localhost:3001
 ```
 
 Optional branding/theme variables (if used by frontend token system):
@@ -50,7 +50,7 @@ NEXT_PUBLIC_BRAND_PRIMARY=#3B82F6
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open `http://localhost:3001`.
 
 ## 6) Visual style references
 

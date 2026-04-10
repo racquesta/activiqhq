@@ -25,6 +25,16 @@ export const organizationInviteSchema = z.object({
   role: z.enum(["admin", "instructor", "coach"]),
 });
 
+export const roleTemplatePatchSchema = z
+  .object({
+    canManageActivities: z.boolean().optional(),
+    canManageEnrollments: z.boolean().optional(),
+    canManageStaff: z.boolean().optional(),
+  })
+  .refine((v) => Object.keys(v).length > 0, {
+    message: "Provide at least one capability field to update",
+  });
+
 export const organizationMemberStatusSchema = z.enum([
   "active",
   "invited",
@@ -60,6 +70,7 @@ export const enrollmentCreateSchema = z.object({
 
 export type OrganizationCreateInput = z.infer<typeof organizationCreateSchema>;
 export type OrganizationInviteInput = z.infer<typeof organizationInviteSchema>;
+export type RoleTemplatePatchInput = z.infer<typeof roleTemplatePatchSchema>;
 export type OrganizationMemberUpdateInput = z.infer<
   typeof organizationMemberUpdateSchema
 >;
