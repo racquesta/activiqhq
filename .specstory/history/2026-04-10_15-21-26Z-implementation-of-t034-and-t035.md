@@ -1325,3 +1325,321 @@ Status: **completed**
 <summary>Tool use: **read_lints**</summary>
 
 </details></tool-use>
+
+_**Agent (default)**_
+
+Good catch — there are also TypeScript signature errors because the placeholder US3 handlers currently accept zero args. I’m patching the tests to use typed handler shims so they compile now and still express the intended contract for T036-T038.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/integration/us3-enrollment-limit.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts",
+    "/Users/ronessaacquesta/activiqhq/tests/integration/us3-enrollment-limit.test.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/tests/integration/us3-enrollment-limit.test.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: npm test -- tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts</summary>
+
+```bash
+npm test -- tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+&gt; nextjs@0.1.0 test
+&gt; vitest run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts
+
+
+ RUN  v3.2.4 /Users/ronessaacquesta/activiqhq
+
+ ❯ tests/integration/us3-enrollment-limit.test.ts (1 test | 1 failed) 19ms
+   × US3 enrollment limit enforcement integration &gt; allows enrollment up to policy limit, then blocks additional active enrollment 17ms
+     → expected 501 to be 201 // Object.is equality
+ ❯ tests/contract/us3-enrollment-policy.test.ts (4 tests | 4 failed) 25ms
+   × enrollment policy + enrollment API contract &gt; GET /api/o/{orgSlug}/enrollment-policy returns policy payload 17ms
+     → expected 501 to be 200 // Object.is equality
+   × enrollment policy + enrollment API contract &gt; PATCH /api/o/{orgSlug}/enrollment-policy validates minimum bound 2ms
+     → expected 501 to be 422 // Object.is equality
+   × enrollment policy + enrollment API contract &gt; PATCH /api/o/{orgSlug}/enrollment-policy updates policy for staff manager 2ms
+     → expected 501 to be 200 // Object.is equality
+   × enrollment policy + enrollment API contract &gt; POST /api/o/{orgSlug}/enrollments rejects when org limit reached 2ms
+     → expected 501 to be 409 // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/contract/us3-enrollment-policy.test.ts &gt; enrollment policy + enrollment API contract &gt; GET /api/o/{orgSlug}/enrollment-policy returns policy payload
+AssertionError: expected 501 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 501
+
+ ❯ tests/contract/us3-enrollment-policy.test.ts:32:24
+     30|     );
+     31| 
+     32|     expect(res.status).toBe(200);
+       |                        ^
+     33|     const body = await readJson(res);
+     34|     expect(typeof body.maxConcurrentActivitiesPerChild).toBe("number");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/contract/us3-enrollment-policy.test.ts &gt; enrollment policy + enrollment API contract &gt; PATCH /api/o/{orgSlug}/enrollment-policy validates minimum bound
+AssertionError: expected 501 to be 422 // Object.is equality
+
+- Expected
++ Received
+
+- 422
++ 501
+
+ ❯ tests/contract/us3-enrollment-policy.test.ts:47:24
+     45|     );
+     46| 
+     47|     expect(res.status).toBe(422);
+       |                        ^
+     48|     const body = await readJson(res);
+     49|     expect(body.code).toBe("422_validation_error");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/contract/us3-enrollment-policy.test.ts &gt; enrollment policy + enrollment API contract &gt; PATCH /api/o/{orgSlug}/enrollment-policy updates policy for staff manager
+AssertionError: expected 501 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 501
+
+ ❯ tests/contract/us3-enrollment-policy.test.ts:62:24
+     60|     );
+     61| 
+     62|     expect(res.status).toBe(200);
+       |                        ^
+     63|     const body = await readJson(res);
+     64|     expect(body.maxConcurrentActivitiesPerChild).toBe(2);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/contract/us3-enrollment-policy.test.ts &gt; enrollment policy + enrollment API contract &gt; POST /api/o/{orgSlug}/enrollments rejects when org limit reached
+AssertionError: expected 501 to be 409 // Object.is equality
+
+- Expected
++ Received
+
+- 409
++ 501
+
+ ❯ tests/contract/us3-enrollment-policy.test.ts:80:24
+     78|     );
+     79| 
+     80|     expect(res.status).toBe(409);
+       |                        ^
+     81|     const body = await readJson(res);
+     82|     expect(body.code).toBe("409_enrollment_limit_reached");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/integration/us3-enrollment-limit.test.ts &gt; US3 enrollment limit enforcement integration &gt; allows enrollment up to policy limit, then blocks additional active enrollment
+AssertionError: expected 501 to be 201 // Object.is equality
+
+- Expected
++ Received
+
+- 201
++ 501
+
+ ❯ tests/integration/us3-enrollment-limit.test.ts:36:26
+     34|     );
+     35| 
+     36|     expect(first.status).toBe(201);
+       |                          ^
+     37| 
+     38|     const second = await postEnrollmentHandler(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  5 failed (5)
+   Start at  11:46:09
+   Duration  1.02s (transform 96ms, setup 72ms, collect 223ms, tests 44ms, environment 0ms, prepare 296ms)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+You were absolutely right to flag this.
+
+- I updated both US3 test files to use a configurable base URL:
+  - `process.env.NEXT_PUBLIC_APP_BASE_URL` (trailing slash-safe)
+  - fallback: `http://localhost:3001`
+- That env var already exists in `.env.local.example` as:
+  - `NEXT_PUBLIC_APP_BASE_URL=http://localhost:3001`
+
+I also fixed the TypeScript errors in those tests (caused by placeholder handlers currently having zero-arg signatures). Lint is now clean for the edited files.
+
+What’s still failing now is only the expected behavior mismatch:
+- Tests expect `200/201/409/422`
+- Current US3 endpoints still return `501 not_implemented`
+
+So the remaining red tests are expected until `T036-T038` are implemented:
+- `app/api/o/[orgSlug]/enrollment-policy/route.ts`
+- `app/api/o/[orgSlug]/enrollments/route.ts`
+- (and related policy/service wiring)
+
+If you want, I can implement `T036` next so these tests start turning green incrementally.
+
+---
+
+_**User**_
+
+bypass these tests for now so that we can pass gitbub checks
+
+---
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Considering test adjustments**
+
+It seems the user wants to skip certain tests in continuous integration (CI). I might need to edit the tests to include `describe.skip` with a comment like TODO until T036-T038. It’s likely they want to bypass these tests in a minimal way. I'll also think about adding an environment flag to manage it better for passing checks, possibly using `describe.skipIf(process.env.CI === ...)`. Overall, I should update both tests accordingly.</details></think>
+
+_**Agent (default)**_
+
+Understood — I’ll temporarily gate these two US3 test suites so CI can pass, while keeping the assertions in place for when T036-T038 is implemented. I’ll apply the skip and run the same test command to verify.
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/tests/integration/us3-enrollment-limit.test.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/integration/us3-enrollment-limit.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
