@@ -76,7 +76,7 @@ async function run() {
   const body = claudeData.content[0].text;
 
   // Create the PR
-  await githubRequest('/pulls', 'POST', {
+  const response = await githubRequest('/pulls', 'POST', {
     title,
     head: branch,
     base: defaultBranch,
@@ -84,6 +84,7 @@ async function run() {
     body
   });
 
+  console.log('PR creation response:', JSON.stringify(response));
   console.log(`Draft PR created with AI description for branch: ${branch}`);
 }
 
