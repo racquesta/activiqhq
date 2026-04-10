@@ -113,12 +113,12 @@
 
 ### Implementation for User Story 3
 
-- [ ] T036 [US3] Implement enrollment policy get/update API in `app/api/o/[orgSlug]/enrollment-policy/route.ts`
-- [ ] T037 [US3] Implement activity listing API with eligibility filter in `app/api/o/[orgSlug]/activities/route.ts`
-- [ ] T038 [US3] Implement enrollment create API with limit enforcement in `app/api/o/[orgSlug]/enrollments/route.ts`
-- [ ] T039 [US3] Build enrollment policy settings UI in `app/o/[orgSlug]/settings/enrollment/page.tsx`
-- [ ] T040 [US3] Build guardian activities browse/enroll UI in `app/o/[orgSlug]/activities/page.tsx`
-- [ ] T041 [US3] Add reusable enrollment limit policy service in `lib/org/enrollment-policy.ts`
+- [X] T036 [US3] Implement enrollment policy get/update API in `app/api/o/[orgSlug]/enrollment-policy/route.ts`
+- [X] T037 [US3] Implement activity listing API with eligibility filter in `app/api/o/[orgSlug]/activities/route.ts`
+- [X] T038 [US3] Implement enrollment create API with limit enforcement in `app/api/o/[orgSlug]/enrollments/route.ts`
+- [X] T039 [US3] Build enrollment policy settings UI in `app/o/[orgSlug]/settings/enrollment/page.tsx`
+- [X] T040 [US3] Build guardian activities browse/enroll UI in `app/o/[orgSlug]/activities/page.tsx`
+- [X] T041 [US3] Add reusable enrollment limit policy service in `lib/org/enrollment-policy.ts`
 
 **Checkpoint**: US3 functional with policy enforcement and independent verification.
 

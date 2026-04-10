@@ -68,6 +68,10 @@ export const enrollmentCreateSchema = z.object({
   childId: z.uuid(),
 });
 
+export const enrollmentPolicyPatchSchema = z.object({
+  maxConcurrentActivitiesPerChild: z.number().int().min(1),
+});
+
 export type OrganizationCreateInput = z.infer<typeof organizationCreateSchema>;
 export type OrganizationInviteInput = z.infer<typeof organizationInviteSchema>;
 export type RoleTemplatePatchInput = z.infer<typeof roleTemplatePatchSchema>;
@@ -77,3 +81,6 @@ export type OrganizationMemberUpdateInput = z.infer<
 export type GuardianJoinInput = z.infer<typeof guardianJoinSchema>;
 export type ChildCreateInput = z.infer<typeof childCreateSchema>;
 export type EnrollmentCreateInput = z.infer<typeof enrollmentCreateSchema>;
+export type EnrollmentPolicyPatchInput = z.infer<
+  typeof enrollmentPolicyPatchSchema
+>;
