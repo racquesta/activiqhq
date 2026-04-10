@@ -85,7 +85,18 @@ export function unauthorizedJson(message = "Authentication required.") {
   );
 }
 
-/** Map thrown auth/org errors to JSON responses; rethrows unknown errors. */
+function isPostgrestLikeError(
+  error: unknown,
+): error is { message: string; code?: string; details?: string } {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "message" in error &&
+    typeof (error as { message: unknown }).message === "string"
+  );
+}
+
+/** Map thrown auth/org errors to JSON responses; never throws (avoids HTML 500 + broken fetch JSON). */
 export function jsonFromCaughtRouteError(error: unknown): NextResponse {
   if (error instanceof UnauthorizedError) {
     return unauthorizedJson(error.message);
@@ -105,5 +116,22 @@ export function jsonFromCaughtRouteError(error: unknown): NextResponse {
       { status: error.status },
     );
   }
-  throw error;
+  if (isPostgrestLikeError(error)) {
+    return NextResponse.json(
+      {
+        code: "500_database_error",
+        message: error.message,
+        details: error.details ?? error.code,
+      },
+      { status: 500 },
+    );
+  }
+  console.error("Unhandled route error:", error);
+  return NextResponse.json(
+    {
+      code: "500_internal_error",
+      message: "Unexpected server error.",
+    },
+    { status: 500 },
+  );
 }
