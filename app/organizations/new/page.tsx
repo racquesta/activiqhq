@@ -22,11 +22,21 @@ export default function NewOrganizationPage() {
         credentials: "include",
         body: JSON.stringify({ name: name.trim(), slug: slug.trim() }),
       });
-      const body = (await res.json()) as {
-        code?: string;
-        message?: string;
-        slug?: string;
-      };
+      let body: { code?: string; message?: string; slug?: string } = {};
+      const text = await res.text();
+      if (text) {
+        try {
+          body = JSON.parse(text) as typeof body;
+        } catch {
+          setError(
+            res.ok
+              ? "Unexpected response from server."
+              : `Request failed (${res.status}). ${text.slice(0, 120)}`,
+          );
+          setPending(false);
+          return;
+        }
+      }
       if (!res.ok) {
         setError(body.message ?? "Could not create organization.");
         setPending(false);
