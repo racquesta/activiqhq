@@ -601,3 +601,1198 @@ _**Agent (default)**_
 **Implementing enrollment settings**
 
 I'm adding a simple enrollment settings page with number input and save functionality for owners and admins. I'm updating the activities API response shape to use camelCase for consistency. I'm implementing the eligibility filter logic for enrollments based on `eligibleForChildId`. I'm updating the enrollment policy to restrict inserts to owners/admins or guardians of the child. I'm implementing the enrollment policy logic with RLS restrictions and default row handling. </details></think>
+
+_**Agent (default)**_
+
+Implementing the enrollment policy service, API routes, UI pages, and enabling skipped tests.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/org/enrollment-policy.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/validations/shared.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/validations/index.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/validations/shared.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/validations/index.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/lib/validations/shared.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollment-policy/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollments/route.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing loadChild formatting**
+
+I'm checking the loadChild formatting to ensure proper indentation. 
+
+**Updating enrollment policy**
+
+I'm updating the enrollment policy to allow only owner/admin users and skipping the test that was marked as skipped. </details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/tests/contract/us1-org-staff.test.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+File not found
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/tests/contract/us1-org-staff.test.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating test files**
+
+I'm adding mocks to `us3-enrollment-policy.test.ts` and unskipping the integration test. I'm implementing a mock supabase that tracks enrollment counts per child for the integration test. I'm creating a mock supabase with in-memory state for tracking enrollment counts per child in integration tests. I'm mocking the supabase client to test enrollment limits without hitting real database. 
+
+I'm implementing mock counting logic for enrollment limit tests, simulating 0->1->2 counts with 409 responses on third insert. I'm building a stateful mock for POST enrollments that tracks active count and returns 409 on third insert. I'm mocking enrollment policies with max2 and counting 2 enrollments to verify POST rejects at limit. I'm implementing stateful mocks for integration tests with sequential insert assertions. </details></think>
+
+_**Agent (default)**_
+
+Updating US3 tests with mocks (matching US1) and adding UI components.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing contract test**
+
+I'm correcting the mock for `countActiveEnrollmentsForChild` to match the actual query chain: from -> select -> eq -> eq -> eq. I'm updating the mock for `countActiveEnrollmentsForChild` to correctly simulate the Supabase JS chain: select returns object with eq, each eq returns next eq, and final returns promise with count. I'm adjusting the mock structure for `countActiveEnrollmentsForChild` to match Supabase JS chain pattern with proper nested `.eq()` calls. I'm rewriting the mock for `countActiveEnrollmentsForChild` by mocking the entire `@/lib/org/enrollment-policy` module instead of adjusting the Supabase chain structure. I'm updating the mock for `countActiveEnrollmentsForChild` to match the new query structure. I'm updating the mock `from` callback to discriminate between count and maybeSingle chains based on the select arguments. 
+
+I'm refactoring the mock setup to handle different query patterns based on options like `head` and `count`. 
+
+**Refactoring mock setup**
+
+I'm simplifying the contract test mock setup by using vi.mock only on the enrollment-policy module. </details></think>
+
+_**Agent (default)**_
+
+Fixing contract test mocks: use valid UUIDs and correct Supabase chain for count queries.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/validations/shared.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Rewriting integration test**
+
+I'm rewriting the integration test with a stateful Supabase mock to properly simulate enrollment limits. I'm updating the enrollment POST logic to use IDs and properly handle state array length calculations. </details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/integration/us3-enrollment-limit.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Cleaning integration tests**
+
+I'm cleaning up the integration test file by removing duplicate dead code and fixing broken typing. 
+
+**Mocking enrollment policy**
+
+I'm mocking the enrollment policy fetch chain on Supabase to match the real route behavior. I'm adding enrollment_policies to the integration mock to return max 2 enrollments and removing garbage code from the test. </details></think>
+
+_**Agent (default)**_
+
+Rewriting the integration test: adding an `enrollment_policies` mock (max 2) and removing dead code.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/integration/us3-enrollment-limit.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Checking enrollment logic**
+
+I found that fetchEnrollmentPolicy is called twice per enrollments POST, but assertChildBelowEnrollmentLimit only calls it once. I'm debugging why maybeSingle is returning null statically instead of checking actual rows for duplicate enrollments. </details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm test -- --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts 2>&1</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm test -- --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts 2>&1
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+&gt; nextjs@0.1.0 test
+&gt; vitest run --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts
+
+
+ RUN  v3.2.4 /Users/ronessaacquesta/activiqhq
+
+ ❯ tests/contract/us3-enrollment-policy.test.ts (4 tests | 1 failed) 22ms
+   ✓ enrollment policy + enrollment API contract &gt; GET /api/o/{orgSlug}/enrollment-policy returns policy payload 6ms
+   ✓ enrollment policy + enrollment API contract &gt; PATCH /api/o/{orgSlug}/enrollment-policy validates minimum bound 3ms
+   ✓ enrollment policy + enrollment API contract &gt; PATCH /api/o/{orgSlug}/enrollment-policy updates policy for staff manager 3ms
+   × enrollment policy + enrollment API contract &gt; POST /api/o/{orgSlug}/enrollments rejects when org limit reached 9ms
+     → expected 422 to be 409 // Object.is equality
+ ❯ tests/integration/us3-enrollment-limit.test.ts (1 test | 1 failed) 23ms
+   × US3 enrollment limit enforcement integration &gt; allows enrollment up to policy limit, then blocks additional active enrollment 22ms
+     → expected 422 to be 201 // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/contract/us3-enrollment-policy.test.ts &gt; enrollment policy + enrollment API contract &gt; POST /api/o/{orgSlug}/enrollments rejects when org limit reached
+AssertionError: expected 422 to be 409 // Object.is equality
+
+- Expected
++ Received
+
+- 409
++ 422
+
+ ❯ tests/contract/us3-enrollment-policy.test.ts:254:24
+    252|     );
+    253| 
+    254|     expect(res.status).toBe(409);
+       |                        ^
+    255|     const body = await readJson(res);
+    256|     expect(body.code).toBe("409_enrollment_limit_reached");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/integration/us3-enrollment-limit.test.ts &gt; US3 enrollment limit enforcement integration &gt; allows enrollment up to policy limit, then blocks additional active enrollment
+AssertionError: expected 422 to be 201 // Object.is equality
+
+- Expected
++ Received
+
+- 201
++ 422
+
+ ❯ tests/integration/us3-enrollment-limit.test.ts:195:26
+    193|       { params: Promise.resolve({ orgSlug: "acme-dance" }) } as never,
+    194|     );
+    195|     expect(first.status).toBe(201);
+       |                          ^
+    196| 
+    197|     activityIdToReturn = activity2;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 3 passed (5)
+   Start at  14:02:07
+   Duration  723ms (transform 172ms, setup 58ms, collect 541ms, tests 45ms, environment 0ms, prepare 181ms)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Checking activity matching**
+
+I'm investigating why the handler returns 422 by checking if activity IDs from DB and request mismatch due to mock returning wrong activity ID. I found that the mock's eq doesn't filter by activity_id, causing a mismatch between DB and request activity IDs. I'm adjusting the mock to properly filter by activity_id and organization_id to prevent incorrect matches. I'm investigating why the enrollment count returns 0 and checking if Zod validation might be causing a 422 error. 
+
+**Checking uuid validation**
+
+I'm investigating whether Zod's uuid validation is too strict for RFC 4122 compliance and might be rejecting valid v4 UUIDs. I'm updating the UUIDs to valid RFC 4122 format for testing. </details></think>
+
+_**Agent (default)**_
+
+Replacing test UUIDs with RFC-compliant values — Zod's `z.uuid()` rejects invalid UUIDs (e.g. `bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb1`).
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/integration/us3-enrollment-limit.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing contract tests**
+
+I'm adjusting the mock data to include `enrollment_policies` and fixing the `orgId` to resolve the 422 error. </details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm test -- --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts 2>&1</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm test -- --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts 2>&1
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+&gt; nextjs@0.1.0 test
+&gt; vitest run --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts
+
+
+ RUN  v3.2.4 /Users/ronessaacquesta/activiqhq
+
+ ❯ tests/contract/us3-enrollment-policy.test.ts (4 tests | 1 failed) 27ms
+   ✓ enrollment policy + enrollment API contract &gt; GET /api/o/{orgSlug}/enrollment-policy returns policy payload 8ms
+   ✓ enrollment policy + enrollment API contract &gt; PATCH /api/o/{orgSlug}/enrollment-policy validates minimum bound 5ms
+   ✓ enrollment policy + enrollment API contract &gt; PATCH /api/o/{orgSlug}/enrollment-policy updates policy for staff manager 2ms
+   × enrollment policy + enrollment API contract &gt; POST /api/o/{orgSlug}/enrollments rejects when org limit reached 11ms
+     → expected 500 to be 409 // Object.is equality
+ ✓ tests/integration/us3-enrollment-limit.test.ts (1 test) 18ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/contract/us3-enrollment-policy.test.ts &gt; enrollment policy + enrollment API contract &gt; POST /api/o/{orgSlug}/enrollments rejects when org limit reached
+AssertionError: expected 500 to be 409 // Object.is equality
+
+- Expected
++ Received
+
+- 409
++ 500
+
+ ❯ tests/contract/us3-enrollment-policy.test.ts:254:24
+    252|     );
+    253| 
+    254|     expect(res.status).toBe(409);
+       |                        ^
+    255|     const body = await readJson(res);
+    256|     expect(body.code).toBe("409_enrollment_limit_reached");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 4 passed (5)
+   Start at  14:02:24
+   Duration  726ms (transform 170ms, setup 48ms, collect 447ms, tests 45ms, environment 1ms, prepare 194ms)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Handling contract failure**
+
+I'm investigating why the contract POST fails with a 500 error due to fetchEnrollmentPolicy throwing when enrollment_policies table isn't mocked properly. </details></think>
+
+_**Agent (default)**_
+
+Adding an `enrollment_policies` stub to the contract test — `assertChildBelowEnrollmentLimit` calls `fetchEnrollmentPolicy`, which was missing and caused a 500.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm test -- --run tests/contract/us3-enrollment-policy.test.ts 2>&1</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm test -- --run tests/contract/us3-enrollment-policy.test.ts 2>&1
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+&gt; nextjs@0.1.0 test
+&gt; vitest run --run tests/contract/us3-enrollment-policy.test.ts
+
+
+ RUN  v3.2.4 /Users/ronessaacquesta/activiqhq
+
+ ✓ tests/contract/us3-enrollment-policy.test.ts (4 tests) 17ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  14:02:31
+   Duration  696ms (transform 104ms, setup 25ms, collect 195ms, tests 17ms, environment 0ms, prepare 104ms)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/components/org/enrollment-policy-form.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/settings/enrollment/page.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/activities/page.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/page.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Rendering activity list**
+
+I'm adding conditional rendering for the activity list based on user roles to avoid showing empty lists. </details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/page.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/page.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm test -- --run 2>&1 && npm run lint 2>&1</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm test -- --run 2>&1 && npm run lint 2>&1
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+&gt; nextjs@0.1.0 test
+&gt; vitest run --run
+
+
+ RUN  v3.2.4 /Users/ronessaacquesta/activiqhq
+
+ ✓ tests/contract/us3-enrollment-policy.test.ts (4 tests) 23ms
+ ✓ tests/contract/us1-org-staff.test.ts (6 tests) 27ms
+ ✓ tests/integration/us3-enrollment-limit.test.ts (1 test) 27ms
+ ❯ tests/integration/us1-role-templates.test.ts (2 tests | 2 skipped) 459ms
+   ↓ US1 role template toggle behavior (Supabase integration) &gt; persists admin capability toggles on update
+   ↓ US1 role template toggle behavior (Supabase integration) &gt; keeps instructor template toggles independent from admin
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/us1-role-templates.test.ts &gt; US1 role template toggle behavior (Supabase integration)
+Unknown Error: duplicate key value violates unique constraint "role_templates_organization_id_role_key"
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  11 passed | 2 skipped (13)
+   Start at  14:03:00
+   Duration  1.64s (transform 438ms, setup 136ms, collect 1.42s, tests 535ms, environment 1ms, prepare 670ms)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts",
+    "/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollments/route.ts",
+    "/Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/page.tsx",
+    "/Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx",
+    "/Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/activities/page.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/activities/route.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/app/api/o/[orgSlug]/enrollments/route.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/page.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/app/o/[orgSlug]/activities/page.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npm run lint 2>&1</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npm run lint 2>&1
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+&gt; nextjs@0.1.0 lint
+&gt; eslint
+
+
+/Users/ronessaacquesta/activiqhq/.github/scripts/create-pr.js
+  1:22  error  A &#96;require()&#96; style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx
+  67:10  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx:67:10
+  65 |
+  66 |   useEffect(() =&gt; {
+&gt; 67 |     void loadActivities();
+     |          ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  68 |   }, [loadActivities]);
+  69 |
+  70 |   async function enroll(activityId: string) {  react-hooks/set-state-in-effect
+
+/Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts
+  12:3  warning  'UnauthorizedError' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 3 problems (2 errors, 1 warning)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing activity panel**
+
+I'm refactoring the activity panel to comply with React 19's lint rule by moving state updates out of effects and into event handlers. I'm adjusting the activity panel's async state updates to comply with React 19's lint rules using `startTransition`. 
+
+**Adjusting async state**
+
+I'm refactoring the activity panel's async state updates to use `startTransition` and avoid setState in effect body. I'm simplifying the async state handling by removing the useEffect and using useRef to manage component lifecycle. I'm fixing the async state handling by moving setLoading(true) to a microtask to avoid linter warnings about setState in effect. I'm refactoring the async state handling to use requestAnimationFrame instead of setTimeout for cleaner async management. 
+
+I'm refactoring the async state handling to inline the fetch without setLoading(true) at start, using setLoading(false) only at end. I'm removing synchronous setLoading from the start of useEffect and will use startTransition instead. I'm replacing synchronous loading state with startTransition and using null as initial state for data. I'm using a single setState call at the end of the async operation and setting sync state for empty childId initially. </details></think>
+
+_**Agent (default)**_
+
+Fixing lint in our files: refactoring `activity-enroll-panel` to avoid synchronous `setState` in `useEffect`, and removing the unused import in the US3 contract test.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Checking tests**
+
+I'm verifying the mock setup for UnauthorizedError in the test file. I'm adjusting the test mocks to properly handle the UnauthorizedError scenario. I'm updating the mocks to include UnauthorizedError and will run linting on the activity panel. </details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx",
+    "/Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ronessaacquesta/activiqhq/tests/contract/us3-enrollment-policy.test.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npx eslint components/guardian/activity-enroll-panel.tsx tests/contract/us3-enrollment-policy.test.ts 2>&1</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npx eslint components/guardian/activity-enroll-panel.tsx tests/contract/us3-enrollment-policy.test.ts 2>&1
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+/Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx
+  33:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx:33:7
+  31 |   useEffect(() =&gt; {
+  32 |     if (!childId) {
+&gt; 33 |       setActivities([]);
+     |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  34 |       setEligibility(null);
+  35 |       return;
+  36 |     }  react-hooks/set-state-in-effect
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+**Refining effect logic**
+
+I'm simplifying the effect by removing the !childId branch and always using `effectiveChildId` to avoid unnecessary fetches. I'm removing the !childId branch from the effect and always using `effectiveChildId` to avoid unnecessary fetches. </details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/components/guardian/activity-enroll-panel.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npx eslint components/guardian/activity-enroll-panel.tsx 2>&1 && npm test -- --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts 2>&1</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npx eslint components/guardian/activity-enroll-panel.tsx 2>&1 && npm test -- --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts 2>&1
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+&gt; nextjs@0.1.0 test
+&gt; vitest run --run tests/contract/us3-enrollment-policy.test.ts tests/integration/us3-enrollment-limit.test.ts
+
+
+ RUN  v3.2.4 /Users/ronessaacquesta/activiqhq
+
+ ✓ tests/contract/us3-enrollment-policy.test.ts (4 tests) 17ms
+ ✓ tests/integration/us3-enrollment-limit.test.ts (1 test) 17ms
+
+ Test Files  2 passed (2)
+      Tests  5 passed (5)
+   Start at  14:03:39
+   Duration  733ms (transform 166ms, setup 51ms, collect 453ms, tests 34ms, environment 0ms, prepare 174ms)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ronessaacquesta/activiqhq/specs/001-kids-activities-platform/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ronessaacquesta/activiqhq && npx tsc --noEmit 2>&1</summary>
+
+```bash
+cd /Users/ronessaacquesta/activiqhq && npx tsc --noEmit 2>&1
+```
+
+```
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+## Extension hooks
+
+**Optional pre-hook** (`sync-main`): `bash .specify/scripts/bash/sync-main.sh` — fast-forwards local `main` from `origin`. I did **not** run it (needs your go-ahead). Say if you want that run next.
+
+`hooks.after_implement` is empty.
+
+## Prerequisites / checklists
+
+- `check-prerequisites.sh` exited with *“Not on a feature branch”* because the current branch `feature/implement-US3` doesn’t match the script’s expected patterns. I continued on this branch.
+- `specs/001-kids-activities-platform/checklists/` has no checklist files → no checklist table.
+
+## US3 implementation (T036–T041)
+
+| Task | Done |
+|------|------|
+| **T041** | `lib/org/enrollment-policy.ts` — policy fetch, active count, activity-id set, `assertChildBelowEnrollmentLimit` |
+| **T036** | `GET`/`PATCH` `/api/o/[orgSlug]/enrollment-policy` — JSON uses `maxConcurrentActivitiesPerChild`; `PATCH` restricted with `assertOwnerOrAdmin` |
+| **T037** | `GET` `/api/o/[orgSlug]/activities` — staff see all activities; others only published; `eligibleForChildId` returns only enrollable activities + `eligibility` summary |
+| **T038** | `POST` `/api/o/[orgSlug]/enrollments` — guardian/staff rules, published activity, duplicate check, limit check → `409_enrollment_limit_reached` |
+| **T039** | `app/o/[orgSlug]/settings/enrollment/page.tsx` + `components/org/enrollment-policy-form.tsx` |
+| **T040** | `app/o/[orgSlug]/activities/page.tsx` + `components/guardian/activity-enroll-panel.tsx` |
+| **Nav** | `app/o/[orgSlug]/page.tsx` — links for guardians (activities) and owner/admin (enrollment limits) |
+
+**Validations:** `enrollmentPolicyPatchSchema` in `lib/validations/shared.ts` (exported from `index.ts`).
+
+**Tests:** `tests/contract/us3-enrollment-policy.test.ts` and `tests/integration/us3-enrollment-limit.test.ts` are **enabled** (no `describe.skip`), with mocks aligned to real flows (including `enrollment_policies` for limit checks). Use RFC-compliant UUIDs so `z.uuid()` passes.
+
+**Quality gates:** `npx tsc --noEmit` passes; US3 tests pass; ESLint is clean for the touched guardian component. Full `npm test` still hits a **pre-existing** failure in `tests/integration/us1-role-templates.test.ts` (duplicate `role_templates` key in DB). Repo-wide `npm run lint` still reports `.github/scripts/create-pr.js` (`no-require-imports`) — unchanged in this work.
+
+`tasks.md` marks **T036–T041** as complete.

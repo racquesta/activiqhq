@@ -1264,13 +1264,6 @@ The user wants me to add comments at the top of the file `lib/validations/shared
 
 _**Agent (default)**_
 
-
-
-
-
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/ronessaacquesta/activiqhq/lib/validations/shared.ts</summary>
 
@@ -1294,7 +1287,6 @@ I'll keep it proportional - not overly verbose per user rules.
 </details></think>
 
 _**Agent (default)**_
-
 
 Adding a concise header comment describing purpose and usage.
 
@@ -1321,13 +1313,6 @@ _**Agent (default)**_
 
 Let me check lints for the file.
 </details></think>
-
-_**Agent (default)**_
-
-
-
-
-
 
 _**Agent (default)**_
 
@@ -1375,7 +1360,6 @@ Done. The user asked for comments at the top - I've added them. No need for todo
 </details></think>
 
 _**Agent (default)**_
-
 
 Added a file-level comment block at the top of `lib/validations/shared.ts` that covers:
 
