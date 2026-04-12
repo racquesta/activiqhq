@@ -1,6 +1,7 @@
 export {
   childCreateSchema,
   enrollmentCreateSchema,
+  enrollmentPolicyPatchSchema,
   guardianJoinSchema,
   organizationCreateSchema,
   organizationInviteSchema,
@@ -12,6 +13,7 @@ export {
 export type {
   ChildCreateInput,
   EnrollmentCreateInput,
+  EnrollmentPolicyPatchInput,
   GuardianJoinInput,
   OrganizationCreateInput,
   OrganizationInviteInput,

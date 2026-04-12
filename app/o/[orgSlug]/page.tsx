@@ -18,16 +18,38 @@ export default async function OrgHomePage({ params }: PageProps) {
       <p className="mt-2 text-foreground-muted">
         Signed in as staff or guardian for this organization.
       </p>
-      {ctx.isStaff ? (
+      {ctx.isGuardian || ctx.isStaff ? (
         <ul className="mt-8 flex flex-col gap-3 text-sm">
-          <li>
-            <Link
-              href={`/o/${ctx.organizationSlug}/settings/staff`}
-              className="text-primary hover:underline"
-            >
-              Staff & invites
-            </Link>
-          </li>
+          {ctx.isGuardian ? (
+            <li>
+              <Link
+                href={`/o/${ctx.organizationSlug}/activities`}
+                className="text-primary hover:underline"
+              >
+                Activities & enrollment
+              </Link>
+            </li>
+          ) : null}
+          {ctx.isStaff && (ctx.role === "owner" || ctx.role === "admin") ? (
+            <li>
+              <Link
+                href={`/o/${ctx.organizationSlug}/settings/enrollment`}
+                className="text-primary hover:underline"
+              >
+                Enrollment limits
+              </Link>
+            </li>
+          ) : null}
+          {ctx.isStaff ? (
+            <li>
+              <Link
+                href={`/o/${ctx.organizationSlug}/settings/staff`}
+                className="text-primary hover:underline"
+              >
+                Staff & invites
+              </Link>
+            </li>
+          ) : null}
         </ul>
       ) : null}
     </div>
